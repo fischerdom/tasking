@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Tasking::Application.config.secret_key_base = 'c3ac91859a61521321f9e9f5ef011045b96b9b492382436111a8357e9135b37e8884d964ad8c9e16692deb7e3f0bc7fc3b06bc4aa7c0b2d6d7407dd2f0451c9c'
+Tasking::Application.config.secret_key_base = 'b135c1fa6d3ae68026c581655dc406aed5a40d22118b49dacbb3a06d55580b3032b0636f6cb171af1023336f441687e07e819cb1f5e5b0c723b7986e4234741e'
