@@ -1,0 +1,5 @@
+class Task
+
+	attr_accessor :title, :description, :due_date
+
+end
