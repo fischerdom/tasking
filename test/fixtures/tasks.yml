@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tastlist_id: 1
+  category_id: 1
+  status_id: 1
+  assigned_to: 1
+  title: MyString
+  description: MyString
+  pointvalue: 1.5
+  due_date: 2013-10-25 17:48:29
+  etc: 1.5
+
+two:
+  tastlist_id: 1
+  category_id: 1
+  status_id: 1
+  assigned_to: 1
+  title: MyString
+  description: MyString
+  pointvalue: 1.5
+  due_date: 2013-10-25 17:48:29
+  etc: 1.5

@@ -1,0 +1,1552 @@
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-25 17:57:45 -0300
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+):
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `connect'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:542:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.0) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.0) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__173644622393523240__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-25 18:00:19 -0300
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+):
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `connect'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:542:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.0) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.0) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__173644622393523240__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-25 18:00:22 -0300
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+):
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `connect'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:542:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.0) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.0) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__173644622393523240__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-25 18:02:11 -0300
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+):
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `connect'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:542:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.0) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.0) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__173644622393523240__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.1ms)
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20131025204345)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "title" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131025204345"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStatuses (20131025204409)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "statuses" ("id" serial primary key, "title" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131025204409"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTasklists (20131025204510)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "tasklists" ("id" serial primary key, "user_id" integer, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131025204510"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateGenerates (20131025204614)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "generates" ("id" serial primary key, "user" character varying(255), "fb_user_id" integer, "first_name" character varying(255), "last_name" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131025204614"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTasks (20131025204829)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "tasks" ("id" serial primary key, "tastlist_id" integer, "category_id" integer, "status_id" integer, "assigned_to" integer, "title" character varying(255), "description" character varying(255), "pointvalue" float, "due_date" timestamp, "etc" float, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131025204829"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20131025205143)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "fb_user_id" integer, "first_name" character varying(255), "last_name" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131025205143"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-25 18:03:35 -0300
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+):
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `connect'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:542:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.0) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.0) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__173644622393523240__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-25 18:03:37 -0300
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+):
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:825:in `connect'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:542:in `initialize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.0) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.0) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.0) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__173644622393523240__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-25 18:03:56 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at 2013-10-25 18:03:59 -0300
+Processing by Rails::InfoController#properties as */*
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/templates/rails/info/properties.html.erb (0.4ms)
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-10-25 18:04:08 -0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 105ms
+
+ActionView::Template::Error (couldn't find file 'turbolinks'
+  (in /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/assets/javascripts/application.js:15)):
+    3: <head>
+    4:   <title>Tasking</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__3296630494961590600_70112219303480'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (17.8ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-10-25 18:04:40 -0300
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 488ms (Views: 486.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:04:41 -0300
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+Processing by UsersController#new as HTML
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:User> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/user.rb:2)
+  Rendered users/_form.html.erb (59.2ms)
+  Rendered users/new.html.erb within layouts/application (68.9ms)
+Completed 200 OK in 82ms (Views: 75.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:23:36 -0300
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2013-10-25 18:24:23 -0300
+Processing by TasksController#new as HTML
+ERROR: compiling _app_views_tasks__form_html_erb___4234115858107409690_70112218864760 RAISED /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:8: syntax error, unexpected keyword_ensure, expecting end-of-input
+Function body:           def _app_views_tasks__form_html_erb___4234115858107409690_70112218864760(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "tasks/_form";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  semantic_form_for(@task) do |f| @output_buffer.safe_append='
+	';@output_buffer.append=( f.inputs :task_list, :assigned_to, :category, :status, :title, :description, :pointvalue, :due_date, :etc);@output_buffer.safe_append='
+	';@output_buffer.append=( f.actions);@output_buffer.safe_append='
+'; end 
+@output_buffer.safe_append='
+'; end 
+@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `module_eval'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `compile'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:248:in `block in compile!'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `synchronize'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `compile!'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:142:in `block in render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/partial_renderer.rb:278:in `render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:47:in `render_partial'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/helpers/rendering_helper.rb:27:in `render'
+/Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/new.html.erb:3:in `_app_views_tasks_new_html_erb___2299314596535020204_70112218830540'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:143:in `block in render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:393:in `_run__2017020357428560685__process_action__callbacks'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal.rb:195:in `dispatch'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal.rb:231:in `block in action'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `each'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:655:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activerecord-4.0.0/lib/active_record/query_cache.rb:36:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activerecord-4.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activerecord-4.0.0/lib/active_record/migration.rb:369:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:373:in `_run__624547491508537527__call__callbacks'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/rack/logger.rb:38:in `call_app'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `block in call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:25:in `tagged'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `tagged'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/activesupport-4.0.0/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/engine.rb:511:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/application.rb:97:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered tasks/_form.html.erb (2.0ms)
+  Rendered tasks/new.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (/Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:8: syntax error, unexpected keyword_ensure, expecting end-of-input):
+    5: 
+    6: <% end %>
+  app/views/tasks/new.html.erb:3:in `_app_views_tasks_new_html_erb___2299314596535020204_70112218830540'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2013-10-25 18:24:30 -0300
+Processing by TasksController#new as HTML
+  Rendered tasks/_form.html.erb (42.1ms)
+  Rendered tasks/new.html.erb within layouts/application (43.2ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (uninitialized constant Task::TaskList):
+    1: <%= semantic_form_for(@task) do |f| %>
+    2: 	<%= f.inputs :task_list, :assigned_to, :category, :status, :title, :description, :pointvalue, :due_date, :etc%>
+    3: 	<%= f.actions%>
+    4: <% end %>
+  app/views/tasks/_form.html.erb:2:in `block in _app_views_tasks__form_html_erb___4234115858107409690_70112219645460'
+  app/views/tasks/_form.html.erb:1:in `_app_views_tasks__form_html_erb___4234115858107409690_70112219645460'
+  app/views/tasks/new.html.erb:3:in `_app_views_tasks_new_html_erb___2299314596535020204_70112218830540'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (51.4ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2013-10-25 18:25:48 -0300
+Processing by TasksController#new as HTML
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasks__form_html_erb___4234115858107409690_70112219110420 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:2)
+  [1m[36mTasklist Load (0.4ms)[0m  [1mSELECT "tasklists".* FROM "tasklists"[0m
+  Rendered tasks/_form.html.erb (40.0ms)
+  Rendered tasks/new.html.erb within layouts/application (40.6ms)
+Completed 500 Internal Server Error in 47ms
+
+ActionView::Template::Error (undefined method `tasklist_id' for #<Task:0x007f888bd2bd68>):
+    1: <%= semantic_form_for(@task) do |f| %>
+    2: 	<%= f.inputs :tasklist, :assigned_to, :category, :status, :title, :description, :pointvalue, :due_date, :etc%>
+    3: 	<%= f.actions%>
+    4: <% end %>
+  app/views/tasks/_form.html.erb:2:in `block in _app_views_tasks__form_html_erb___4234115858107409690_70112219110420'
+  app/views/tasks/_form.html.erb:1:in `_app_views_tasks__form_html_erb___4234115858107409690_70112219110420'
+  app/views/tasks/new.html.erb:3:in `_app_views_tasks_new_html_erb___2299314596535020204_70112218830540'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnTastlistIdTasklistIdToTask (20131025212914)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "tasks" RENAME COLUMN "tastlist_id" TO "tasklist_id"[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131025212914"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by TasksController#new as HTML
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasks__form_html_erb___4234115858107409690_70112219110420 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:2)
+  [1m[36mTasklist Load (0.2ms)[0m  [1mSELECT "tasklists".* FROM "tasklists"[0m
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:Category> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/category.rb:2)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasks__form_html_erb___4234115858107409690_70112219110420 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:2)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:Status> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/status.rb:2)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasks__form_html_erb___4234115858107409690_70112219110420 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:2)
+  [1m[36mStatus Load (0.5ms)[0m  [1mSELECT "statuses".* FROM "statuses"[0m
+  Rendered tasks/_form.html.erb (125.8ms)
+  Rendered tasks/new.html.erb within layouts/application (126.7ms)
+Completed 200 OK in 137ms (Views: 127.5ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:30:52 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:Status> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/status.rb:2)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "statuses" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["title", "Open"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "statuses" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["title", "Pending"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "statuses" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["title", "Finished"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "statuses" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["title", "Aborted"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:Category> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/category.rb:2)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "categories" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["title", "Planing"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["title", "Developing"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["title", "Documentation"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["title", "Testing"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:User> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/user.rb:2)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["email", "dominik.fischer@stud.th-deg.de"], ["first_name", "Dominik"], ["last_name", "Fischer"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["email", "michael.alfranseder@stud.th-deg.de"], ["first_name", "Michael"], ["last_name", "Alfranseder"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00], ["email", "viktor.adler@stud.th-deg.de"], ["first_name", "Viktorrrr"], ["last_name", "Adler"], ["updated_at", Fri, 25 Oct 2013 21:31:49 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+Processing by TasksController#new as HTML
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasks__form_html_erb___4234115858107409690_70112219110420 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:2)
+  [1m[35mTasklist Load (0.5ms)[0m  SELECT "tasklists".* FROM "tasklists"
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasks__form_html_erb___4234115858107409690_70112219110420 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:2)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasks__form_html_erb___4234115858107409690_70112219110420 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasks/_form.html.erb:2)
+  [1m[35mStatus Load (0.4ms)[0m  SELECT "statuses".* FROM "statuses"
+  Rendered tasks/_form.html.erb (57.0ms)
+  Rendered tasks/new.html.erb within layouts/application (57.7ms)
+Completed 200 OK in 64ms (Views: 61.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:31:56 -0300
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+Processing by TasklistsController#new as HTML
+  Rendered tasklists/_form.html.erb (15.9ms)
+  Rendered tasklists/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:32:06 -0300
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:32:47 -0300
+Processing by TasklistsController#new as HTML
+  Rendered tasklists/_form.html.erb (5.1ms)
+  Rendered tasklists/new.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `title' for #<Tasklist:0x007f888d8980b0>):
+    1: <%= semantic_form_for(@tasklist) do |f| %>
+    2: 	<%= f.inputs :title, :user%>
+    3: 	<%= f.actions%>
+    4: <% end %>
+    5: 
+  app/views/tasklists/_form.html.erb:2:in `block in _app_views_tasklists__form_html_erb___2565736178394543394_70112233477900'
+  app/views/tasklists/_form.html.erb:1:in `_app_views_tasklists__form_html_erb___2565736178394543394_70112233477900'
+  app/views/tasklists/new.html.erb:3:in `_app_views_tasklists_new_html_erb___3265577364193756067_70112218651700'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:32:55 -0300
+Processing by TasklistsController#new as HTML
+  Rendered tasklists/_form.html.erb (7.8ms)
+  Rendered tasklists/new.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `user' for #<Tasklist:0x007f888daa1348>):
+    1: <%= semantic_form_for(@tasklist) do |f| %>
+    2: 	<%= f.inputs :name, :user%>
+    3: 	<%= f.actions%>
+    4: <% end %>
+    5: 
+  app/views/tasklists/_form.html.erb:2:in `block in _app_views_tasklists__form_html_erb___2565736178394543394_70112234544000'
+  app/views/tasklists/_form.html.erb:1:in `_app_views_tasklists__form_html_erb___2565736178394543394_70112234544000'
+  app/views/tasklists/new.html.erb:3:in `_app_views_tasklists_new_html_erb___3265577364193756067_70112218651700'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (34.5ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (42.9ms)
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+Processing by TasklistsController#new as HTML
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:User> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/user.rb:2)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasklists__form_html_erb___2565736178394543394_70112234544000 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasklists/_form.html.erb:2)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tasklists/_form.html.erb (48.6ms)
+  Rendered tasklists/new.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 59ms (Views: 53.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:33:22 -0300
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+Processing by TasklistsController#new as HTML
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:User> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/user.rb:2)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasklists__form_html_erb___2565736178394543394_70112219058660 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasklists/_form.html.erb:2)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered tasklists/_form.html.erb (36.8ms)
+  Rendered tasklists/new.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 46ms (Views: 41.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:34:54 -0300
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+Processing by TasklistsController#new as HTML
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:User> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/user.rb:2)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasklists__form_html_erb___2565736178394543394_70112219058660 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasklists/_form.html.erb:2)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tasklists/_form.html.erb (39.6ms)
+  Rendered tasklists/new.html.erb within layouts/application (40.4ms)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:02 -0300
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+Processing by TasklistsController#new as HTML
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:User> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/user.rb:2)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasklists__form_html_erb___2565736178394543394_70112219058660 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasklists/_form.html.erb:2)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered tasklists/_form.html.erb (39.3ms)
+  Rendered tasklists/new.html.erb within layouts/application (40.1ms)
+Completed 200 OK in 50ms (Views: 43.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:21 -0300
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+Processing by TasklistsController#new as HTML
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:User> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/user.rb:2)
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasklists__form_html_erb___2565736178394543394_70112219058660 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasklists/_form.html.erb:2)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered tasklists/_form.html.erb (76.2ms)
+  Rendered tasklists/new.html.erb within layouts/application (77.2ms)
+Completed 200 OK in 87ms (Views: 81.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:35:36 -0300
+
+
+Started GET "/tasklists/new" for 127.0.0.1 at 2013-10-25 18:37:01 -0300
+Processing by TasklistsController#new as HTML
+DEPRECATION WARNING: Model.scoped is deprecated. Please use Model.all instead. (called from block in _app_views_tasklists__form_html_erb___2565736178394543394_70112219058660 at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/views/tasklists/_form.html.erb:2)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered tasklists/_form.html.erb (12.5ms)
+  Rendered tasklists/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:02 -0300
+
+
+Started GET "/status/new" for 127.0.0.1 at 2013-10-25 18:37:05 -0300
+
+ActionController::RoutingError (No route matches [GET] "/status/new"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/fischerd/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (69.8ms)
+
+
+Started GET "/statuses/new" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+Processing by StatusesController#new as HTML
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:Status> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/status.rb:2)
+  Rendered statuses/_form.html.erb (13.9ms)
+  Rendered statuses/new.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 28ms (Views: 21.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:09 -0300
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+Processing by CategoriesController#new as HTML
+DEPRECATION WARNING: The :restrict option is deprecated. Please use :restrict_with_exception instead, which provides the same functionality. (called from <class:Category> at /Users/fischerd/Documents/Aptana Studio 3 Workspace/tasking/app/models/category.rb:2)
+  Rendered categories/_form.html.erb (13.3ms)
+  Rendered categories/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 28ms (Views: 21.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-25 18:37:15 -0300
