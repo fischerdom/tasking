@@ -1,7 +1,7 @@
 class CreateTasks < ActiveRecord::Migration
   def change
     create_table :tasks do |t|
-      t.integer :tastlist_id
+      t.integer :tasklist_id
       t.integer :category_id
       t.integer :status_id
       t.integer :assigned_to

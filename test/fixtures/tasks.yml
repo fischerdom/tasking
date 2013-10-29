@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  tastlist_id: 1
+  tasklist_id: 1
   category_id: 1
   status_id: 1
   assigned_to: 1
@@ -12,7 +12,7 @@ one:
   etc: 1.5
 
 two:
-  tastlist_id: 1
+  tasklist_id: 1
   category_id: 1
   status_id: 1
   assigned_to: 1
