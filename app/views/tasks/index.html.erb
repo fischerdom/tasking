@@ -1,43 +1,8 @@
-<h1>Listing tasks</h1>
+<div id="tasks"></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>tasklist</th>
-      <th>Category</th>
-      <th>Status</th>
-      <th>Assigned to</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Pointvalue</th>
-      <th>Due date</th>
-      <th>Etc</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.tasklist_id %></td>
-        <td><%= task.category_id %></td>
-        <td><%= task.status_id %></td>
-        <td><%= task.assigned_to %></td>
-        <td><%= task.title %></td>
-        <td><%= task.description %></td>
-        <td><%= task.pointvalue %></td>
-        <td><%= task.due_date %></td>
-        <td><%= task.etc %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>
+<script type="text/javascript">
+  $(function() {
+    window.router = new Tasking.Routers.TasksRouter({tasks: <%= @tasks.to_json.html_safe -%>});
+    Backbone.history.start();
+  });
+</script>

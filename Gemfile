@@ -51,3 +51,4 @@ gem 'formtastic'
 #  gem 'capybara'
 #  gem 'database_cleaner'
 #end
+gem "rails-backbone"
