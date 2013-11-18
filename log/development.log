@@ -9988,3 +9988,119 @@ Unpermitted parameters: id, duedate, created_at, updated_at
   [1m[36m (0.2ms)[0m  [1mBEGIN[0m
   [1m[35m (0.4ms)[0m  COMMIT
 Completed 204 No Content in 8ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-31 12:22:09 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/fischerd/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (1.5ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/index.html.erb within layouts/application (59.4ms)
+Completed 200 OK in 348ms (Views: 339.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/tasklists.css?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/generates.css?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone_rails_sync.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone_datalink.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/tasking.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/templates/tasks/edit.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/templates/tasks/index.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/templates/tasks/new.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/templates/tasks/show.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/models/task.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/templates/tasks/task.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/views/tasks/show_view.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/views/tasks/index_view.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/views/tasks/edit_view.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/views/tasks/new_view.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/views/tasks/task_view.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/backbone/routers/tasks_router.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/generates.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/jqm-config.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/tasklists.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-31 12:22:15 -0300
