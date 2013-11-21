@@ -1,29 +1,8 @@
-<h1>Listing tasklists</h1>
+<div id="tasks"></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasklists.each do |tasklist| %>
-      <tr>
-        <td><%= tasklist.user_id %></td>
-        <td><%= tasklist.name %></td>
-        <td><%= link_to 'Show', tasklist %></td>
-        <td><%= link_to 'Edit', edit_tasklist_path(tasklist) %></td>
-        <td><%= link_to 'Destroy', tasklist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tasklist', new_tasklist_path %>
+<script type="text/javascript">
+  $(function() {
+    window.router = new Tasking.Routers.AppRouter({tasklists: <%= @tasklists.to_json.html_safe -%>});
+    Backbone.history.start();
+  });
+</script>
