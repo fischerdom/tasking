@@ -1,54 +1,23 @@
-<p>
-  <b>Id:</b>
-  <%= id %>
-</p>
-
-<p>
-  <b>Tasklist:</b>
-  <%= tasklist_id %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= category_id %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= status_id %>
-</p>
-
-<p>
-  <b>Assigned to:</b>
-  <%= assigned_to %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= description %>
-</p>
-
-<p>
-  <b>Pointvalue:</b>
-  <%= pointvalue %>
-</p>
-
-<p>
-  <b>Duedate:</b>
-  <%= duedate %>
-</p>
-
-<p>
-  <b>Etc:</b>
-  <%= etc %>
-</p>
-
-
-<a href="#/index" data-icon="back" data-role="button">Back</a>
-<a href="#/<%= id %>/edit" data-icon="gear" data-role="button">Edit</a>
-<a href="#/<%= id %>/delete" data-icon="delete" data-role="button">Delete</a>
+	<div data-role="header">
+		<a href="#tasks" data-icon="back">Back</a>
+        <h1>Edit Tasks</h1>
+		<a href="#tasks/<%= id %>/delete" data-icon="delete" data-role="button">Delete</a>
+  	</div>
+  	<div data-role="content">
+		
+		
+		<p>
+		  <b>Id:</b>
+		  <%= id %>
+		</p>
+		<p>
+		  <b>Title:</b>
+		  <%= title %>
+		</p>
+		
+		
+		<a href="#tasks/index" data-icon="back" data-role="button">Back</a>
+		<a href="#tasks/<%= id %>/delete" data-icon="delete" data-role="button">Delete</a>
+		<a href="#tasks/<%= id %>/edit" data-icon="gear" data-role="button">Edit</a>
+				
+	</div>
