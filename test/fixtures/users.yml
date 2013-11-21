@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  fb_user_id: 1
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+  provider: MyString
+  uid: MyString
+  name: MyString
+  oauth_token: MyString
+  oauth_expires_at: 2013-11-21 10:12:17
 
 two:
-  fb_user_id: 1
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+  provider: MyString
+  uid: MyString
+  name: MyString
+  oauth_token: MyString
+  oauth_expires_at: 2013-11-21 10:12:17

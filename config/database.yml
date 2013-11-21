@@ -20,7 +20,7 @@ development:
   database: tasking_development
   pool: 5
   username: tasking
-  password:
+  password: dev
   host: localhost
   port: 5432
 
