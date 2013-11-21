@@ -1,12 +1,11 @@
 Tasking::Application.routes.draw do
-<<<<<<< HEAD
+
   get "static_pages/start"
-=======
-  
+
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
->>>>>>> 73c854f3abfcaaecc84aa97181fcb8e1945fd0ea
+
   
   resources :users
 

@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
-# Benötigte Gems für Facebook-Authentifizierung
+# Benötigte Gems für Facebook
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
+gem 'fbgraph'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

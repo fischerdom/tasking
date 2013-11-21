@@ -1,0 +1,35 @@
+<h1>New user</h1>
+
+<form id="new-user" name="user">
+  <div class="field">
+    <label for="provider"> provider:</label>
+    <input type="text" name="provider" id="provider" value="<%= provider %>" >
+  </div>
+
+  <div class="field">
+    <label for="uid"> uid:</label>
+    <input type="text" name="uid" id="uid" value="<%= uid %>" >
+  </div>
+
+  <div class="field">
+    <label for="name"> name:</label>
+    <input type="text" name="name" id="name" value="<%= name %>" >
+  </div>
+
+  <div class="field">
+    <label for="outh_token"> outh_token:</label>
+    <input type="text" name="outh_token" id="outh_token" value="<%= outh_token %>" >
+  </div>
+
+  <div class="field">
+    <label for="outh_expires_at"> outh_expires_at:</label>
+    <input type="text" name="outh_expires_at" id="outh_expires_at" value="<%= outh_expires_at %>" >
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="Create User" />
+  </div>
+
+</form>
+
+<a href="#/index">Back</a>

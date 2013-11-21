@@ -44,6 +44,14 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    fbgraph (1.10.0)
+      activesupport
+      faraday (>= 0.7.5)
+      hashie (>= 1.0.0)
+      i18n
+      json (>= 1.0.0)
+      oauth2 (>= 0.5.0)
+      rest-client
     formtastic (2.2.1)
       actionpack (>= 3.0)
     hashie (2.0.5)
@@ -112,6 +120,8 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -147,6 +157,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  fbgraph
   formtastic
   jbuilder (~> 1.2)
   jquery-rails
