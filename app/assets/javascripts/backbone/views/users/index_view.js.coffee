@@ -11,10 +11,11 @@ class Tasking.Views.Users.IndexView extends Backbone.View
 
   addOne: (user) =>
     view = new Tasking.Views.Users.UserView({model : user})
-    @$("tbody").append(view.render().el)
+    @$("ul").append(view.render().el)
 
   render: =>
-    @$el.html(@template(users: @options.users.toJSON() ))
+    
+    $(@el).html(@template(users: @options.users.toJSON() ))
     @addAll()
-
+     
     return this

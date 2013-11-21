@@ -14,6 +14,6 @@ class Tasking.Views.Users.UserView extends Backbone.View
 
     return false
 
-  render: ->
-    @$el.html(@template(@model.toJSON() ))
-    return this
+#  render: ->
+#    @$el.html(@template(@model.toJSON() ))
+#    return this

@@ -1,6 +1,7 @@
 class Tasking.Routers.AppRouter extends Backbone.Router
   initialize: (options) ->
     @tasklistsInitialize(options);
+    @usersInitialize(options);
 
   routes:
     "start"              : "start"
@@ -10,6 +11,9 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     "tasklists/:id/edit" : "tasklistsEdit"
     "tasklists/:id"      : "tasklistsShow"
     "tasklists*"         : "tasklistsIndex"
+    "users*"             : "usersIndex"
+    "users/index"        : "usersIndex"
+    "users/:id"          : "usersShow"
 
   start: ->
     @view = new Tasking.Views.Static.StartView()
@@ -39,3 +43,19 @@ class Tasking.Routers.AppRouter extends Backbone.Router
 
     @view = new Tasking.Views.Tasklists.EditView(model: tasklist)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
+  
+  usersInitialize: (options) ->
+    @users = new Tasking.Collections.UsersCollection()
+    @users.reset options.users
+    
+  usersIndex: ->
+    @view = new Tasking.Views.Users.IndexView(users: @users)
+    console.log(@view.render().el)
+    $("#BBCont").html(@view.render().el).trigger('pagecreate')
+    
+  usersShow: (id) ->
+    user = @users.get(id)
+
+    @view = new Tasking.Views.Users.ShowView(model: user)
+    $("#BBCont").html(@view.render().el).trigger('pagecreate')
+  
