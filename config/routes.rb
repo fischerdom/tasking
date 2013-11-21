@@ -1,4 +1,6 @@
 Tasking::Application.routes.draw do
+  get "static_pages/start"
+  
   resources :users
 
   resources :tasks
@@ -10,6 +12,9 @@ Tasking::Application.routes.draw do
   resources :statuses
 
   resources :categories
+  
+  
+  root 'static_pages#start'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

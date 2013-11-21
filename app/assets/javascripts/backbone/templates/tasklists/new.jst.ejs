@@ -1,0 +1,25 @@
+	<div data-role="header">
+		<a href="#tasklist" data-icon="back">Back</a>
+        <h1>New Tasklist</h1>
+  	</div>
+  	<div data-role="content">
+		
+		<form id="new-tasklist" name="tasklist">
+		  <div class="field">
+		    <input type="hidden" name="id" id="id" value="<%= id %>" >
+		  </div>
+		
+		
+		  <div class="field">
+		    <label for="title"> Name:</label>
+		    <input type="text" name="name" id="name" value="<%= name %>" >
+		  </div>
+		
+		  <div class="actions">
+		    <input type="submit" value="Create Task" />
+		  </div>
+		
+		</form>
+				
+	</div>
+
