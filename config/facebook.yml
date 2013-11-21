@@ -1,0 +1,13 @@
+#Configdatei für Facebook Initialisierung
+
+#config/facebook.yml
+development: 
+  app_id: 557026374368942
+  secret_id: f137fd2a8e668bc240b59d46909e910f
+
+test:
+  
+  <<: &defaults
+
+production:
+  <<: &defaults
