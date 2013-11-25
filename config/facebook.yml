@@ -3,11 +3,17 @@
 #config/facebook.yml
 development: 
   app_id: 557026374368942
-  secret_id: f137fd2a8e668bc240b59d46909e910f
+  api_key: 557026374368942
+  secret_id: 03bac4705655b36faceed9c965cd73b0
 
 test:
-  
-  <<: &defaults
+  app_id: 557026374368942
+  api_key: 557026374368942
+  secret_id: 03bac4705655b36faceed9c965cd73b0
+  #<<: &defaults
 
 production:
-  <<: &defaults
+  app_id: 557026374368942
+  api_key: 557026374368942
+  secret_id: 03bac4705655b36faceed9c965cd73b0
+  #<<: &defaults
