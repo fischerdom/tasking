@@ -9,26 +9,13 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-  
+ 
   def facebook
       @facebook = Koala::Facebook::API.new(oauth_token)
   end
   
   
-  
   def friends
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    puts "flksajlj"
-    @friends = "flkasjflfls"
+      @friends = facebook.get_connections("me", "friends")
   end
 end

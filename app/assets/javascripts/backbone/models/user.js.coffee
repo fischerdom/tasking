@@ -8,6 +8,7 @@ class Tasking.Models.User extends Backbone.Model
     name: null
     oauth_token: null
     oauth_expires_at: null
+    friends: null
 
 class Tasking.Collections.UsersCollection extends Backbone.Collection
   model: Tasking.Models.User
