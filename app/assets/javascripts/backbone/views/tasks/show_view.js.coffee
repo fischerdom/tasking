@@ -5,5 +5,4 @@ class Tasking.Views.Tasks.ShowView extends Backbone.View
 
   render: ->
     $(@el).html(@template(@model.toJSON() ))
-    $("#app").trigger("create");
     return this
