@@ -3,6 +3,8 @@
 
 <script type="text/javascript">
   $(function() {
+    window.router = new Tasking.Routers.AppRouter({users: <%= @users.to_json.html_safe -%>});
+    Backbone.history.start();
     window.router = new Tasking.Routers.AppRouter({users: <%= @users.as_json.html_safe -%>});
     window.friends = <%= @friends.as_json %>;
     Backbone.history.start();    

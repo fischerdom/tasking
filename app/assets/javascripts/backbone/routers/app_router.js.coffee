@@ -5,10 +5,14 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     @tasksInitialize(options);
     @tasklistsInitialize(options);
     @usersInitialize(options);
+    @currentUserInitialize(options);
 
   routes:
     "start"                 : "start"
     ".*"                    : "start"
+    "login"                 : "login"
+    "logout"                : "logout"
+    "close"                 : "close"
     "categories/new"        : "categoriesNew"
     "categories/index"      : "categoriesIndex"
     "categories/:id/edit"   : "categoriesEdit"
@@ -37,6 +41,97 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   start: ->
     @view = new Tasking.Views.Static.StartView()
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
+  
+  login: ->
+    window.open("/auth/facebook")
+    
+    
+  logout: ->
+    window.open("/signout")
+    
+  close: ->
+    opener.location.hash = ""
+    opener.location.reload();
+    window.close()
+  
+  currentUserInitialize: (options) ->
+    @current_user = new Tasking.Models.User( options.current_user )
+  
+  categoriesInitialize: (options) ->
+    @categories = new Tasking.Collections.CategoriesCollection()
+    @categories.reset options.categories 
+  
+  categoriesNew: ->
+    @view = new Tasking.Views.Categories.NewView(collection: @categories)
+    $("#categories").html(@view.render().el).trigger('pagecreate')
+
+  categoriesIndex: ->
+    @view = new Tasking.Views.Categories.IndexView(categories: @categories)
+    $("#categories").html(@view.render().el).trigger('pagecreate')
+    
+  categoriesShow: (id) ->
+    category = @categories.get(id)
+
+    @view = new Tasking.Views.Categories.ShowView(model: category)
+    $("#categories").html(@view.render().el).trigger('pagecreate')
+
+  categoriesEdit: (id) ->
+    category = @categories.get(id)
+
+    @view = new Tasking.Views.Categories.EditView(model: category)
+    $("#categories").html(@view.render().el).trigger('pagecreate')
+    
+  categoriesDestroy: (id) ->
+    category = @categories.get(id)
+    
+  statusesInitialize: (options) ->
+    @statuses = new Tasking.Collections.StatusesCollection()
+    @statuses.reset options.statuses 
+    
+  statusesNew: ->
+    @view = new Tasking.Views.Statuses.NewView(collection: @statuses)
+    $("#statuses").html(@view.render().el).trigger('pagecreate')
+
+  statusesIndex: ->
+    @view = new Tasking.Views.Statuses.IndexView(statuses: @statuses)
+    $("#statuses").html(@view.render().el).trigger('pagecreate')
+
+  statusesShow: (id) ->
+    status = @statuses.get(id)
+
+    @view = new Tasking.Views.Statuses.ShowView(model: status)
+    $("#statuses").html(@view.render().el).trigger('pagecreate')
+
+  statusesEdit: (id) ->
+    status = @statuses.get(id)
+
+    @view = new Tasking.Views.Statuses.EditView(model: status)
+    $("#statuses").html(@view.render().el).trigger('pagecreate')  
+  
+  tasksInitialize: (options) ->
+    @tasks = new Tasking.Collections.TasksCollection()
+    @tasks.reset options.tasks  
+    
+  tasksNew: ->
+    @view = new Tasking.Views.Tasks.NewView(collection: @tasks)
+    $("#tasks").html(@view.render().el).trigger('pagecreate')
+
+  tasksIndex: ->
+    @view = new Tasking.Views.Tasks.IndexView(tasks: @tasks)
+    $("#tasks").html(@view.render().el).trigger('pagecreate')
+
+  tasksShow: (id) ->
+    task = @tasks.get(id)
+
+    @view = new Tasking.Views.Tasks.ShowView(model: task)
+    $("#tasks").html(@view.render().el).trigger('create')
+
+  tasksEdit: (id) ->
+    task = @tasks.get(id)
+
+    @view = new Tasking.Views.Tasks.EditView(model: task)
+    $("#tasks").html(@view.render().el).trigger('pagecreate')
+  
     
   categoriesInitialize: (options) ->
     @categories = new Tasking.Collections.CategoriesCollection()

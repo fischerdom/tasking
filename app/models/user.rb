@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
     end
   end
  
-
   def facebook
       @facebook = Koala::Facebook::API.new(oauth_token)
   end
