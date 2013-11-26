@@ -20,3 +20,5 @@ doc/
 .project
 config/database.yml
 log
+
+*.conflict

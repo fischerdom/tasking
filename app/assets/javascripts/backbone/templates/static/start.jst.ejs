@@ -4,6 +4,15 @@
         <h1>Start</h1>
   	</div>
   	<div data-role="content">
-		Startseite
-		<a href="#tasklists" data-role="button" data-icon="grid" data-iconpos="top">Tasklists</a>
+		<% if (window.router.current_user.id == null) { %>
+			<a href="#login" data-role="button" data-icon="grid" data-iconpos="top">Login</a>
+		
+		
+		<% } else { %>
+		
+			<a href="#tasklists" data-role="button" data-icon="grid" data-iconpos="top">Tasklists</a>
+			<a href="#logout" data-role="button" data-icon="grid" data-iconpos="top">Logout</a>
+			<p>Angemeldet als <%= window.router.current_user.attributes.name %></p>
+		<% } %>
+		
 	</div>

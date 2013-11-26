@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
   $(function() {
-    window.router = new Tasking.Routers.StatusesRouter({statuses: <%= @statuses.to_json.html_safe -%>});
+    window.router = new Tasking.Routers.AppRouter({statuses: <%= @statuses.to_json.html_safe -%>});
     Backbone.history.start();
   });
 </script>

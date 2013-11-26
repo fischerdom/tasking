@@ -1,5 +1,9 @@
+#Zugriff auf Facebook Konfigurationsdatei:
+FACEBOOK_CONFIG = YAML.load_file("#{Rails.root}/config/facebook.yml")[Rails.env]
+
 OmniAuth.config.logger = Rails.logger
 
+#Omniauth initialisieren
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, '557026374368942', 'f137fd2a8e668bc240b59d46909e910f'
+  provider :facebook, FACEBOOK_CONFIG['app_id'], FACEBOOK_CONFIG['secret_id']
 end
