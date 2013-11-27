@@ -4,16 +4,16 @@
 development: 
   app_id: 557026374368942
   api_key: 557026374368942
-  secret_id: 03bac4705655b36faceed9c965cd73b0
+  secret_id: a6547ccbbac96a93185bc677a6973da6
 
 test:
   app_id: 557026374368942
   api_key: 557026374368942
-  secret_id: 03bac4705655b36faceed9c965cd73b0
+  secret_id: a6547ccbbac96a93185bc677a6973da6
   #<<: &defaults
 
 production:
   app_id: 557026374368942
   api_key: 557026374368942
-  secret_id: 03bac4705655b36faceed9c965cd73b0
+  secret_id: a6547ccbbac96a93185bc677a6973da6
   #<<: &defaults
