@@ -23,27 +23,39 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (task) =>
         @model = task
-        window.location.hash = "/#{@model.id}"
+        window.location.hash = "tasks/{@model.id}"
 
       error: (task, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
+    
+  addAllCategories: () =>
+     @collectionCategory = new Tasking.Collections.CategoriesCollection()
+     @collectionCategory.fetch({success :@addAllCategoriesAfterFetch})
+      
+  addAllCategoriesAfterFetch: () =>
+    @collectionCategory.each(@addOneCategory)
+
+  addOneCategory: (category) =>
+    view = new Tasking.Views.Tasks.XCategoryView({model : category})
+    @$("#select-category").append(view.render().el)    
     
    addAllTasklists: () =>
      @collectionTasklist = new Tasking.Collections.TasklistsCollection()
      @collectionTasklist.fetch({success :@addAllTasklistsAfterFetch})
   
   addAllTasklistsAfterFetch: () =>
-    console.log(@collectionTasklist)
     @collectionTasklist.each(@addOneTasklist)
 
   addOneTasklist: (tasklist) =>
     view = new Tasking.Views.Tasks.TasklistsView({model : tasklist})
-    @$("#select-tasklists").append(view.render().el)
-
+    @$("#select-tasklist").append(view.render().el)
+    
+   
   render: ->
     $(@el).html(@template(@model.toJSON() ))
     @addAllTasklists()
+    @addAllCategories()
     this.$("form").backboneLink(@model)
     $("#app").trigger("create");
 

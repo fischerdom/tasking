@@ -5,6 +5,10 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    respond_to do |format|
+      format.html { redirect_to @category, notice: 'Category was successfully created.' }
+      format.json { render json: @categories}
+    end
   end
 
   # GET /categories/1

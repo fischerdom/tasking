@@ -9,6 +9,5 @@ class Tasking.Views.Tasks.TasklistsView extends Backbone.View
 
     
   render: ->
-    console.log(@el)
     $(@el).html(@template(@model.toJSON() ))
     return this

@@ -10,24 +10,22 @@
 		  </div>
 		
 		  <div class="field">
-		    <label for="title"></label>
 		    <input type="text" name="title" id="title" value="<%= title %>" placeholder="Title">
 		  </div>
 		  
 		  <div class="field">
-		    <label for="description"></label>
 		    <input type="text" name="description" id="description" value="<%= description %>" placeholder="Description">
 		  </div>
 		  
-		  <label for="select-choice-0" class="select"></label>
-			<select name="select-choice-0" id="select-choice-0">
+			<select name="category_id" id="select-category">
    				<option value="standard">Choose Category...</option>
-  				<option value="id"><%= name %></option>
 			</select>
 	  
-		  <label for="select-choice-0" class="select"></label>
-			<select name="select-choice-0" id="select-tasklists">
+			<select name="tasklist_id" id="select-tasklist">
+				<option value="standard">Choose Tasklist...</option>
+				$<%= tasklist_id %> = ("#tasklist_id option:selected").value();
 			</select>
+			
 	
 		  <div class="actions">
 		    <input type="submit" value="Create Task" />
