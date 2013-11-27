@@ -12,6 +12,7 @@ class Tasking.Models.Task extends Backbone.Model
     pointvalue: null
     duedate: null
     etc: null
+    tasklists: null
 
 class Tasking.Collections.TasksCollection extends Backbone.Collection
   model: Tasking.Models.Task

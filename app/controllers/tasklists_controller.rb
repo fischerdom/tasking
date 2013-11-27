@@ -5,6 +5,10 @@ class TasklistsController < ApplicationController
   # GET /tasklists.json
   def index
     @tasklists = Tasklist.all
+    respond_to do |format|
+      format.html { redirect_to @tasklist, notice: 'Tasklist was successfully created.' }
+      format.json { render json: @tasklists}
+    end
   end
 
   # GET /tasklists/1

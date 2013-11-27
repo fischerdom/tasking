@@ -9,18 +9,26 @@
 		    <input type="hidden" name="id" id="id" value="<%= id %>" >
 		  </div>
 		
-		
 		  <div class="field">
-		    <label for="title"> Title:</label>
-		    <input type="text" name="title" id="title" value="<%= title %>" >
+		    <label for="title"></label>
+		    <input type="text" name="title" id="title" value="<%= title %>" placeholder="Title">
 		  </div>
 		  
-		  <label for="select-choice-0" class="select">Tasklist:</label>
+		  <div class="field">
+		    <label for="description"></label>
+		    <input type="text" name="description" id="description" value="<%= description %>" placeholder="Description">
+		  </div>
+		  
+		  <label for="select-choice-0" class="select"></label>
 			<select name="select-choice-0" id="select-choice-0">
-   				<option value="standard">Choose Tasklist...</option>
-  				<option value="rush"><%= name %></option>
+   				<option value="standard">Choose Category...</option>
+  				<option value="id"><%= name %></option>
 			</select>
-		
+	  
+		  <label for="select-choice-0" class="select"></label>
+			<select name="select-choice-0" id="select-tasklists">
+			</select>
+	
 		  <div class="actions">
 		    <input type="submit" value="Create Task" />
 		  </div>
