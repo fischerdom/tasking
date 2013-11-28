@@ -5,7 +5,7 @@ class TasklistsController < ApplicationController
   # GET /tasklists.json
   def index
     if(current_user != nil)
-      @tasklists = Task.where("user_id = ?", current_user.id)
+      @tasklists = Tasklist.where("user_id = ?", current_user.id)
       respond_to do |format|
         format.html { redirect_to :root }
         format.json { render json: @tasklists}
