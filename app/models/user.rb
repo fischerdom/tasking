@@ -16,6 +16,18 @@ class User < ActiveRecord::Base
   
   
   def friends
-      @friends = facebook.get_connections("me", "friends")
+      #Hole alle Freunde mittels Facebook-Connection
+      @friends_all = facebook.get_connections("me", "friends")
+      
+      #Nachfolgend wird die Freundesliste gefiltert, um nur die zu erhalten, die tatsächlich in der DB enthalten sind
+      
+      @friends = Array.new
+      @friends_all.each do |entry|
+        if User.find_by uid: entry["id"]
+            @friends.append(entry)
+        end
+      end
+      
+      
   end
 end

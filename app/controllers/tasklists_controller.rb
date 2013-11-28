@@ -4,9 +4,9 @@ class TasklistsController < ApplicationController
   # GET /tasklists
   # GET /tasklists.json
   def index
-    @tasklists = Tasklist.where("user_id = ?", current_user.id)
+    @tasklists = Tasklist.all
     respond_to do |format|
-      format.html { render action: 'edit' }
+      format.html { redirect_to @tasklist, notice: 'Tasklist was successfully created.' }
       format.json { render json: @tasklists}
     end
   end
