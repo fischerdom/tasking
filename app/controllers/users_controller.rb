@@ -27,9 +27,10 @@ class UsersController < ApplicationController
   
   # GET/users/current
   def current
+    puts  current_user.to_json(:methods => :friends)
     respond_to do |format|
       format.html { render action: 'new' }
-      format.json { render json: current_user }
+      format.json { render :json => current_user.to_json(:methods => :friends) }
     end
   end
 

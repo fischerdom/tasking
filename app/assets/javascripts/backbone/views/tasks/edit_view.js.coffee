@@ -17,7 +17,7 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
     )
     
   addAllFriends: () =>
-     for obj in window.router.current_user.attributes.friends
+     for obj in window.current_user.attributes.friends
        @addOneFriend(obj)
 
   addOneFriend: (friend) =>

@@ -4,10 +4,17 @@ class TasklistsController < ApplicationController
   # GET /tasklists
   # GET /tasklists.json
   def index
-    @tasklists = Tasklist.all
-    respond_to do |format|
-      format.html { redirect_to @tasklist, notice: 'Tasklist was successfully created.' }
-      format.json { render json: @tasklists}
+    if(current_user != nil)
+      @tasklists = Task.where("user_id = ?", current_user.id)
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { render json: @tasklists}
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { render json: nil}
+      end
     end
   end
 

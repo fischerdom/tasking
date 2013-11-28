@@ -7,4 +7,4 @@ class Tasking.Models.Category extends Backbone.Model
 
 class Tasking.Collections.CategoriesCollection extends Backbone.Collection
   model: Tasking.Models.Category
-  url: '/categories'
+  url: '/categories.json'

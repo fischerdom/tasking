@@ -17,4 +17,4 @@ class Tasking.Models.Task extends Backbone.Model
 
 class Tasking.Collections.TasksCollection extends Backbone.Collection
   model: Tasking.Models.Task
-  url: '/tasks'
+  url: '/tasks.json'

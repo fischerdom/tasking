@@ -1,17 +1,30 @@
 
 	<div data-role="header">
 		<!--<a href="#start" data-icon="back">Back</a>-->
+		<a href="#logout" data-role="button" data-icon="back">Logout</a>
         <h1>Start</h1>
   	</div>
   	<div data-role="content">
-		<% if (typeof id === undefined) { %>
+		<% if (typeof id == "undefined") { %>
 			<a href="#login" data-role="button" data-icon="grid" data-iconpos="top">Login</a>
 		
 		
 		<% } else { %>
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#tasks" data-role="button" data-icon="grid" data-iconpos="top">Open Tasks</a>
+					<a href="#tasklists" data-role="button" data-icon="grid" data-iconpos="top">Your Lists</a>
+					<a href="#ranking" data-role="button" data-icon="grid" data-iconpos="top">Ranking</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#tasks/get" data-role="button" data-icon="grid" data-iconpos="top">Get Tasks</a>
+					<a href="#tasklists/new" data-role="button" data-icon="grid" data-iconpos="top">Create Lists</a>
+					<a href="#history" data-role="button" data-icon="grid" data-iconpos="top">History</a>
+				</div>
+			</fieldset>
 		
-		<a href="#tasklists" data-role="button" data-icon="grid" data-iconpos="top">Tasklists</a>
-			<a href="#logout" data-role="button" data-icon="grid" data-iconpos="top">Logout</a>
+			
+			
 			<p>Angemeldet als <%= name %></p>
 		<% } %>
 		

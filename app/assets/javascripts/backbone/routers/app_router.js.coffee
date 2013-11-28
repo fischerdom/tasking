@@ -1,14 +1,12 @@
 class Tasking.Routers.AppRouter extends Backbone.Router
   initialize: (options) ->
-    CU = new Tasking.Models.CurrentUser();
-    window.current_user = CU;
-    CU.fetch({async:false});
+    @currentUserInitialize();
     #@categoriesInitialize(options);
     #@statusesInitialize(options);
-    #@tasksInitialize(options);
+    @tasksInitialize();
     @tasklistsInitialize();
     #@usersInitialize(options);
-    #@currentUserInitialize();
+    
 
   routes:
     "start"                 : "start"
@@ -16,28 +14,33 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     "login"                 : "login"
     "logout"                : "logout"
     "close"                 : "close"
+    
     "categories/new"        : "categoriesNew"
     "categories/index"      : "categoriesIndex"
     "categories/:id/edit"   : "categoriesEdit"
     "categories/:id/destroy": "categoriesDestroy"
     "categories/:id"        : "categoriesShow"
     "categories.*"           : "categoriesIndex"
+    
     "statuses/new"          : "statusesNew"
     "statuses/index"        : "statusesIndex"
     "statuses/:id/edit"     : "statusesEdit"
     "statuses/:id"          : "statusesShow"
-    "statuses.*"             : "statusesIndex"
+    "statuses.*"            : "statusesIndex"
+    
     "tasks/new"             : "tasksNew"
     "tasks/index"           : "tasksIndex"
     "tasks/:id/edit"        : "tasksEdit"
     "tasks/:id"             : "tasksShow"
-    "tasks.*"                : "tasksIndex"
+    "tasks.*"               : "tasksIndex"
+    
     "tasklists/new"         : "tasklistsNew"
     "tasklists/index"       : "tasklistsIndex"
     "tasklists/:id/edit"    : "tasklistsEdit"
     "tasklists/:id"         : "tasklistsShow"
-    "tasklists.*"            : "tasklistsIndex"
-    "users.*"                : "usersIndex"
+    "tasklists.*"           : "tasklistsIndex"
+    
+    "users.*"               : "usersIndex"
     "users/index"           : "usersIndex"
     "users/:id"             : "usersShow"
 
@@ -58,7 +61,10 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     window.close()
   
   currentUserInitialize: (options) ->
-    @current_user = new Tasking.Models.User( options.current_user )
+    CU = new Tasking.Models.CurrentUser();
+    window.current_user = CU;
+    # async = false //Er soll warten bis er fertig ist.
+    CU.fetch({async:false});
     
       
   categoriesInitialize: (options) ->
@@ -114,7 +120,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
 
   tasksInitialize: (options) ->
     @tasks = new Tasking.Collections.TasksCollection()
-    @tasks.reset options.tasks  
+    @tasks.fetch({async: false})
     
   tasksNew: ->
     @view = new Tasking.Views.Tasks.NewView(collection: @tasks)
@@ -139,7 +145,6 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   tasklistsInitialize: ->
     @tasklists = new Tasking.Collections.TasklistsCollection()
     @tasklists.fetch({async: false})
-    @tasklists.bind('reset', @addAll)
 
   tasklistsNew: ->
 

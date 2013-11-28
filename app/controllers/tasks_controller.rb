@@ -4,7 +4,19 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.where("assigned_to = ?", current_user.id)
+    if(current_user != nil)
+      @tasks = Task.where("assigned_to = ?", current_user.id)
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { render json: @tasks}
+      end
+    else
+      
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { render json: nil}
+      end
+    end
   end
 
   # GET /tasks/1

@@ -1,3 +1,4 @@
+
 class Tasking.Models.User extends Backbone.Model
   paramRoot: 'user'
 
@@ -9,7 +10,3 @@ class Tasking.Models.User extends Backbone.Model
     oauth_token: null
     oauth_expires_at: null
     friends: null
-
-class Tasking.Collections.UsersCollection extends Backbone.Collection
-  model: Tasking.Models.User
-  url: '/users'

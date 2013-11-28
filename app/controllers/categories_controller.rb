@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     respond_to do |format|
-      format.html { redirect_to @category, notice: 'Category was successfully created.' }
+      format.html { redirect_to :root }
       format.json { render json: @categories}
     end
   end
