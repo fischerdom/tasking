@@ -4,16 +4,15 @@
         <h1>Start</h1>
   	</div>
   	<div data-role="content">
-		<% if (window.router.current_user.id == null) { %>
+		<% if (typeof id === undefined) { %>
 			<a href="#login" data-role="button" data-icon="grid" data-iconpos="top">Login</a>
 		
 		
 		<% } else { %>
 		
-			<a href="#tasklists" data-role="button" data-icon="grid" data-iconpos="top">Tasklists</a>
-			<a href="#tasks" data-role="button" data-icon="grid" data-iconpos="top">Tasks</a>
+		<a href="#tasklists" data-role="button" data-icon="grid" data-iconpos="top">Tasklists</a>
 			<a href="#logout" data-role="button" data-icon="grid" data-iconpos="top">Logout</a>
-			<p>Angemeldet als <%= window.router.current_user.attributes.name %></p>
+			<p>Angemeldet als <%= name %></p>
 		<% } %>
 		
 	</div>

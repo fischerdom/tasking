@@ -4,7 +4,11 @@ class TasklistsController < ApplicationController
   # GET /tasklists
   # GET /tasklists.json
   def index
-    @tasklists = Tasklist.all
+    @tasklists = Tasklist.where("user_id = ?", current_user.id)
+    respond_to do |format|
+      format.html { render action: 'edit' }
+      format.json { render json: @tasklists}
+    end
   end
 
   # GET /tasklists/1

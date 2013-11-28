@@ -1,11 +1,14 @@
 class Tasking.Routers.AppRouter extends Backbone.Router
   initialize: (options) ->
-    @categoriesInitialize(options);
-    @statusesInitialize(options);
-    @tasksInitialize(options);
-    @tasklistsInitialize(options);
-    @usersInitialize(options);
-    @currentUserInitialize(options);
+    CU = new Tasking.Models.CurrentUser();
+    window.current_user = CU;
+    CU.fetch({async:false});
+    #@categoriesInitialize(options);
+    #@statusesInitialize(options);
+    #@tasksInitialize(options);
+    @tasklistsInitialize();
+    #@usersInitialize(options);
+    #@currentUserInitialize();
 
   routes:
     "start"                 : "start"
@@ -133,10 +136,10 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     @view = new Tasking.Views.Tasks.EditView(model: task)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
   
-    
-  tasklistsInitialize: (options) ->
+  tasklistsInitialize: ->
     @tasklists = new Tasking.Collections.TasklistsCollection()
-    @tasklists.reset options.tasklists
+    @tasklists.fetch({async: false})
+    @tasklists.bind('reset', @addAll)
 
   tasklistsNew: ->
 

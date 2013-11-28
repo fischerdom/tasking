@@ -20,6 +20,14 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
+  
+  # GET/users/current
+  def current
+    respond_to do |format|
+      format.html { render action: 'new' }
+      format.json { render json: current_user }
+    end
+  end
 
   # POST /users
   # POST /users.json

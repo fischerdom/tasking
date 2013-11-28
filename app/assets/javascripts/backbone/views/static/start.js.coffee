@@ -7,6 +7,6 @@ class Tasking.Views.Static.StartView extends Backbone.View
   initialize: () ->
 
   render: =>
-    $(@el).html(@template)
+    $(@el).html(@template(window.current_user.toJSON()))
 
     return this
