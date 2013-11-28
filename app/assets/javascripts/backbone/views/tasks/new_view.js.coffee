@@ -5,7 +5,9 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
 
   events:
     "submit #new-task": "save"
-
+    "change #select-tasklist" : "tasklistChange"
+    "change #select-category" : "categoryChange"
+    
   constructor: (options) ->
     super(options)
     @model = new @collection.model()
@@ -29,6 +31,13 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
     
+  tasklistChange: (tasklist_id) ->
+    tasklist_id = $("#select-tasklist").val(); 
+    
+  categoryChange: (category_id) ->
+    category_id = $("#select-category").val(); 
+    
+      
   addAllCategories: () =>
      @collectionCategory = new Tasking.Collections.CategoriesCollection()
      @collectionCategory.fetch({success :@addAllCategoriesAfterFetch})
@@ -40,7 +49,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     view = new Tasking.Views.Tasks.XCategoryView({model : category})
     @$("#select-category").append(view.render().el)    
     
-   addAllTasklists: () =>
+  addAllTasklists: () =>
      @collectionTasklist = new Tasking.Collections.TasklistsCollection()
      @collectionTasklist.fetch({success :@addAllTasklistsAfterFetch})
   
@@ -50,7 +59,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
   addOneTasklist: (tasklist) =>
     view = new Tasking.Views.Tasks.TasklistsView({model : tasklist})
     @$("#select-tasklist").append(view.render().el)
-    
+  
    
   render: ->
     $(@el).html(@template(@model.toJSON() ))
