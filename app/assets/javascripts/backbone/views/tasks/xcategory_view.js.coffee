@@ -9,5 +9,6 @@ class Tasking.Views.Tasks.XCategoryView extends Backbone.View
 
     
   render: ->
+    $(@el).attr("value", @model.attributes.id)
     $(@el).html(@template(@model.toJSON() ))
     return this

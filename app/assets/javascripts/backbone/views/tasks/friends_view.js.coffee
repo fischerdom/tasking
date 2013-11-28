@@ -5,7 +5,6 @@ class Tasking.Views.Tasks.FriendsView extends Backbone.View
   tagName: "option"
   
   initialize: () ->
-   # @model.friends.bind('reset', @addAllFriends)
 
 
     
