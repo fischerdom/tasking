@@ -11,9 +11,9 @@ class Tasking.Views.Tasklists.EditView extends Backbone.View
     e.stopPropagation()
 
     @model.save(null,
-      success : (task) =>
-        @model = task
-        window.location.hash = "tasklists/{@model.id}"
+      success : (tasklist) =>
+        @model = tasklist
+        window.location.hash = "tasklists"
     )
 
   render : ->

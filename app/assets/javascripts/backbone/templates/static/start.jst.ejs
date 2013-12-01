@@ -1,8 +1,10 @@
 
 	<div data-role="header">
-		<!--<a href="#start" data-icon="back">Back</a>-->
-		<a href="#logout" data-role="button" data-icon="back">Logout</a>
-        <h1>Start</h1>
+	
+		<% if (typeof id != "undefined") { %>
+			<a href="#logout" data-role="button" data-icon="delete">Logout</a>
+		<% } %>
+	    <h1>Start</h1>
   	</div>
   	<div data-role="content">
 		<% if (typeof id == "undefined") { %>
@@ -12,13 +14,13 @@
 		<% } else { %>
 			<fieldset class="ui-grid-a">
 				<div class="ui-block-a">
-					<a href="#tasks" data-role="button" data-icon="grid" data-iconpos="top">Open Tasks</a>
-					<a href="#tasklists" data-role="button" data-icon="grid" data-iconpos="top">Your Lists</a>
-					<a href="#ranking" data-role="button" data-icon="grid" data-iconpos="top">Ranking</a>
+					<a href="#tasks" data-role="button" data-icon="info" data-iconpos="top">Open Tasks</a>
+					<a href="#tasklists/detail" data-role="button" data-icon="arrow-d" data-iconpos="top">Your Lists</a>
+					<a href="#ranking" data-role="button" data-icon="star" data-iconpos="top">Ranking</a>
 				</div>
 				<div class="ui-block-b">
-					<a href="#tasks/get" data-role="button" data-icon="grid" data-iconpos="top">Get Tasks</a>
-					<a href="#tasklists/new" data-role="button" data-icon="grid" data-iconpos="top">Create Lists</a>
+					<a href="#tasks/get" data-role="button" data-icon="search" data-iconpos="top">Get Tasks</a>
+					<a href="#tasklists" data-role="button" data-icon="plus" data-iconpos="top">Edit Lists</a>
 					<a href="#history" data-role="button" data-icon="grid" data-iconpos="top">History</a>
 				</div>
 			</fieldset>

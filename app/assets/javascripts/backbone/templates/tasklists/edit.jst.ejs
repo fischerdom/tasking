@@ -1,9 +1,19 @@
 	<div data-role="header">
 		<a href="#tasklists" data-icon="back">Back</a>
         <h1>Edit Tasklist</h1>
+		<a href="#tasklists/<%= id %>/destroy" data-icon="delete" data-role="button">Delete</a>
   	</div>
   	<div data-role="content">
-		<ul data-role="listview" data-inset="true" class="ui-listview">
-		  
-		</ul>
+		<form id="edit-tasklist" name="tasklist">
+		  <div class="field">
+		    <label for="name">Name:</label>
+		    <input type="text" name="name" id="name" value="<%= name %>" >
+		  </div>
+		
+		  <div class="actions">
+		    <input type="submit" value="Update Tasklist" />
+		  </div>
+		
+		</form>
+
 	</div>

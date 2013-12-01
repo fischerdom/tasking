@@ -5,7 +5,7 @@ class TasklistsController < ApplicationController
   # GET /tasklists.json
   def index
     if(current_user != nil)
-      @tasklists = Task.where("user_id = ?", current_user.id)
+      @tasklists = Tasklist.where("user_id = ?", current_user.id)
       respond_to do |format|
         format.html { redirect_to :root }
         format.json { render json: @tasklists}
@@ -36,6 +36,7 @@ class TasklistsController < ApplicationController
   # POST /tasklists.json
   def create
     @tasklist = Tasklist.new(tasklist_params)
+    @tasklist.user_id = current_user.id
 
     respond_to do |format|
       if @tasklist.save
