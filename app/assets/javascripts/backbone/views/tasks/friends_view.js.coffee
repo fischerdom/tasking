@@ -9,5 +9,6 @@ class Tasking.Views.Tasks.FriendsView extends Backbone.View
 
     
   render: ->
+    $(@el).attr("value", @model.id)
     $(@el).html(@template(@model))
     return this

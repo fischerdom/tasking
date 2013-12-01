@@ -7,6 +7,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     "submit #new-task": "save"
     "change #select-tasklist" : "tasklistChange"
     "change #select-category" : "categoryChange"
+    "change #select-friend"   : "friendChange"
     
   constructor: (options) ->
     super(options)
@@ -37,6 +38,9 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
   categoryChange: (category_id) ->
     category_id = $("#select-category").val(); 
     
+  friendChange: (user_id) ->
+    user_id = $("#select-friend").val();  
+    
       
   addAllCategories: () =>
      @collectionCategory = new Tasking.Collections.CategoriesCollection()
@@ -47,7 +51,17 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
 
   addOneCategory: (category) =>
     view = new Tasking.Views.Tasks.XCategoryView({model : category})
-    @$("#select-category").append(view.render().el)    
+    @$("#select-category").append(view.render().el) 
+    
+  addAllFriends: () =>
+     @addOneFriend(current_user.toJSON())
+     for obj in window.current_user.attributes.friends
+       @addOneFriend(obj)
+       
+
+  addOneFriend: (friend) =>
+    view = new Tasking.Views.Tasks.FriendsView({model : friend})
+    @$("#select-friend").append(view.render().el)    
     
   addAllTasklists: () =>
      @collectionTasklist = new Tasking.Collections.TasklistsCollection()
@@ -65,6 +79,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     $(@el).html(@template(@model.toJSON() ))
     @addAllTasklists()
     @addAllCategories()
+    @addAllFriends()
     this.$("form").backboneLink(@model)
     $("#app").trigger("create");
 

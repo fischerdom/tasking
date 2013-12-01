@@ -24,8 +24,9 @@ class User < ActiveRecord::Base
       @friends = Array.new
       
       @friends_all.each do |entry|
-        if User.find_by uid: entry["id"]
-            @friends.append(entry)
+        user = User.find_by uid: entry["id"]
+        if user
+            @friends.append(user)
         end
       end
       
