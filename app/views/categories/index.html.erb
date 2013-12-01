@@ -1,8 +1,0 @@
-<div id="categories"></div>
-
-<script type="text/javascript">
-  $(function() {
-    window.router = new Tasking.Routers.AppRouter({categories: <%= @categories.to_json.html_safe -%>});
-    Backbone.history.start();
-  });
-</script>
