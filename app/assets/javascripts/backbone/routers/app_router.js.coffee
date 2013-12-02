@@ -34,15 +34,12 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     "tasks/:id"             : "tasksShow"
     "tasks.*"               : "tasksIndex"
     
+    "tasklists/detail"      : "tasklistsDetail"
     "tasklists/new"         : "tasklistsNew"
     "tasklists/index"       : "tasklistsIndex"
+    "tasklists/:id/destroy" : "tasklistsDestroy"
     "tasklists/:id/edit"    : "tasklistsEdit"
-    "tasklists/:id"         : "tasklistsShow"
     "tasklists.*"           : "tasklistsIndex"
-    
-    "users.*"               : "usersIndex"
-    "users/index"           : "usersIndex"
-    "users/:id"             : "usersShow"
 
   start: ->
     @view = new Tasking.Views.Static.StartView()
@@ -142,13 +139,18 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     @view = new Tasking.Views.Tasks.EditView(model: task)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
   
+  
+ 
   tasklistsInitialize: ->
     @tasklists = new Tasking.Collections.TasklistsCollection()
     @tasklists.fetch({async: false})
 
   tasklistsNew: ->
-
     @view = new Tasking.Views.Tasklists.NewView(collection: @tasklists)
+    $("#BBCont").html(@view.render().el).trigger('pagecreate')
+
+  tasklistsDetail: ->
+    @view = new Tasking.Views.Tasklists.DetailView(tasklists: @tasklists)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   tasklistsIndex: ->
@@ -166,20 +168,14 @@ class Tasking.Routers.AppRouter extends Backbone.Router
 
     @view = new Tasking.Views.Tasklists.EditView(model: tasklist)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
+    
+  tasklistsDestroy: (id) ->
+    tasklist = @tasklists.get(id)
+    tasklist.destroy()
+    
+    @view = new Tasking.Views.Tasklists.IndexView(tasklists: @tasklists, msg: tasklist.name + " deleted!")
+    $("#BBCont").html(@view.render().el).trigger('pagecreate')
   
-  usersInitialize: (options) ->
-    @users = new Tasking.Collections.UsersCollection()
-    @users.reset options.users
-    
-  usersIndex: ->
-    @view = new Tasking.Views.Users.IndexView(users: @users)
-    console.log(@view.render().el)
-    $("#BBCont").html(@view.render().el).trigger('pagecreate')
-    
-  usersShow: (id) ->
-    user = @users.get(id)
-
-    @view = new Tasking.Views.Users.ShowView(model: user)
-    $("#BBCont").html(@view.render().el).trigger('pagecreate')
+  
     
   

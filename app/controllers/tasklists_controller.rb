@@ -36,6 +36,7 @@ class TasklistsController < ApplicationController
   # POST /tasklists.json
   def create
     @tasklist = Tasklist.new(tasklist_params)
+    @tasklist.user_id = current_user.id
 
     respond_to do |format|
       if @tasklist.save
