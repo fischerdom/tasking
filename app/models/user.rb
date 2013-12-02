@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   
   
   def friends
+    
+      if @friends == nil
+        
       #Hole alle Freunde mittels Facebook-Connection
       @friends_all = facebook.get_connections("me", "friends")
       
@@ -28,9 +31,11 @@ class User < ActiveRecord::Base
         if user
             @friends.append(user)
         end
+        
+        return @friends
       end
-      
-      return @friends
-      
+      else
+        return @friends
+      end
   end
 end
