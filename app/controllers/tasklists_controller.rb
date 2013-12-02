@@ -8,7 +8,7 @@ class TasklistsController < ApplicationController
       @tasklists = Tasklist.where("user_id = ?", current_user.id)
       respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render json: @tasklists}
+        format.json { render json: @tasklists.to_json(:methods => [:done_text, :done_percentage])}
       end
     else
       respond_to do |format|

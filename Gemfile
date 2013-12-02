@@ -57,3 +57,4 @@ gem 'formtastic'
 #  gem 'database_cleaner'
 #end
 gem "rails-backbone"
+gem "timespan"
