@@ -8,6 +8,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     "change #select-tasklist" : "tasklistChange"
     "change #select-category" : "categoryChange"
     "change #select-friend"   : "friendChange"
+    "change #select-pointvalue"      : "pointvalueChange"
     
   constructor: (options) ->
     super(options)
@@ -26,7 +27,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (task) =>
         @model = task
-        window.location.hash = "tasks/{@model.id}"
+        window.location.hash = "tasks"
 
       error: (task, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
@@ -41,6 +42,11 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
   friendChange: (user_id) ->
     user_id = $("#select-friend").val();  
     
+  pointvalueChange: (pointvalue) -> 
+    console.log(pointvalue)
+    pointvalue = $("#select-pointvalue").val();
+    console.log(pointvalue)
+     
       
   addAllCategories: () =>
      @collectionCategory = new Tasking.Collections.CategoriesCollection()

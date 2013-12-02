@@ -28,7 +28,11 @@
 			<select name="assigned_to" id="select-friend">
 				<option value="standard">Assign to...</option>
 			</select>
-
+			
+		  <div data-role="fieldcontain">
+			<label for="select-pointvalue">Reward points:</label>
+			<input type="range" name="pointvalue" id="select-pointvalue" value="<%= pointvalue %>" min="1" max="10" data-highlight="true" />
+		  </div>
 	
 		  <div class="actions">
 		    <input type="submit" value="Create Task" />
