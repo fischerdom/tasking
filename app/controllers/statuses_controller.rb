@@ -5,6 +5,10 @@ class StatusesController < ApplicationController
   # GET /statuses.json
   def index
     @statuses = Status.all
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.json { render json: @statuses}
+    end
   end
 
   # GET /statuses/1
@@ -29,8 +33,8 @@ class StatusesController < ApplicationController
     respond_to do |format|
       if @status.save
         format.html { redirect_to @status, notice: 'Status was successfully created.' }
-        #format.json { render action: 'show', status: :created, location: @status }
-        format.json { render json: @status, status: :created, location: @status }
+        format.json { render action: 'show', status: :created, location: @status }
+        #format.json { render json: @status, status: :created, location: @status }
       else
         format.html { render action: 'new' }
         format.json { render json: @status.errors, status: :unprocessable_entity }
