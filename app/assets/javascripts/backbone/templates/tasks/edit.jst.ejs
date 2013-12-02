@@ -6,23 +6,25 @@
 		
 		<form id="edit-task" name="task">
 		  
-		
 		  <div class="field">
 		    <label for="tasklist_id">Tasklist_id:</label>
 		    <input type="text" name="tasklist_id" id="tasklist_id" value="<%= tasklist_id %>">
 		  </div>
-		
+		  
 		  <div class="field">
-		    <label for="category_id">Category_id:</label>
-		    <input type="text" name="category_id" id="category_id" value="<%= category_id %>" >
+		  	<label for="category_id">Category:</label>
+		  	<select name="category_id" id="select-category" value="<%= category_id %>" >
+		  		<option value="standard"> <%= category_id %> </option>
+			</select>
 		  </div>
-		
+		  
 		  <div class="field">
-		    <label for="status_id"> status_id:</label>
-		    <input type="text" name="status_id" id="status_id" value="<%= status_id %>" >
+		  	<label for="status_id">Status:</label>
+		  	<select name="status_id" id="select-status" value="<%= status_id %>" >
+		  		<option value="standard"> <%= status_id %> </option>
+			</select>
 		  </div>
-		
-		
+		  
 		
 		  <div class="field">
 		    <label for="title"> title:</label>
@@ -53,9 +55,6 @@
 		    <select name="assigned_to" id="select-friend">
 			</select>
 		  </div>
-		  
-		  <ul></ul>
-		  
 		  
 		  <div class="actions">
 		    <input type="submit" value="Update Task" />
