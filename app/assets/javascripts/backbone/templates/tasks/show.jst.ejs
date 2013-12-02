@@ -2,7 +2,6 @@
 		<a href="#tasks" data-icon="back">Back</a>
         <h1>Tasks Detail</h1>
         <a href="#tasks/<%= id %>/edit" data-icon="edit" data-role="button">Edit</a>
-		<a href="#tasks/<%= id %>/delete" data-icon="delete" data-role="button">Delete</a>
   	</div>
   	<div data-role="content">
 		
@@ -15,5 +14,27 @@
 		  <b>Title:</b>
 		  <%= title %>
 		</p>
-				
+		<p>
+		  <b>Assigned to:</b>
+		  <%= assigned_to %>
+		</p>
+		<p>
+		  <b>Desciption:</b>
+		  <%= description %>
+		</p>
+		<p>
+		  <b>Point value:</b>
+		  <%= pointvalue %>
+		</p>
+		<p>
+		  <b>Due:</b>
+		  <%= due_date %>
+		</p>		
+		<p>
+		  <b>Estimated Time Consumption:</b>
+		  <%= etc %>
+		</p>
 	</div>
+		<div data-role="footer" align="center">
+		<a href="#tasks/<%= id %>/delete" data-icon="delete" data-role="button">Delete</a>
+  	</div>

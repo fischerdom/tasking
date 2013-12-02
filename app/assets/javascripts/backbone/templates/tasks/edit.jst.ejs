@@ -5,9 +5,7 @@
   	<div data-role="content">
 		
 		<form id="edit-task" name="task">
-		  <div class="field">
-		    <input type="hidden" name="id" id="id" value="<%= id %>" >
-		  </div>
+		  
 		
 		  <div class="field">
 		    <label for="tasklist_id">Tasklist_id:</label>
@@ -24,10 +22,7 @@
 		    <input type="text" name="status_id" id="status_id" value="<%= status_id %>" >
 		  </div>
 		
-		  <div class="field">
-		    <label for="assigned_to"> assigned_to:</label>
-		    <input type="text" name="assigned_to" id="assigned_to" value="<%= assigned_to %>" >
-		  </div>
+		
 		
 		  <div class="field">
 		    <label for="title"> title:</label>
@@ -55,15 +50,17 @@
 		  </div>
 		  
 		  <div class="field">
-		    <select name="select-friends" id="select-friends">
+		    <select name="assigned_to" id="select-friend">
 			</select>
 		  </div>
+		  
+		  <ul></ul>
+		  
 		  
 		  <div class="actions">
 		    <input type="submit" value="Update Task" />
 		  </div>
   
-<ul></ul>
 
 </form>
 </div>
