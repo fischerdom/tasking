@@ -5,10 +5,15 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     if(current_user != nil)
-      @tasks = Task.where("assigned_to = ?", current_user.id)
+      if params['tasklist_id'] != nil
+        @tasks = Task.where("assigned_to = ? AND tasklist_id = ?", current_user.id, params['tasklist_id'])
+      else
+        @tasks = Task.where("assigned_to = ?", current_user.id)
+      end
+      @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render json: @tasks}
+        format.json { render :json => @tasks.to_json(:methods => :due_date_f)}
       end
     else
       

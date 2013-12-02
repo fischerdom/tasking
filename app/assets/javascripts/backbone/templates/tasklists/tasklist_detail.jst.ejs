@@ -1,0 +1,9 @@
+<h3><%= name%></h3>
+<% if (done_percentage >= 0) { %>
+<div class="tasklist_done ui-grid-a ui-body-e">
+	<p class="ui-block-a ui-btn-inner ui-corner-top ui-corner-bottom"><%= done_text%></p>	
+	<p class="tasklist_done_bar ui-block-b ui-body-a ui-btn-inner ui-corner-top ui-corner-bottom" style="width:<%= done_percentage/2%>%"><%= (done_percentage/2)%> %</p>
+</div>
+<br/>
+<% } %>
+<ul data-role="listview"></ul>
