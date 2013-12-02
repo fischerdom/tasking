@@ -7,4 +7,4 @@ class Tasking.Models.Status extends Backbone.Model
 
 class Tasking.Collections.StatusesCollection extends Backbone.Collection
   model: Tasking.Models.Status
-  url: '/statuses'
+  url: '/statuses.json'
