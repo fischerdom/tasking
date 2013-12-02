@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -25,7 +26,16 @@ class UsersController < ApplicationController
   def edit
   end
   
-  # GET/users/current
+  # GET/users/ranking
+  def ranking
+    
+    respond_to do |format|
+      format.html { render action: 'new' }
+      format.json { render :json => Ranking.calculate_by(current_user).to_json(:methods => :points) }
+    end
+  end
+  
+  # GET/users/ranking
   def current
     puts  current_user.to_json(:methods => :friends)
     respond_to do |format|
@@ -33,6 +43,7 @@ class UsersController < ApplicationController
       format.json { render :json => current_user.to_json(:methods => :friends) }
     end
   end
+
 
   # POST /users
   # POST /users.json

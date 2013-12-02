@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :tasks, :foreign_key => :assigned_to
+  has_many :tasklists
+  
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -14,9 +17,9 @@ class User < ActiveRecord::Base
       @facebook = Koala::Facebook::API.new(oauth_token)
   end
   
-  
+  ##
+  # Retrive the list of registrated facebook friends of the user
   def friends
-    
       if @friends == nil
         
       #Hole alle Freunde mittels Facebook-Connection
@@ -37,5 +40,14 @@ class User < ActiveRecord::Base
       else
         return @friends
       end
+  end
+  
+  ##
+  # Calculates the sum of poinvalues of the user.
+  def points
+    sum = 0
+    tasks = self.tasks.where(:status_id => Status.finished)
+    tasks.each {|task| sum = sum + task.pointvalue}
+    return sum
   end
 end

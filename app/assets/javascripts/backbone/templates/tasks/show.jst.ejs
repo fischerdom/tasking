@@ -5,22 +5,17 @@
   	</div>
   	<div data-role="content">
 		
-		
-		<p>
-		  <b>Id:</b>
-		  <%= id %>
-		</p>
 		<p>
 		  <b>Title:</b>
 		  <%= title %>
 		</p>
 		<p>
 		  <b>Assigned to:</b>
-		  <%= assigned_to %>
+		  <%= user.name %>
 		</p>
 		<p>
 		  <b>Category:</b>
-		  <%= category_id %>
+		  <%= category.title %>
 		</p>
 		<p>
 		  <b>Desciption:</b>
@@ -32,7 +27,7 @@
 		</p>
 		<p>
 		  <b>Due:</b>
-		  <%= due_date %>
+		  <%= due_date_f %>
 		</p>		
 		<p>
 		  <b>Estimated Time Consumption:</b>

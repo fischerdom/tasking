@@ -13,7 +13,7 @@ class TasksController < ApplicationController
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render :json => @tasks.to_json(:methods => :due_date_f)}
+        format.json { render :json => @tasks.to_json(:methods => [:due_date_f, :category, :user])}
       end
     else
       
@@ -27,6 +27,11 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { render :json => @task.to_json(:methods => 
+          [:due_date_f, :category, :user])}
+      end
   end
 
   # GET /tasks/new

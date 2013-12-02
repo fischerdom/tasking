@@ -10,3 +10,7 @@ class Tasking.Models.User extends Backbone.Model
     oauth_token: null
     oauth_expires_at: null
     friends: null
+
+class Tasking.Collections.UserCollection extends Backbone.Collection
+  model: Tasking.Models.Tasklist
+  url: '/users'

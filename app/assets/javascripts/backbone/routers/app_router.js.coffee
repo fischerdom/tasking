@@ -15,6 +15,8 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     "logout"                : "logout"
     "close"                 : "close"
     
+    "users/ranking"         : "usersRanking"
+    
     "categories/new"        : "categoriesNew"
     "categories/index"      : "categoriesIndex"
     "categories/:id/edit"   : "categoriesEdit"
@@ -62,7 +64,10 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     window.current_user = CU;
     # async = false //Er soll warten bis er fertig ist.
     CU.fetch({async:false});
-    
+  
+  usersRanking: (options) ->
+    @view = new Tasking.Views.Users.RankingView()
+    $("#BBCont").html(@view.render().el).trigger('pagecreate')
       
   categoriesInitialize: (options) ->
     @categories = new Tasking.Collections.CategoriesCollection()

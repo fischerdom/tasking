@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 20131202204829) do
     t.integer  "assigned_to"
     t.string   "title"
     t.string   "description"
-    t.integer  "pointvalue"
+    t.float    "pointvalue"
     t.datetime "due_date"
-    t.integer  "etc"
+    t.float    "etc"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
