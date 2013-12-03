@@ -27,7 +27,6 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
     user_id = $("#select-friend").val();  
     
   statusChange: (status_id) ->
-    console.log "status Change"
     status_id = $("#select-status").val();   
    
   addAllFriends: () =>
@@ -44,11 +43,9 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
     @collectionStatus.fetch({success :@addAllStatusesAfterFetch})
       
   addAllStatusesAfterFetch: () =>
-    console.log "addallstatusesafterfetch"
     @collectionStatus.each(@addOneStatus)
     
   addOneStatus: (status) =>
-    console.log "addonestatus"
     view = new Tasking.Views.Tasks.XStatusView({model : status})
     @$("#select-status").append(view.render().el) 
     

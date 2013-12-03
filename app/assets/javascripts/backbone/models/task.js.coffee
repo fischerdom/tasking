@@ -5,7 +5,7 @@ class Tasking.Models.Task extends Backbone.Model
     id: null
     tasklist_id: null
     category_id: null
-    status_id: null
+    status_id: "1"     #Standardwert für status auf "Open" setzen
     assigned_to: null
     title: null
     description: null
