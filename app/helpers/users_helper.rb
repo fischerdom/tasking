@@ -4,7 +4,7 @@ module UsersHelper
       users = user.friends
       users.append(user)
       
-      return users.sort!{ |x, y| x <=> y}
+      return users.sort!{ |x, y| y.points <=> x.points}
     end
   end
 end

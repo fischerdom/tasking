@@ -11,7 +11,7 @@ class Tasking.Views.Users.RankingView extends Backbone.View
     if(@RBP.length > 0)
       @RBP.each(@addOne)
     else
-      @$("ul#RBP").append("<li> No Task found</li>")
+      @$("ol#RBP").append("<li>No completed Tasks found</li>")
     @$("ol").listview('refresh');
 
   addOne: (rbp) =>

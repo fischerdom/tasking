@@ -12,7 +12,8 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     
   constructor: (options) ->
     super(options)
-    @model = new @collection.model()
+    @tasks = options.tasks
+    @model = new @tasks.model()
 
     @model.bind("change:errors", () =>
       this.render()
@@ -24,7 +25,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
 
     @model.unset("errors")
 
-    @collection.create(@model.toJSON(),
+    @tasks.create(@model.toJSON(),
       success: (task) =>
         @model = task
         window.location.hash = "tasks"

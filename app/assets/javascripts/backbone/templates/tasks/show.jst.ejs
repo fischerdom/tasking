@@ -11,7 +11,11 @@
 		</p>
 		<p>
 		  <b>Assigned to:</b>
+		  <% if(user) { %>
 		  <%= user.name %>
+		  <% } else { %>
+		  <b>Not assigned!</b>
+		  <% } %>
 		</p>
 		<p>
 		  <b>Category:</b>

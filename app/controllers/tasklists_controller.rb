@@ -41,10 +41,10 @@ class TasklistsController < ApplicationController
     respond_to do |format|
       if @tasklist.save
         format.html { redirect_to @tasklist, notice: 'Tasklist was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @tasklist }
+        format.json { render json: @tasklist, status: :created}
       else
         format.html { render action: 'new' }
-        format.json { render json: @tasklist.errors, status: :unprocessable_entity }
+        format.json { render json: nil }
       end
     end
   end
