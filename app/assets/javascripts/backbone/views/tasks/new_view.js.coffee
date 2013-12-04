@@ -12,8 +12,10 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     
   constructor: (options) ->
     super(options)
-    @model = new @collection.model()
-    console.log @model
+    @tasks = options.tasks
+    @model = new @tasks.model()
+
+
     @model.bind("change:errors", () =>
       this.render()
     )
@@ -23,19 +25,18 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     @model.attributes.category_id = $("#select-category").val();
     @model.attributes.user_id = $("#select-friend").val();
     @model.attributes.pointvalue = $("#select-pointvalue").val();
-    @model.attributes.due_date = $("select-due_date").val();
-    console.log(@due_date)
+    @model.attributes.due_date = $("#select-due_date").val();
     @model.attributes.etc = $("#select-etc").val();    
     e.preventDefault()
     e.stopPropagation()
     
     @model.unset("errors")
 
-    @collection.create(@model.toJSON(),
+    @tasks.create(@model.toJSON(),
       success: (task) =>
-        console.log(@model)
         @model = task
         window.location.hash = "tasks"
+        window.location.reload();
 
       error: (task, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
@@ -96,6 +97,6 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     @addAllCategories()
     @addAllFriends()
     this.$("form").backboneLink(@model)
-    #$("#app").trigger("create");
+    $("#app").trigger("create");
 
     return this
