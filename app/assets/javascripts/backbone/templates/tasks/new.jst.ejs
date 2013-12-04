@@ -8,6 +8,10 @@
 		  <div class="field">
 		    <input type="hidden" name="id" id="id" value="<%= id %>" >
 		  </div>
+		  
+		  <div class="field">
+		    <input type="hidden" name="pointvalue" id="pointvalue" value="<%= pointvalue %>" >
+		  </div>
 		
 		  <div class="field">
 		    <input type="text" name="title" id="title" value="<%= title %>" placeholder="Title">
@@ -32,6 +36,16 @@
 		  <div data-role="fieldcontain">
 			<label for="select-pointvalue">Reward points:</label>
 			<input type="range" name="pointvalue" id="select-pointvalue" value="<%= pointvalue %>" min="1" max="10" data-highlight="true" />
+		  </div>
+		  
+		  <div data-role="fieldcontain">
+		  	<label for="select-due_date">Due Date: </label>
+		  	<input type="datetime-local" name"due_date" id="select-due_date" value="<%= due_date %>" />
+		  </div>
+		  
+		  <div data-role="fieldcontain">
+			<label for="select-etc">Estimated time consumption:</label>
+			<input type="range" name="etc" id="select-etc" value="<%= etc %>" min="1" max="100" data-highlight="true" />
 		  </div>
 	
 		  <div class="actions">
