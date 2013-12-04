@@ -80,14 +80,13 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
   addOneTasklist: (tasklist) =>
     view = new Tasking.Views.Tasks.TasklistsView({model : tasklist})
     @$("#select-tasklist").append(view.render().el)
-  
-   
+ 
   render: ->
     $(@el).html(@template(@model.toJSON() ))
     @addAllTasklists()
     @addAllCategories()
     @addAllFriends()
-    this.$("form").backboneLink(@model)
     $("#app").trigger("create");
+    this.$("form").backboneLink(@model)
 
     return this
