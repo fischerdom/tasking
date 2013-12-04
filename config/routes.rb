@@ -2,7 +2,6 @@ Tasking::Application.routes.draw do
   get "static_pages/start"
   get 'users/current', to: 'users#current'
   get 'users/ranking', to: 'users#ranking'
-  get 'tasks/unassigned', to: 'tasks#unassigned'
   
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

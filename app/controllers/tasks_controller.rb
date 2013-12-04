@@ -5,22 +5,10 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     if(current_user != nil)
-      @tasks = []
-  
-      @users = current_user.friends
-      @users.append(current_user)
       if params['tasklist_id'] != nil
-        @users.each {|user| 
-          user.tasklists.each { |tasklist| 
-            @tasks += (tasklist.tasks.where("tasklist_id = ?",params['tasklist_id']))
-          }
-        }
+        @tasks = Task.where("assigned_to = ? AND tasklist_id = ?", current_user.id, params['tasklist_id'])
       else
-        @users.each {|user| 
-          user.tasklists.each { |tasklist| 
-            @tasks += (tasklist.tasks)
-          }
-        }
+        @tasks = Task.where("assigned_to = ?", current_user.id)
       end
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
@@ -34,27 +22,6 @@ class TasksController < ApplicationController
         format.json { render json: nil}
       end
     end
-  end
-  
-  # GET /tasks/unassigned
-  # GET /tasks/unassigned.json
-  def unassigned
-    @tasks = []
-    @users = current_user.friends
-    @users.append(current_user)
-    @users.each {|user| 
-       user.tasklists.each { |tasklist| 
-        @tasks += (tasklist.tasks.where("assigned_to is NULL"))
-      }
-    }
-    
-   
-    @tasks.sort! { |x,y| x.due_date <=> y.due_date}
-    respond_to do |format|
-      format.html { redirect_to :root }
-      format.json { render :json => @tasks.to_json(:methods => [:due_date_f, :category, :user])}
-    end
-    
   end
 
   # GET /tasks/1
@@ -80,11 +47,11 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
+    @task.status_id = 1
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render json: @task, status: :created}
+        # format.json { render action: 'show', status: :created, location: @task }
       else
         format.html { render action: 'new' }
         format.json { render json: @task.errors, status: :unprocessable_entity }

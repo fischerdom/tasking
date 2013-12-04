@@ -29,8 +29,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     "statuses/:id/edit"     : "statusesEdit"
     "statuses/:id"          : "statusesShow"
     "statuses.*"            : "statusesIndex"
-      
-    "tasks/get"             : "tasksGet"
+    
     "tasks/new"             : "tasksNew"
     "tasks/index"           : "tasksIndex"
     "tasks/:id/edit"        : "tasksEdit"
@@ -121,27 +120,16 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     @view = new Tasking.Views.Statuses.EditView(model: status)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')      
 
-
-  # Tasks Section
-  # Tasks Section
   tasksInitialize: (options) ->
     @tasks = new Tasking.Collections.TasksCollection()
     @tasks.fetch({async: false})
-
-  # Get unassigned Tasks
-  tasksGet: ->
-    @uTasks = new Tasking.Collections.TasksCollection()
-    @uTasks.url = "/tasks/unassigned"
-    @uTasks.fetch({async: false})
-    @view = new Tasking.Views.Tasks.GetView(tasks: @uTasks)
+    
+  tasksNew: ->
+    @view = new Tasking.Views.Tasks.NewView(collection: @tasks)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   tasksIndex: ->
     @view = new Tasking.Views.Tasks.IndexView(tasks: @tasks)
-    $("#BBCont").html(@view.render().el).trigger('pagecreate')
-    
-  tasksNew: ->
-    @view = new Tasking.Views.Tasks.NewView(tasks: @tasks)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   tasksShow: (id) ->
@@ -157,8 +145,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
   
   
-  # Section Tasks
-  # Section Tasks
+ 
   tasklistsInitialize: ->
     @tasklists = new Tasking.Collections.TasklistsCollection()
     @tasklists.fetch({async: false})
