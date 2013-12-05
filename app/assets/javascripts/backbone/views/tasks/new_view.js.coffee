@@ -5,48 +5,57 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
 
   events:
     "submit #new-task": "save"
-    "change #select-tasklist" : "tasklistChange"
-    "change #select-category" : "categoryChange"
-    "change #select-friend"   : "friendChange"
-    "change #select-pointvalue"      : "pointvalueChange"
+#   "change #select-tasklist" : "tasklistChange"
+#   "change #select-category" : "categoryChange"
+#   "change #select-friend"   : "friendChange"
+#   "change #select-pointvalue"      : "pointvalueChange"
     
   constructor: (options) ->
     super(options)
     @model = new @collection.model()
+ 
 
     @model.bind("change:errors", () =>
       this.render()
     )
 
   save: (e) ->
+    @model.attributes.tasklist_id = $("#select-tasklist").val();
+    @model.attributes.category_id = $("#select-category").val();
+    @model.attributes.user_id = $("#select-friend").val();
+    @model.attributes.pointvalue = $("#select-pointvalue").val();
+    @model.attributes.due_date = $("#select-due_date").val();
+    @model.attributes.etc = $("#select-etc").val();    
     e.preventDefault()
     e.stopPropagation()
-
+    
     @model.unset("errors")
 
     @collection.create(@model.toJSON(),
       success: (task) =>
         @model = task
         window.location.hash = "tasks"
+        window.location.reload();
 
       error: (task, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
     
-  tasklistChange: (tasklist_id) ->
-    tasklist_id = $("#select-tasklist").val(); 
+#  tasklistChange: (tasklist_id) ->
+#    tasklist_id = $("#select-tasklist").val(); 
     
-  categoryChange: (category_id) ->
-    category_id = $("#select-category").val(); 
+#  categoryChange: (category_id) ->
+#    category_id = $("#select-category").val(); 
     
-  friendChange: (user_id) ->
-    user_id = $("#select-friend").val();  
+#  friendChange: (user_id) ->
+#    user_id = $("#select-friend").val();  
     
-  pointvalueChange: (pointvalue) -> 
-    console.log(pointvalue)
-    pointvalue = $("#select-pointvalue").val();
-    console.log(pointvalue)
-     
+#  pointvalueChange: (pointvalue) -> 
+#    pointvalue = $("select-pointvalue").val();
+#    xpointvalue = $("#select-pointvalue").val();
+#    pointvalue = xpointvalue
+#    console.log(pointvalue)
+
       
   addAllCategories: () =>
      @collectionCategory = new Tasking.Collections.CategoriesCollection()
@@ -79,14 +88,13 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
   addOneTasklist: (tasklist) =>
     view = new Tasking.Views.Tasks.TasklistsView({model : tasklist})
     @$("#select-tasklist").append(view.render().el)
-  
-   
+ 
   render: ->
     $(@el).html(@template(@model.toJSON() ))
     @addAllTasklists()
     @addAllCategories()
     @addAllFriends()
-    this.$("form").backboneLink(@model)
     $("#app").trigger("create");
+    this.$("form").backboneLink(@model)
 
     return this
