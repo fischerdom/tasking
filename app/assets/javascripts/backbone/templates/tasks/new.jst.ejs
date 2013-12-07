@@ -14,33 +14,33 @@
 		  </div>
 		
 		  <div class="field">
-		    <input type="text" name="title" id="title" value="<%= title %>" placeholder="Title">
+		    <input type="text" name="title" id="title" value="<%= title %>" placeholder="Title" required>
 		  </div>
 		  
 		  <div class="field">
 		    <input type="text" name="description" id="description" value="<%= description %>" placeholder="Description">
 		  </div>
 		  
-			<select name="category_id" id="select-category">
-   				<option value="standard">Choose Category...</option>
+			<select name="category_id" id="select-category" required>
+   				<option value="" style="display:none">Please select categroy</option>
 			</select>
 	  
-			<select name="tasklist_id" id="select-tasklist">
-				<option value="standard">Choose Tasklist...</option>
+			<select name="tasklist_id" id="select-tasklist" required>
+				<option value="" style="display:none">Please select tasklist</option>
 			</select>
 			
 			<select name="assigned_to" id="select-friend">
-				<option value="standard">Assign to...</option>
+				<option value="" style="display:none">Assign task to</option>
 			</select>
 			
 		  <div data-role="fieldcontain">
 			<label for="select-pointvalue">Reward points:</label>
-			<input type="range" name="pointvalue" id="select-pointvalue" value="<%= pointvalue %>" min="1" max="10" data-highlight="true" />
+			<input type="range" name="pointvalue" id="select-pointvalue" value="<%= pointvalue %>" min="1" max="10" data-highlight="true" required/>
 		  </div>
 		  
 		  <div data-role="fieldcontain">
 		  	<label for="select-due_date">Due Date: </label>
-		  	<input type="datetime-local" name"due_date" id="select-due_date" value="<%= due_date %>" />
+		  	<input type="datetime-local" name"due_date" id="select-due_date" value="<%= due_date %>" required/>
 		  </div>
 		  
 		  <div data-role="fieldcontain">
