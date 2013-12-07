@@ -33,10 +33,9 @@ class User < ActiveRecord::Base
         user = User.find_by uid: entry["id"]
         if user
             @friends.append(user)
-        end
-        
-        return @friends
+        end       
       end
+      return @friends
       else
         return @friends
       end
