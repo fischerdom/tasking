@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_task,:facebook_at, only: [:show, :edit, :update, :destroy]
+  
   # GET /tasks
   # GET /tasks.json
   def index
@@ -50,6 +50,7 @@ class TasksController < ApplicationController
     @task.status_id = 1
     respond_to do |format|
       if @task.save
+        facebook_notification()
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         # format.json { render action: 'show', status: :created, location: @task }
       else
@@ -59,11 +60,15 @@ class TasksController < ApplicationController
     end
   end
 
+  def facebook_notification
+    facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] hat dir einen neuen Task zugewiesen!", href: "#tasks/" + @task.id.to_s)
+  end
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
     respond_to do |format|
       if @task.update(task_params)
+        facebook_notification()
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,6 +86,11 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
     end
+  end
+  
+  def facebook_at
+    @facebook_at = Koala::Facebook::API.new(Koala::Facebook::OAuth.new().get_app_access_token)
+    return @facebook_at
   end
 
   private
