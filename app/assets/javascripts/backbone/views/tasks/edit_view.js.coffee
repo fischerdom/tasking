@@ -5,30 +5,38 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
 
   events :
     "submit #edit-task" : "update"
-    "change #select-friend"   : "friendChange"
-    "change #select-status"   : "statusChange"
-    "change #select-category" : "categoryChange"
+    #"change #select-friend"   : "friendChange"
+    #"change #select-status"   : "statusChange"
+    #"change #select-category" : "categoryChange"
     
   update : (e) ->
+    @model.attributes.status_id = $("#select-status").val();
+    @model.attributes.category_id = $("#select-category").val();
+    @model.attributes.user_id = $("#select-friend").val();
+    @model.attributes.pointvalue = $("#select-pointvalue").val();
+    @model.attributes.due_date = $("#select-due_date").val();
+    @model.attributes.etc = $("#select-etc").val();
+    
     e.preventDefault()
     e.stopPropagation()
-
+    
     @model.save(null,
       success : (task) =>
         @model = task
         window.location.hash = "tasks"
+        window.location.reload();
     )
     
     
-  categoryChange: (category_id) ->
-    category_id = $("#select-category").val(); 
-    
-  friendChange: (user_id) ->
-    user_id = $("#select-friend").val();  
-    
-  statusChange: (status_id) ->
-    status_id = $("#select-status").val();   
-   
+  #categoryChange: (category_id) ->
+  #  category_id = $("#select-category").val(); 
+  #  
+  #friendChange: (user_id) ->
+  #  user_id = $("#select-friend").val();  
+  #  
+  #statusChange: (status_id) ->
+  #  status_id = $("#select-status").val();    
+  
   addAllFriends: () =>
      @addOneFriend(current_user.toJSON())
      for obj in window.current_user.attributes.friends
@@ -67,7 +75,6 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
     @addAllCategories()
     @addAllStatuses()
     this.$("form").backboneLink(@model)
-    
     $("#app").trigger("create");
 
     return this

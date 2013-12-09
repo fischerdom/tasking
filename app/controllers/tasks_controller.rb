@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_task,:facebook_at, only: [:show, :edit, :update, :destroy]
+  
   # GET /tasks
   # GET /tasks.json
   def index
@@ -13,7 +13,7 @@ class TasksController < ApplicationController
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render :json => @tasks.to_json(:methods => [:due_date_f, :category, :user])}
+        format.json { render :json => @tasks.to_json(:methods => [:due_date_f, :category, :user, :status])}
       end
     else
       
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
     respond_to do |format|
         format.html { redirect_to :root }
         format.json { render :json => @task.to_json(:methods => 
-          [:due_date_f, :category, :user])}
+          [:due_date_f, :category, :user, :status])}
       end
   end
 
@@ -49,6 +49,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
+        facebook_notification()
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { head :no_content }
       else
@@ -58,11 +59,19 @@ class TasksController < ApplicationController
     end
   end
 
+  def facebook_notification
+    facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] hat dir einen neuen Task zugewiesen!", href: "#tasks/" + @task.id.to_s)
+  end
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
     respond_to do |format|
       if @task.update(task_params)
+
+        if @assigned != @task[:assigned_to]
+          facebook_notification()
+        end
+        
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,13 +90,19 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def facebook_at
+    @facebook_at = Koala::Facebook::API.new(Koala::Facebook::OAuth.new().get_app_access_token)
+    return @facebook_at
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
+      @assigned = @task[:assigned_to]
+      
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:tasklist_id, :category_id, :status_id, :assigned_to, :title, :description, :pointvalue, :due_date, :etc)

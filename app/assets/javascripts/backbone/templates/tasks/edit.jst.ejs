@@ -8,50 +8,60 @@
 		  
 		  
 		  <div class="field">
+		    <label for="title"> Title:</label>
+		    <input type="text" name="title" id="title" value="<%= title %>" required>
+		  </div>
+		
+		  <div class="field">
+		    <label for="description"> Description:</label>
+		    <input type="text" name="description" id="description" value="<%= description %>" >
+		  </div>
+		  
+		  <div class="field">
 		  	<label for="category_id">Category:</label>
-		  	<select name="category_id" id="select-category" value="<%= category_id %>" >
-		  		<option value="standard"> <%= category_id %> </option>
+		  	<select name="category_id" id="select-category" value="<%= category_id %>" required >
+		  		<option value="<%= category_id %>"> <%= category.title %> </option>
 			</select>
 		  </div>
+		  
 		  
 		  <div class="field">
 		  	<label for="status_id">Status:</label>
-		  	<select name="status_id" id="select-status" value="<%= status_id %>" >
-		  		<option value="standard"> <%= status_id %> </option>
+		  	<select name="status_id" id="select-status" value="<%= status_id %>">
+		  		<option value="<%= status_id %>"> <%= status.title %> </option>
 			</select>
 		  </div>
 		  
-		
+		  
 		  <div class="field">
-		    <label for="title"> title:</label>
-		    <input type="text" name="title" id="title" value="<%= title %>" >
+		  	<label for "assigned_to"> Task currently assigned to:</label>
+		    <select name="assigned_to" id="select-friend" >
+			</select>
 		  </div>
 		
-		  <div class="field">
-		    <label for="description"> description:</label>
-		    <input type="text" name="description" id="description" value="<%= description %>" >
+		  <div data-role="field">
+			<label for="select-pointvalue">Reward points:</label>
+			<input type="range" name="pointvalue" id="select-pointvalue" value="<%= pointvalue %>" min="1" max="10" data-highlight="true" required/>
 		  </div>
 		
-		  <div class="field">
-		    <label for="pointvalue"> pointvalue:</label>
-		    <input type="text" name="pointvalue" id="pointvalue" value="<%= pointvalue %>" >
+    	  
+    	  <div data-role="field">
+			<label for="select-etc">Estimated time consumption:</label>
+			<input type="range" name="etc" id="select-etc" value="<%= etc %>" min="1" max="100" data-highlight="true" />
 		  </div>
 		
+		
 		  <div class="field">
-		    <label for="due_date"> due_date:</label>
+		    <label for="due_date">Due date of Task:</label>
 		    <input type="text" name="due_date" id="due_date" value="<%= due_date %>" >
 		  </div>
-		
-		  <div class="field">
-		    <label for="etc"> etc:</label>
-		    <input type="text" name="etc" id="etc" value="<%= etc %>" >
+		  
+		  <div data-role="field">
+		  	<label for="select-due_date">Due Date: </label>
+		  	<input type="datetime-local" name="due_date" id="select-due_date" value="<%= due_date %>" required/>
 		  </div>
 		  
-		  <div class="field">
-		    <select name="assigned_to" id="select-friend">
-			</select>
-		  </div>
-		  
+
 		  <div class="actions">
 		    <input type="submit" value="Update Task" />
 		  </div>
