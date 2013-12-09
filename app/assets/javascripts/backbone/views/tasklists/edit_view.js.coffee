@@ -7,9 +7,9 @@ class Tasking.Views.Tasklists.EditView extends Backbone.View
     "submit #edit-tasklist" : "update"
 
   update : (e) ->
+    @model.attributes.closed = $("#select-closed").val();
     e.preventDefault()
     e.stopPropagation()
-
     @model.save(null,
       success : (tasklist) =>
         @model = tasklist
@@ -18,7 +18,6 @@ class Tasking.Views.Tasklists.EditView extends Backbone.View
 
   render : ->
     $(@el).html(@template(@model.toJSON() ))
-
     this.$("form").backboneLink(@model)
 
     return this

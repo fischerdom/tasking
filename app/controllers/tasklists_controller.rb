@@ -81,6 +81,6 @@ class TasklistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tasklist_params
-      params.require(:tasklist).permit(:user_id, :name)
+      params.require(:tasklist).permit(:user_id, :name, :closed)
     end
 end
