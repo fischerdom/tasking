@@ -5,15 +5,48 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     if(current_user != nil)
+      usr_lst = current_user.friends
+      usr_lst.append(current_user)
+      usr_ids = Array.new
+      usr_lst.each do |usr|
+        usr_ids.append(usr.id)
+      end
+    
       if params['tasklist_id'] != nil
         @tasks = Task.where("assigned_to = ? AND tasklist_id = ?", current_user.id, params['tasklist_id'])
       else
-        @tasks = Task.where("assigned_to = ?", current_user.id)
+        @tasks = Task.joins(:tasklist).where("assigned_to = ? OR user_id IN(" + usr_ids * "," + ")", current_user.id)
       end
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render :json => @tasks.to_json(:methods => [:due_date_f, :category, :user, :status])}
+        format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :category, :user, :status])}
+      end
+    else
+      
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { render json: nil}
+      end
+    end
+  end  
+  
+  # GET /tasks/get
+  # GET /tasks/get.json
+  def get
+    if(current_user != nil)
+      usr_lst = current_user.friends
+      usr_lst.append(current_user)
+      usr_ids = Array.new
+      usr_lst.each do |usr|
+        usr_ids.append(usr.id)
+      end
+      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND user_id IN(" + usr_ids * "," + ")")
+    
+      @tasks.sort! { |x,y| x.due_date <=> y.due_date}
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :category, :user, :status])}
       end
     else
       
@@ -30,7 +63,7 @@ class TasksController < ApplicationController
     respond_to do |format|
         format.html { redirect_to :root }
         format.json { render :json => @task.to_json(:methods => 
-          [:due_date_f, :category, :user, :status])}
+          [:owner, :tasklist, :due_date_f, :category, :user, :status])}
       end
   end
 

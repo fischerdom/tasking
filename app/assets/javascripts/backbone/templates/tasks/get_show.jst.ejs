@@ -1,0 +1,54 @@
+	<div data-role="header">
+		<a href="#tasks/get" data-icon="back">Back</a>
+        <h1>Get Task</h1>
+  	</div>
+  	<div data-role="content">
+		
+		<p>
+		  <b>Title:</b>
+		  <%console.log(obj)%>
+		  <%= title %>
+		</p>
+		<p>
+			Owned by <%= owner.name %>
+		</p>
+		<p>
+		  <b>Status:</b>
+		  <% if(status == null) { %>
+		  no status 
+		  <% } else { %>
+		  <%= status.title %>
+		  <% } %>
+		</p>
+		<p>
+		  <b>Assigned to:</b>
+		  <% if(user == null) { %>
+		  not assigned
+		  <% } else { %>
+		  <%= user.name %>
+		  <% } %>
+		</p>
+		<p>
+		  <b>Category:</b>
+		  <%= category.title %>
+		</p>
+		<p>
+		  <b>Desciption:</b>
+		  <%= description %>
+		</p>
+		<p>
+		  <b>Point value:</b>
+		  <%= pointvalue %>
+		</p>
+		<p>
+		  <b>Due:</b>
+		  <%= due_date_f %>
+		</p>		
+		<p>
+		  <b>Estimated Time Consumption:</b>
+		  <%= etc %>
+		</p>
+	</div>
+		<div data-role="footer" align="center">
+		<button data-icon="yes" data-role="button" id="assign-task">Assign task to me</button>
+  	</div>

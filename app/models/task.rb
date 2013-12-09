@@ -19,4 +19,8 @@ class Task < ActiveRecord::Base
     end
   end
   
+  def owner
+    return self.tasklist.user
+  end
+  
 end

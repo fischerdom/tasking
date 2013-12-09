@@ -7,15 +7,27 @@
 		
 		<p>
 		  <b>Title:</b>
+		  <%console.log(obj)%>
 		  <%= title %>
 		</p>
 		<p>
+			Owned by <%= owner.name %>
+		</p>
+		<p>
 		  <b>Status:</b>
+		  <% if(status == null) { %>
+		  no status 
+		  <% } else { %>
 		  <%= status.title %>
+		  <% } %>
 		</p>
 		<p>
 		  <b>Assigned to:</b>
+		  <% if(user == null) { %>
+		  not assigned
+		  <% } else { %>
 		  <%= user.name %>
+		  <% } %>
 		</p>
 		<p>
 		  <b>Category:</b>
