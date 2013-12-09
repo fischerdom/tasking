@@ -33,15 +33,17 @@
 				<option value="" style="display:none">Assign task to</option>
 			</select>
 			
+			<div data-role="fieldcontain">
+		  	<label for="select-due_date">Due Date: </label>
+		  	<input type="datetime-local" name"due_date" id="select-due_date" value="<%= due_date %>" required/>
+		  </div>
+			
+			
 		  <div data-role="fieldcontain">
 			<label for="select-pointvalue">Reward points:</label>
 			<input type="range" name="pointvalue" id="select-pointvalue" value="<%= pointvalue %>" min="1" max="10" data-highlight="true" required/>
 		  </div>
 		  
-		  <div data-role="fieldcontain">
-		  	<label for="select-due_date">Due Date: </label>
-		  	<input type="datetime-local" name"due_date" id="select-due_date" value="<%= due_date %>" required/>
-		  </div>
 		  
 		  <div data-role="fieldcontain">
 			<label for="select-etc">Estimated time consumption:</label>

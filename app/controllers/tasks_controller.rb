@@ -68,7 +68,11 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        facebook_notification()
+
+        if @assigned != @task[:assigned_to]
+          facebook_notification()
+        end
+        
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
@@ -97,8 +101,9 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
+      @assigned = @task[:assigned_to]
+      
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:tasklist_id, :category_id, :status_id, :assigned_to, :title, :description, :pointvalue, :due_date, :etc)
