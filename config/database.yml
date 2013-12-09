@@ -56,7 +56,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: tasking_production
+  database: d73881508uf8en
   pool: 5
-  username: tasking
-  password:
+  username: jntsumfqaxksjy
+  password: GDUYwqYWU3GTXM4473cWLFn6EM
