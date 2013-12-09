@@ -41,10 +41,10 @@ class TasklistsController < ApplicationController
     respond_to do |format|
       if @tasklist.save
         format.html { redirect_to @tasklist, notice: 'Tasklist was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @tasklist }
+        format.json { head :no_content }
       else
         format.html { render action: 'new' }
-        format.json { render json: @tasklist.errors, status: :unprocessable_entity }
+        format.json { head :no_content }
       end
     end
   end
@@ -68,7 +68,7 @@ class TasklistsController < ApplicationController
   def destroy
     @tasklist.destroy
     respond_to do |format|
-      format.html { redirect_to tasklists_url }
+      format.html { render action: 'taskslists'}
       format.json { head :no_content }
     end
   end
