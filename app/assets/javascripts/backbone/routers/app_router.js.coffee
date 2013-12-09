@@ -21,6 +21,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     "tasks/get"             : "tasksGet"
     "tasks/get/:id"         : "tasksGetShow"
     "tasks/index"           : "tasksIndex"
+    "tasks/:id/destroy"     : "tasksDestroy"
     "tasks/:id/edit"        : "tasksEdit"
     "tasks/:id"             : "tasksShow"
     "tasks.*"               : "tasksIndex"
@@ -92,7 +93,13 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     task = @tasks.get(id)
     @view = new Tasking.Views.Tasks.EditView(model: task)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
-  
+    
+  tasksDestroy: (id) ->
+    task = @tasks.get(id)
+    task.destroy()
+    
+    @view = new Tasking.Views.Tasks.IndexView(tasks: @tasks, msg: task.name + " deleted!")
+    $("#BBCont").html(@view.render().el).trigger('pagecreate')
   
  
   tasklistsInitialize: ->

@@ -8,7 +8,6 @@ class Tasking.Views.Tasklists.TasklistDetailTaskView extends Backbone.View
     @task = options.task
 
   render: =>
-    console.log(@task.toJSON())
     $(@el).html(@template(@task.toJSON() ))
 
     return this

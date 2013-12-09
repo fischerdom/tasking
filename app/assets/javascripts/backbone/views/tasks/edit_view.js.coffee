@@ -75,6 +75,6 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
     @addAllCategories()
     @addAllStatuses()
     this.$("form").backboneLink(@model)
-    $("#app").trigger("create");
+   
 
     return this

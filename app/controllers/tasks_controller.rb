@@ -80,7 +80,6 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-    @task.status_id = 1
     respond_to do |format|
       if @task.save
         facebook_notification()
@@ -120,7 +119,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to @task, notice: 'Task was successfully deleted.' }
       format.json { head :no_content }
     end
   end
