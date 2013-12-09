@@ -14,7 +14,13 @@
 		  <div class="field">
 		    <label for="closed">Close Tasklist:</label>
 			<select name="closed" id="select-closed" data-role="slider"  >
-
+				<% if (closed == 1) { %>
+			 		<option value="0">Open</option>
+					<option value="1" selected>Closed</option>
+				<% } else { %>
+					<option value="0" selected >Open</option>
+					<option value="1">Closed</option>
+				<% } %>
 			</select> 
 		  </div>
 		
