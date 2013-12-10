@@ -1,5 +1,6 @@
 Tasking::Application.routes.draw do
-  get "static_pages/start"
+  get 'static_pages/start'
+  
   get 'users/current', to: 'users#current'
   get 'users/ranking', to: 'users#ranking'
   get 'users/crowns', to: 'users#crowns'
@@ -9,7 +10,7 @@ Tasking::Application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   
-  post '/', to: 'static_pages#fb'
+  match '/', to: 'static_pages#fb', via: [:post]
   
   
   resources :users
