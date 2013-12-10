@@ -41,7 +41,7 @@ class TasksController < ApplicationController
       usr_lst.each do |usr|
         usr_ids.append(usr.id)
       end
-      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND user_id IN(" + usr_ids * "," + ")")
+      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND closed != 1 AND user_id IN(" + usr_ids * "," + ")")
     
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|

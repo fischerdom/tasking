@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :tasks, :foreign_key => :assigned_to
+  has_many :crowns, :foreign_key => :king_id, :class_name => "Tasklist"
   has_many :tasklists
   
   def self.from_omniauth(auth)
@@ -49,4 +50,6 @@ class User < ActiveRecord::Base
     tasks.each {|task| sum = sum + task.pointvalue}
     return sum
   end
+  
+  
 end
