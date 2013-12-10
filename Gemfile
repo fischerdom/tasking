@@ -58,3 +58,6 @@ gem 'formtastic'
 #end
 gem "rails-backbone"
 gem "timespan"
+
+#gem für heroku
+gem 'heroku'
