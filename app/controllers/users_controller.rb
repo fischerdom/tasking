@@ -45,7 +45,6 @@ class UsersController < ApplicationController
   
   # GET/users/ranking
   def current
-    puts  current_user.to_json(:methods => :friends)
     respond_to do |format|
       format.html { render action: 'new' }
       format.json { render :json => current_user.to_json(:methods => :friends) }

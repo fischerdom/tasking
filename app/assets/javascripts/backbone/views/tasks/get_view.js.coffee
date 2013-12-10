@@ -7,7 +7,10 @@ class Tasking.Views.Tasks.GetView extends Backbone.View
     @options.tasks.bind('reset', @addAll)
 
   addAll: () =>
-    @options.tasks.each(@addOne)
+    if @options.tasks.length == 0
+      $(@el).find("ul").before("<p><b>No open tasks found!</b></p>")
+    else
+      @options.tasks.each(@addOne)
 
   addOne: (task) =>
     view = new Tasking.Views.Tasks.GetTaskView({model : task})

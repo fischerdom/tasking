@@ -21,25 +21,23 @@ class User < ActiveRecord::Base
   ##
   # Retrive the list of registrated facebook friends of the user
   def friends
-      if @friends == nil
+      if @stored_friends == nil
         
-      #Hole alle Freunde mittels Facebook-Connection
-      @friends_all = facebook.get_connections("me", "friends")
+        #Hole alle Freunde mittels Facebook-Connection
+        @friends_all = facebook.get_connections("me", "friends")
       
-      #Nachfolgend wird die Freundesliste gefiltert, um nur die zu erhalten, die tatsächlich in der DB enthalten sind
+        #Nachfolgend wird die Freundesliste gefiltert, um nur die zu erhalten, die tatsächlich in der DB enthalten sind
       
-      @friends = Array.new
+        @stored_friends = Array.new
       
-      @friends_all.each do |entry|
-        user = User.find_by uid: entry["id"]
-        if user
-            @friends.append(user)
-        end       
+        @friends_all.each do |entry|
+          user = User.find_by uid: entry["id"]
+          if user
+             @stored_friends.append(user)
+          end       
+        end
       end
-      return @friends
-      else
-        return @friends
-      end
+      return @stored_friends
   end
   
   ##

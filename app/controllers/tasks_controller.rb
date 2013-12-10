@@ -13,14 +13,14 @@ class TasksController < ApplicationController
       end
     
       if params['tasklist_id'] != nil
-        @tasks = Task.where("assigned_to = ? AND tasklist_id = ?", current_user.id, params['tasklist_id'])
+        @tasks = Task.joins(:tasklist).where("user_id = ? AND tasklist_id = ?", current_user.id, params['tasklist_id'])
       else
         @tasks = Task.joins(:tasklist).where("assigned_to = ? OR user_id IN(" + usr_ids * "," + ")", current_user.id)
       end
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :category, :user, :status])}
+        format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :due_date_short, :category, :user, :status])}
       end
     else
       
@@ -46,7 +46,7 @@ class TasksController < ApplicationController
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :category, :user, :status])}
+        format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :due_date_short, :category, :user, :status])}
       end
     else
       
@@ -63,7 +63,7 @@ class TasksController < ApplicationController
     respond_to do |format|
         format.html { redirect_to :root }
         format.json { render :json => @task.to_json(:methods => 
-          [:owner, :tasklist, :due_date_f, :category, :user, :status])}
+          [:owner, :tasklist, :due_date_f, :due_date_short, :category, :user, :status])}
       end
   end
 
@@ -119,7 +119,10 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    @task.destroy
+    # Just the owner can delete the task
+    if current_user.id == @task.tasklist.user.id
+      @task.destroy
+    end
     respond_to do |format|
       format.html { redirect_to @task, notice: 'Task was successfully deleted.' }
       format.json { head :no_content }

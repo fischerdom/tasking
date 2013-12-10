@@ -22,6 +22,10 @@ class TasklistsController < ApplicationController
   # GET /tasklists/1
   # GET /tasklists/1.json
   def show
+    respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { render json: @tasklist}
+      end
   end
 
   # GET /tasklists/new
@@ -54,7 +58,9 @@ class TasklistsController < ApplicationController
   # PATCH/PUT /tasklists/1.json
   def update
     respond_to do |format|
-      if @tasklist.update(tasklist_params)
+      # Just the owner can update the task
+      # When the task is colsed, the king will be calculated
+      if @tasklist.user.id == current_user.id and @tasklist.update(tasklist_params)
         if @tasklist.closed == 1
           @tasklist.king_id = King.calculate_by(@tasklist).id
         else
@@ -73,7 +79,10 @@ class TasklistsController < ApplicationController
   # DELETE /tasklists/1
   # DELETE /tasklists/1.json
   def destroy
-    @tasklist.destroy
+    # Just the owner can delete the task
+    if current_user.id == @tasklist.user.id
+      @tasklist.destroy
+    end
     respond_to do |format|
       format.html { render action: 'taskslists'}
       format.json { head :no_content }

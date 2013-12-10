@@ -6,7 +6,14 @@ class ApplicationController < ActionController::Base
   #Session helper für aktuell angemeldeten User
   private
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if session[:user_id] != nil
+      if session[:current_user] != nil and session[:current_user].id == session[:user_id] 
+        @current_user = session[:current_user]
+      else
+        @current_user = User.find(session[:user_id])
+        session[:current_user] = @current_user
+      end
+    end
   end
   helper_method :current_user
 end

@@ -26,17 +26,6 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
         window.location.hash = "tasks"
         window.location.reload();
     )
-    
-    
-  #categoryChange: (category_id) ->
-  #  category_id = $("#select-category").val(); 
-  #  
-  #friendChange: (user_id) ->
-  #  user_id = $("#select-friend").val();  
-  #  
-  #statusChange: (status_id) ->
-  #  status_id = $("#select-status").val();    
-  
   addAllFriends: () =>
      @addOneFriend(current_user.toJSON())
      for obj in window.current_user.attributes.friends
@@ -71,6 +60,7 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
 
   render : ->
     $(@el).html(@template(@model.toJSON() ))
+    #$("#select-due_date").val(@model.attributes.due_date);
     @addAllFriends()
     @addAllCategories()
     @addAllStatuses()

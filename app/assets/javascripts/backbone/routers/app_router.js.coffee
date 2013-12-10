@@ -1,11 +1,8 @@
 class Tasking.Routers.AppRouter extends Backbone.Router
   initialize: (options) ->
     @currentUserInitialize();
-    #@categoriesInitialize(options);
-    #@statusesInitialize(options);
     @tasksInitialize();
     @tasklistsInitialize();
-    #@usersInitialize(options);
     
 # Initialisierung der Routen nach dem Hashtag
   routes:
