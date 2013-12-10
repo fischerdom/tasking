@@ -11,13 +11,21 @@ class Tasking.Views.Users.RankingView extends Backbone.View
     if(@RBP.length > 0)
       @RBP.each(@addOne)
     else
-      @$("ul#RBP").append("<li> No Task found</li>")
-    @$("ol").listview('refresh');
-
+      @$("ol#RBP").append("<li> No User found</li>")
+    @$("ol#RBP").listview('refresh');
+    
+  addAllCrown: () =>
+    if(@RBC.length > 0)
+      @RBC.each(@addOneCrown)
+    else
+      @$("ol#RBC").append("<li> No User found</li>")
+    @$("ol#RBC").listview('refresh');
+    
   addOne: (rbp) =>
     @$("ol#RBP").append("<li>" + rbp.attributes.name + " " + rbp.attributes.points + "</li>")
-    #view = new Tasking.Views.Tasklists.TasklistDetailTaskView({task : task})
-    #@$("ul").append(view.render().el)
+    
+  addOneCrown: (rbc) =>
+    @$("ol#RBC").append("<li>" + rbc.attributes.name + " " + rbc.attributes.crowns.length + "</li>")
 
   render: =>
     $(@el).html(@template)
@@ -26,6 +34,11 @@ class Tasking.Views.Users.RankingView extends Backbone.View
     @RBP = new Tasking.Collections.UserCollection()
     @RBP.url="/users/ranking"
     @RBP.fetch(success: @addAll, async: true)
+    
+    @RBC = new Tasking.Collections.UserCollection()
+    @RBC.url="/users/crowns"
+    @RBC.fetch(success: @addAllCrown, async: true)
+    
     
      
     return this
