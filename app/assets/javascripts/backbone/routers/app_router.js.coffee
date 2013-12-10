@@ -7,7 +7,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     @tasklistsInitialize();
     #@usersInitialize(options);
     
-
+# Initialisierung der Routen nach dem Hashtag
   routes:
     "start"                 : "start"
     ".*"                    : "start"
@@ -21,6 +21,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     "tasks/get"             : "tasksGet"
     "tasks/get/:id"         : "tasksGetShow"
     "tasks/index"           : "tasksIndex"
+    "tasks/history"         : "tasksHistory"
     "tasks/:id/destroy"     : "tasksDestroy"
     "tasks/:id/edit"        : "tasksEdit"
     "tasks/:id"             : "tasksShow"
@@ -33,6 +34,8 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     "tasklists/:id/edit"    : "tasklistsEdit"
     "tasklists.*"           : "tasklistsIndex"
 
+
+# Definition der Routen
   start: ->
     @view = new Tasking.Views.Static.StartView()
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
@@ -70,6 +73,10 @@ class Tasking.Routers.AppRouter extends Backbone.Router
 
   tasksIndex: ->
     @view = new Tasking.Views.Tasks.IndexView(tasks: @tasks)
+    $("#BBCont").html(@view.render().el).trigger('pagecreate')
+    
+  tasksHistory: ->
+    @view = new Tasking.Views.Tasks.DetailView(tasks: @tasks)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   tasksShow: (id) ->
