@@ -1,4 +1,5 @@
 class TasklistsController < ApplicationController
+  include TasklistsHelper
   before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
 
   # GET /tasklists
@@ -54,11 +55,17 @@ class TasklistsController < ApplicationController
   def update
     respond_to do |format|
       if @tasklist.update(tasklist_params)
-        format.html { redirect_to @tasklist, notice: 'Tasklist was successfully updated.' }
-        format.json { head :no_content }
+        if @tasklist.closed == 1
+          @tasklist.king_id = King.calculate_by(@tasklist).id
+        else
+          @tasklist.king_id = nil
+        end
+        @tasklist.save
+        format.html { redirect_to :root }
+        format.json { render json: @tasklist }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @tasklist.errors, status: :unprocessable_entity }
+        format.html { redirect_to :root }
+        format.json { render json: :no_content }
       end
     end
   end

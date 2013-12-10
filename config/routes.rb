@@ -1,12 +1,17 @@
 Tasking::Application.routes.draw do
-  get "static_pages/start"
+  get 'static_pages/start'
+  
   get 'users/current', to: 'users#current'
   get 'users/ranking', to: 'users#ranking'
+  get 'users/crowns', to: 'users#crowns'
   get 'tasks/get', to: 'tasks#get'
   
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+  
+  match '/', to: 'static_pages#fb', via: [:post]
+  
   
   resources :users
 

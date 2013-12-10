@@ -41,7 +41,7 @@ class TasksController < ApplicationController
       usr_lst.each do |usr|
         usr_ids.append(usr.id)
       end
-      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND user_id IN(" + usr_ids * "," + ")")
+      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND closed != 1 AND user_id IN(" + usr_ids * "," + ")")
     
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
@@ -93,7 +93,9 @@ class TasksController < ApplicationController
   end
 
   def facebook_notification
-    facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] hat dir einen neuen Task zugewiesen!", href: "#tasks/" + @task.id.to_s)
+    @link_to = "#tasks/" + @task.id.to_s
+    puts @link_to
+    facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] hat dir einen neuen Task zugewiesen!", href: @link_to)
   end
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json

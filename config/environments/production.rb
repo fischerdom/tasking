@@ -1,6 +1,8 @@
 Tasking::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.action_dispatch.default_headers = {
+    'X-Frame-Options' => 'ALLOWALL'
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
