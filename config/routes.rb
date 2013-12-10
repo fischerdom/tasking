@@ -8,7 +8,8 @@ Tasking::Application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   
-  post '/', to: 'static_pages#start'
+  post '/', to: 'static_pages#fb'
+  
   
   resources :users
 
