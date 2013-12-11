@@ -34,8 +34,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (task) =>
         @model = task
-        window.location.hash = "tasks"
-        window.location.reload();
+        window.location.hash = "tasklists/detail"
 
       error: (task, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})

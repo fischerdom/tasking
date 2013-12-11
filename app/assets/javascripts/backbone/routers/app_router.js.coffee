@@ -69,10 +69,12 @@ class Tasking.Routers.AppRouter extends Backbone.Router
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   tasksIndex: ->
+    @tasksInitialize();
     @view = new Tasking.Views.Tasks.IndexView(tasks: @tasks)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
     
   tasksHistory: ->
+    @tasksInitialize();
     @view = new Tasking.Views.Tasks.DetailView(tasks: @tasks)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 

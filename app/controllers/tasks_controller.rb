@@ -41,7 +41,7 @@ class TasksController < ApplicationController
       usr_lst.each do |usr|
         usr_ids.append(usr.id)
       end
-      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND closed != 1 AND user_id IN(" + usr_ids * "," + ")")
+      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND (closed != 1 OR closed IS NULL) AND user_id IN(" + usr_ids * "," + ")")
     
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
@@ -84,7 +84,7 @@ class TasksController < ApplicationController
       if @task.save
         facebook_notification()
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { head :no_content }
+        format.json { render json: @task }
       else
         format.html { render action: 'new' }
         format.json { head :no_content }
@@ -93,7 +93,9 @@ class TasksController < ApplicationController
   end
 
   def facebook_notification
-    facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] assigned you the task: " + @task.title, href: "")
+    if(@task.assigned_to)
+      facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] assigned you the task: " + @task.title, href: "")
+    end
   end
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
