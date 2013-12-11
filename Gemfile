@@ -58,6 +58,7 @@ gem 'formtastic'
 #end
 gem "rails-backbone"
 gem "timespan"
+gem 'activerecord-session_store'
 
 #gem für heroku
 gem 'heroku'

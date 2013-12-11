@@ -1,16 +1,18 @@
 	<div data-role="header">
 		<a href="#tasks" data-icon="back">Back</a>
         <h1>Tasks Detail</h1>
-        <a href="#tasks/<%= id %>/edit" data-icon="edit" data-role="button">Edit</a>
+        <% if (owner.id == window.current_user.id) { %>
+        	<a href="#tasks/<%= id %>/edit" data-icon="edit" data-role="button">Edit</a>
+        <% } %>
   	</div>
   	<div data-role="content">
 		
+		<h2>
+			Owned by <%= owner.name %>
+		</h2>
 		<p>
 		  <b>Title:</b>
 		  <%= title %>
-		</p>
-		<p>
-			Owned by <%= owner.name %>
 		</p>
 		<p>
 		  <b>Status:</b>
@@ -50,5 +52,14 @@
 		</p>
 	</div>
 		<div data-role="footer" align="center">
-		<a href="#tasks/<%= id %>/destroy" data-icon="delete" data-role="button">Delete</a>
+		<% if (owner.id == window.current_user.id) { %>
+			<a href="#tasks/<%= id %>/destroy" data-icon="delete" data-role="button">Delete</a>
+		<% } else { %>
+		
+			<form id="edit-task" name="task">
+			  	<select name="status_id" id="select-status" value="<%= status_id %>">
+			  		<option value="<%= status_id %>"> <%= status.title %> </option>
+				</select>
+			</form>
+		<% } %>
   	</div>

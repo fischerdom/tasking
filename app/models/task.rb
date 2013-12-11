@@ -19,6 +19,10 @@ class Task < ActiveRecord::Base
     end
   end
   
+  def due_date_short
+    due_date.strftime('%d.%m.%Y %H:%M')
+  end
+  
   def owner
     return self.tasklist.user
   end
