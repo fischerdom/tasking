@@ -93,7 +93,7 @@ class TasksController < ApplicationController
   end
 
   def facebook_notification
-    facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] hat dir einen neuen Task zugewiesen:" + @task.title, href: "")
+    facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] assigned you the task: " + @task.title, href: "")
   end
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
