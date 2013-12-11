@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     if(current_user != nil)
-      usr_lst = current_user.friends
+      usr_lst = current_user.friends.clone
       usr_lst.append(current_user)
       usr_ids = Array.new
       usr_lst.each do |usr|
@@ -35,7 +35,7 @@ class TasksController < ApplicationController
   # GET /tasks/get.json
   def get
     if(current_user != nil)
-      usr_lst = current_user.friends
+      usr_lst = current_user.friends.clone
       usr_lst.append(current_user)
       usr_ids = Array.new
       usr_lst.each do |usr|
