@@ -1,6 +1,6 @@
 class TasklistsController < ApplicationController
   include TasklistsHelper
-  before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
+  before_action :set_tasklist,:facebook_at, only: [:show, :edit, :update, :destroy]
 
   # GET /tasklists
   # GET /tasklists.json
@@ -59,10 +59,11 @@ class TasklistsController < ApplicationController
   def update
     respond_to do |format|
       # Just the owner can update the task
-      # When the task is colsed, the king will be calculated
+      # When the task is closed, the king will be calculated
       if @tasklist.user.id == current_user.id and @tasklist.update(tasklist_params)
         if @tasklist.closed == 1
           @tasklist.king_id = King.calculate_by(@tasklist).id
+          facebook_notification()
         else
           @tasklist.king_id = nil
         end
@@ -76,6 +77,14 @@ class TasklistsController < ApplicationController
     end
   end
 
+  def facebook_notification
+    facebook_at.put_connections(User.find_by_id(@tasklist.king_id).uid,"notifications",template: "@[" + current_user.uid + "] crowned you to the King of the following tasklist: " + @tasklist.name, href: "")
+  end
+  
+  def facebook_at
+    @facebook_at = Koala::Facebook::API.new(Koala::Facebook::OAuth.new().get_app_access_token)
+    return @facebook_at
+  end
   # DELETE /tasklists/1
   # DELETE /tasklists/1.json
   def destroy
