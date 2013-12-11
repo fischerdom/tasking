@@ -4,11 +4,12 @@
 	</h3>
 <% } else { %>
 	</h3>
-	
-	<div class="tasklist_done ui-grid-a">
-		<p class="ui-block-a ui-btn-inner ui-corner-top ui-corner-bottom"><b><%= done_text%></b></p>	
-		<p class="tasklist_done_bar ui-block-b ui-body-a ui-btn-inner ui-corner-top ui-corner-bottom" style="width:<%= done_percentage/2%>%"><%= (done_percentage)%> %</p>
-	</div>
-	<br/>
+	<% if (done_percentage >= 0) { %>
+		<div class="tasklist_done ui-grid-a">
+			<p class="ui-block-a ui-btn-inner ui-corner-top ui-corner-bottom"><b><%= done_text%></b></p>	
+			<p class="tasklist_done_bar ui-block-b ui-body-a ui-btn-inner ui-corner-top ui-corner-bottom" style="width:<%= done_percentage/2%>%"><%= (done_percentage)%> %</p>
+		</div>
+		<br/>
+	<% } %>
 <% } %>
 <ul data-role="listview"></ul>

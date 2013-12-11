@@ -13,7 +13,7 @@ class Tasking.Views.Tasks.HistoryView extends Backbone.View
       @tasks.each(@addOne)
       
     else
-      @$("ul").append("<li> No Task found</li>")
+      @$("ul").append("<li>Nothing found</li>")
     @$("ul").listview('refresh');
 
   addOne: (task) =>
@@ -26,7 +26,7 @@ class Tasking.Views.Tasks.HistoryView extends Backbone.View
     @tasks = new Tasking.Collections.TasksCollection()
     @tasks.fetch(data: {assigned_to : @user[@nr].id}, success: @addAll, async: true)
     
-
+  
     $(@el).html(@template())
     $(@el).attr("data-role", "collapsible")
     $(@el).attr("data-theme", "b")

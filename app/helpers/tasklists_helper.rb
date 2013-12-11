@@ -6,12 +6,16 @@ module TasklistsHelper
         :all,
         :select => 'assigned_to, SUM(pointvalue)',
         :group => 'assigned_to',
-        :conditions => ['tasklist_id = ? AND status_id = ?', tasklist.id, Status.finished],
+        :conditions => ['tasklist_id = ? AND status_id = ? AND assigned_to IS NOT NULL', tasklist.id, Status.finished],
         :order => 'SUM(pointvalue) DESC',
         :limit => 1
       ).first
       
-      king = User.find(res["assigned_to"])
+      if res != nil
+        king = User.find(res["assigned_to"])
+      else
+        king = nil
+      end
       return king
     end
     

@@ -85,8 +85,9 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     @collectionTasklist.each(@addOneTasklist)
 
   addOneTasklist: (tasklist) =>
-    view = new Tasking.Views.Tasks.TasklistsView({model : tasklist})
-    @$("#select-tasklist").append(view.render().el)
+    if tasklist.attributes.closed != 1
+      view = new Tasking.Views.Tasks.TasklistsView({model : tasklist})
+      @$("#select-tasklist").append(view.render().el)
  
   render: ->
     $(@el).html(@template(@model.toJSON() ))
