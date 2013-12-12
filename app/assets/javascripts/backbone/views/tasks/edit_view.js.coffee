@@ -10,11 +10,14 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
     #"change #select-category" : "categoryChange"
     
   update : (e) ->
+    @model.attributes.due_date = $("#select-due_date").val();
+    if (@model.attributes.due_date == "")
+      @model.attributes.due_date = @pre_due_date
+    
     @model.attributes.status_id = $("#select-status").val();
     @model.attributes.category_id = $("#select-category").val();
     @model.attributes.user_id = $("#select-friend").val();
     @model.attributes.pointvalue = $("#select-pointvalue").val();
-    @model.attributes.due_date = $("#select-due_date").val();
     @model.attributes.etc = $("#select-etc").val();
     
     e.preventDefault()
@@ -24,7 +27,6 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
       success : (task) =>
         @model = task
         window.location.hash = "tasks"
-        window.location.reload();
     )
   addAllFriends: () =>
      @addOneFriend(current_user.toJSON())
@@ -60,12 +62,11 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
 
   render : ->
     $(@el).html(@template(@model.toJSON() ))
-    #$("#select-due_date").val(@model.attributes.due_date)
-
+    #Belege 
+    @pre_due_date = @model.attributes.due_date
     @addAllFriends()
     @addAllCategories()
     @addAllStatuses()
     this.$("form").backboneLink(@model)
-   
 
     return this

@@ -108,7 +108,7 @@ class TasksController < ApplicationController
         end
         
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: @task }
       else
         format.html { render action: 'edit' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
