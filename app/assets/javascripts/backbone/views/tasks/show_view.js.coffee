@@ -17,6 +17,7 @@ class Tasking.Views.Tasks.ShowView extends Backbone.View
     view = new Tasking.Views.Tasks.XStatusView({model : status})
     @$("#select-status").append(view.render().el) 
     
+  
   changeStatus: (e) =>
     @model.attributes.status_id = $("#select-status").val();
     e.preventDefault()

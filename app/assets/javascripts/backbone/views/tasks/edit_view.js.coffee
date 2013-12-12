@@ -60,7 +60,8 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
 
   render : ->
     $(@el).html(@template(@model.toJSON() ))
-    #$("#select-due_date").val(@model.attributes.due_date);
+    #$("#select-due_date").val(@model.attributes.due_date)
+
     @addAllFriends()
     @addAllCategories()
     @addAllStatuses()

@@ -10,6 +10,11 @@
 		<h2>
 			Owned by <%= owner.name %>
 		</h2>
+		<h4>
+			Belongs to tasklist: "<%= tasklist.name %>"
+		</h4>
+		
+		
 		<p>
 		  <b>Title:</b>
 		  <%= title %>
@@ -45,9 +50,13 @@
 		<p>
 		  <b>Due:</b>
 		  <%= due_date_f %>
-		</p>		
+		</p>
 		<p>
-		  <b>Estimated Time Consumption:</b>
+		  <b>Exact Due date:</b>
+		  <%= due_date_short %>
+		</p>	
+		<p>
+		  <b>Estimated Time Consumption (hours):</b>
 		  <%= etc %>
 		</p>
 	</div>

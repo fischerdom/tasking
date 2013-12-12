@@ -10,7 +10,7 @@ class Tasklist < ActiveRecord::Base
   
   def done_percentage
     if self.tasks.size > 0
-      return self.open_tasks.size / self.tasks.size * 100
+      return (self.open_tasks.size.to_f / self.tasks.size.to_f * 100.0).to_i
     else
       return -1
     end

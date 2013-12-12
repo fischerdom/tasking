@@ -61,8 +61,9 @@ class TasklistsController < ApplicationController
       # Just the owner can update the task
       # When the task is closed, the king will be calculated
       if @tasklist.user.id == current_user.id and @tasklist.update(tasklist_params)
-        if @tasklist.closed == 1
-          @tasklist.king_id = King.calculate_by(@tasklist).id
+        king = King.calculate_by(@tasklist)
+        if @tasklist.closed == 1 and king != nil
+          @tasklist.king_id = king.id
           facebook_notification()
         else
           @tasklist.king_id = nil
