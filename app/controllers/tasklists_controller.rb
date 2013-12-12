@@ -45,8 +45,8 @@ class TasklistsController < ApplicationController
 
     respond_to do |format|
       if @tasklist.save
-        format.html { redirect_to @tasklist, notice: 'Tasklist was successfully created.' }
-        format.json { head :no_content }
+        format.html { redirect_to :root }
+        format.json { render json: @tasklist }
       else
         format.html { render action: 'new' }
         format.json { head :no_content }
