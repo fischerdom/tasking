@@ -9,8 +9,10 @@ class Tasking.Views.Tasklists.TasklistDetailView extends Backbone.View
 
   addAll: () =>
     if(@tasks.length > 0)
+      @$("ul").append("<li><a href='#/tasks/new'> New Task </a></li>")
       @tasks.each(@addOne)
     else
+      @$("ul").append("<li><a href='#/tasks/new'> New Task </a></li>")
       @$("ul").append("<li> No Task found</li>")
     @$("ul").listview('refresh');
 

@@ -6,6 +6,8 @@ class Task < ActiveRecord::Base
   belongs_to :category
   belongs_to :status
   
+  validates :tasklist_id, :category_id, :status_id, :title, :pointvalue, :due_date, presence: true 
+  
   def due_date_f
     if due_date == nil
       return "-"

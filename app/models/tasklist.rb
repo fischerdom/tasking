@@ -3,6 +3,7 @@ class Tasklist < ActiveRecord::Base
   belongs_to :king, :foreign_key => 'king_id', :class_name => "User"
   has_many :tasks, :dependent => :destroy
   
+  validates :user_id, :name, presence: true
   
   def done_text
     return "%d of %d tasks" % [self.open_tasks.size, self.tasks.size]
