@@ -84,9 +84,10 @@ class TasklistsController < ApplicationController
   #end
   
   def facebook_put_to_wall
-    facebook_ut.put_wall_post("I won a crown for the tasklist: '"+ @tasklist.name + "'. Join tasKing, too!", {
+    facebook_ut.put_wall_post("I won a crown for the tasklist: '"+ @tasklist.name + "'. 
+           Join tasKing, too!", {
           "name" => "tasKing - the social todo-manager",
-          "caption" => "{*actor*} earned the crown for the tasklist: "+ @tasklist.name,
+          "caption" => User.find_by_id(@tasklist.king_id).name + " earned the crown for the tasklist: "+ @tasklist.name,
           "description" => "Share and accomplish tasks with your friends!",
           "picture" => "http://tasking.herokuapp.com/assets/logos/crown.JPG",
           "link" => "http://tasking.herokuapp.com/"
