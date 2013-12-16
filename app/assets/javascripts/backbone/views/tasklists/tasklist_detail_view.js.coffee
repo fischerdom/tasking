@@ -8,7 +8,9 @@ class Tasking.Views.Tasklists.TasklistDetailView extends Backbone.View
     @tasklist = options.model
 
   addAll: () =>
-    @$("ul").append("<li><a href='#/tasks/new' align='center'> New Task </a></li>")
+    if(@tasklist.attributes.closed == 0)
+      @$("ul").append("<li><a href='#/tasks/new' align='center'> New Task </a></li>")
+      
     if(@tasks.length > 0)
       @tasks.each(@addOne)
     else
