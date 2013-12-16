@@ -1,6 +1,6 @@
 class TasklistsController < ApplicationController
   include TasklistsHelper
-  before_action :set_tasklist,:facebook_at, only: [:show, :edit, :update, :destroy]
+  before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
 
   # GET /tasklists
   # GET /tasklists.json
@@ -64,7 +64,8 @@ class TasklistsController < ApplicationController
         king = King.calculate_by(@tasklist)
         if @tasklist.closed == 1 and king != nil
           @tasklist.king_id = king.id
-          facebook_notification()
+          #facebook_notification()
+          facebook_put_to_wall()
         else
           @tasklist.king_id = nil
         end
@@ -78,13 +79,26 @@ class TasklistsController < ApplicationController
     end
   end
 
-  def facebook_notification
-    facebook_at.put_connections(User.find_by_id(@tasklist.king_id).uid,"notifications",template: "@[" + current_user.uid + "] crowned you to the King of the following tasklist: " + @tasklist.name, href: "")
+  #def facebook_notification
+  #  facebook_at.put_connections(User.find_by_id(@tasklist.king_id).uid,"notifications",template: "@[" + current_user.uid + "] crowned you to the King of the following tasklist: " + @tasklist.name, href: "")
+  #end
+  
+  def facebook_put_to_wall
+    facebook_ut.put_wall_post("I won a crown for the tasklist: '"+ @tasklist.name + "'. Join tasKing, too!", {
+          "name" => "tasKing - the social todo-manager",
+          "caption" => "{*actor*} earned the crown for the tasklist: "+ @tasklist.name,
+          "description" => "Share and accomplish tasks with your friends!",
+          "picture" => "http://localhost:3000/assets/images/logos/crown.jpg"
+          })
   end
   
-  def facebook_at
-    @facebook_at = Koala::Facebook::API.new(Koala::Facebook::OAuth.new().get_app_access_token)
-    return @facebook_at
+  #def facebook_at
+  #  @facebook_at = Koala::Facebook::API.new(Koala::Facebook::OAuth.new().get_app_access_token)
+  #  return @facebook_at
+  #end
+  
+  def facebook_ut
+    @facebook_ut = Koala::Facebook::API.new(User.find_by_id(@tasklist.king_id).oauth_token)
   end
   # DELETE /tasklists/1
   # DELETE /tasklists/1.json
@@ -107,6 +121,6 @@ class TasklistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tasklist_params
-      params.require(:tasklist).permit(:user_id, :name, :closed)
+      params.require(:tasklist).permit(:user_id, :name, :closed,:oauth_token)
     end
 end
