@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class User - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/user.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-from_omniauth">::from_omniauth</a>
+    
+    <li><a href="#method-i-facebook">#facebook</a>
+    
+    <li><a href="#method-i-friends">#friends</a>
+    
+    <li><a href="#method-i-points">#points</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./TasklistsHelper.html">TasklistsHelper</a>
+  
+    <li><a href="./TasklistsHelper/King.html">TasklistsHelper::King</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./UsersHelper/Ranking.html">UsersHelper::Ranking</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./CategoriesController.html">CategoriesController</a>
+  
+    <li><a href="./Category.html">Category</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./StaticPagesController.html">StaticPagesController</a>
+  
+    <li><a href="./Status.html">Status</a>
+  
+    <li><a href="./StatusesController.html">StatusesController</a>
+  
+    <li><a href="./Task.html">Task</a>
+  
+    <li><a href="./Tasklist.html">Tasklist</a>
+  
+    <li><a href="./TasklistsController.html">TasklistsController</a>
+  
+    <li><a href="./TasksController.html">TasksController</a>
+  
+    <li><a href="./TasksHelper.html">TasksHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class User</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-from_omniauth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_omniauth</span><span
+            class="method-args">(auth)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="from_omniauth-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_omniauth</span>(<span class="ruby-identifier">auth</span>)
+  <span class="ruby-identifier">where</span>(<span class="ruby-identifier">auth</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">:provider</span>, <span class="ruby-value">:uid</span>)).<span class="ruby-identifier">first_or_initialize</span>.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">provider</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">provider</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">uid</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">uid</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">oauth_token</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">credentials</span>.<span class="ruby-identifier">token</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">oauth_expires_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">auth</span>.<span class="ruby-identifier">credentials</span>.<span class="ruby-identifier">expires_at</span>)
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- from_omniauth-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- from_omniauth-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-facebook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">facebook</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="facebook-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook</span>
+    <span class="ruby-ivar">@facebook</span> = <span class="ruby-constant">Koala</span><span class="ruby-operator">::</span><span class="ruby-constant">Facebook</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">oauth_token</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- facebook-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- facebook-method -->
+
+    
+      <div id="method-i-friends" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">friends</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retrive the list of registrated facebook friends of the user</p>
+          
+
+          
+          <div class="method-source-code" id="friends-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">friends</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@stored_friends</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+      
+      <span class="ruby-comment">#Hole alle Freunde mittels Facebook-Connection</span>
+      <span class="ruby-ivar">@friends_all</span> = <span class="ruby-identifier">facebook</span>.<span class="ruby-identifier">get_connections</span>(<span class="ruby-string">&quot;me&quot;</span>, <span class="ruby-string">&quot;friends&quot;</span>)
+    
+      <span class="ruby-comment">#Nachfolgend wird die Freundesliste gefiltert, um nur die zu erhalten, die tatsächlich in der DB enthalten sind</span>
+    
+      <span class="ruby-ivar">@stored_friends</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+    
+      <span class="ruby-ivar">@friends_all</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span> <span class="ruby-identifier">uid</span><span class="ruby-operator">:</span> <span class="ruby-identifier">entry</span>[<span class="ruby-string">&quot;id&quot;</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>
+           <span class="ruby-ivar">@stored_friends</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">user</span>)
+        <span class="ruby-keyword">end</span>       
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@stored_friends</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- friends-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- friends-method -->
+
+    
+      <div id="method-i-points" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">points</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calculates the sum of poinvalues of the user.</p>
+          
+
+          
+          <div class="method-source-code" id="points-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">points</span>
+  <span class="ruby-identifier">sum</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">tasks</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:status_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Status</span>.<span class="ruby-identifier">finished</span>)
+  <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> = <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">pointvalue</span>}
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">sum</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- points-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- points-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
