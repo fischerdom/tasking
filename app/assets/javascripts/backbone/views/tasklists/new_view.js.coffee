@@ -1,11 +1,13 @@
 Tasking.Views.Tasklists ||= {}
 
+# View to create a new tasklist
 class Tasking.Views.Tasklists.NewView extends Backbone.View
   template: JST["backbone/templates/tasklists/new"]
 
   events:
     "submit #new-tasklist": "save"
 
+  # Constructor to create a empty tasklist-object
   constructor: (options) ->
     super(options)
     @model = new @collection.model()
@@ -14,6 +16,7 @@ class Tasking.Views.Tasklists.NewView extends Backbone.View
       this.render()
     )
 
+  # Saves the tasklist by the values in the form
   save: (e) ->
     e.preventDefault()
     e.stopPropagation()
@@ -29,6 +32,8 @@ class Tasking.Views.Tasklists.NewView extends Backbone.View
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
 
+
+  # renders the tasklist
   render: ->
     $(@el).html(@template(@model.toJSON() ))
 

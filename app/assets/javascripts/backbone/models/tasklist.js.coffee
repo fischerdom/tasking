@@ -1,3 +1,5 @@
+# Model for a Tasklist
+# by default closed = 0
 class Tasking.Models.Tasklist extends Backbone.Model
   paramRoot: 'tasklist'
 

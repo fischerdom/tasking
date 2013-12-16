@@ -1,3 +1,4 @@
+# Model for the task
 class Tasking.Models.Task extends Backbone.Model
   paramRoot: 'task'
 
@@ -15,7 +16,7 @@ class Tasking.Models.Task extends Backbone.Model
     categories: null
     tasklists: null
     
-
+# Collection which feteches all the Tasks
 class Tasking.Collections.TasksCollection extends Backbone.Collection
   model: Tasking.Models.Task
   url: '/tasks'
