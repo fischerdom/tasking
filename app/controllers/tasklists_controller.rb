@@ -88,7 +88,8 @@ class TasklistsController < ApplicationController
           "name" => "tasKing - the social todo-manager",
           "caption" => "{*actor*} earned the crown for the tasklist: "+ @tasklist.name,
           "description" => "Share and accomplish tasks with your friends!",
-          "picture" => "http://localhost:3000/assets/images/logos/crown.jpg"
+          "picture" => "http://tasking.herokuapp.com/assets/logos/crown.JPG",
+          "link" => "http://tasking.herokuapp.com/"
           })
   end
   
