@@ -11,7 +11,9 @@ class Tasking.Views.Tasklists.TasklistDetailView extends Backbone.View
 
   # adds all tasks in the template
   addAll: () =>
-    @$("ul").append("<li><a href='#/tasks/new' align='center'> New Task </a></li>")
+    if(@tasklist.attributes.closed == 0)
+      @$("ul").append("<li><a href='#/tasks/new' align='center'> New Task </a></li>")
+      
     if(@tasks.length > 0)
       @tasks.each(@addOne)
     else
