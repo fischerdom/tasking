@@ -17,6 +17,7 @@ class TasksController < ApplicationController
       else
         @tasks = Task.joins(:tasklist).where("assigned_to = ? OR user_id IN(" + usr_ids * "," + ")", current_user.id)
       end
+      
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
         format.html { redirect_to :root }
@@ -82,7 +83,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
-        facebook_notification()
+        facebook_note_assign()
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task }
       else
@@ -92,19 +93,36 @@ class TasksController < ApplicationController
     end
   end
 
-  def facebook_notification
+  def facebook_note_assign
     if(@task.assigned_to)
       facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] assigned you the task: " + @task.title, href: "")
     end
   end
+  
+  def facebook_note_status
+    if(@tasklist.user_id != current_user.id)
+      facebook_at.put_connections(User.find_by_id(@tasklist.user_id).uid,"notifications",template: "@[" + current_user.uid + "] changed the status of the task '" + @task.title + "' to: " + Status.find_by_id(@task.status_id).title, href: "")
+    else 
+      if(@task.assigned_to != current_user.id)
+        facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] changed the status of the task '" + @task.title + "' to: " + Status.find_by_id(@task.status_id).title, href: "")
+      end
+    end
+  end
+  
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    
+    
     respond_to do |format|
       if @task.update(task_params)
 
         if @assigned != @task[:assigned_to]
-          facebook_notification()
+          facebook_note_assign()
+        end
+        
+        if @status_old != @task[:status_id]
+          facebook_note_status()
         end
         
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
@@ -138,8 +156,12 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
+      
+      @tasklist = Tasklist.find_by_id(@task.tasklist_id)
       @assigned = @task[:assigned_to]
       
+      @status_old = @task[:status_id]
+      puts @status_old
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
