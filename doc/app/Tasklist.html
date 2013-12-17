@@ -107,8 +107,6 @@
   
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
     <li><a href="./CategoriesController.html">CategoriesController</a>
   
     <li><a href="./Category.html">Category</a>
@@ -129,8 +127,6 @@
   
     <li><a href="./TasksController.html">TasksController</a>
   
-    <li><a href="./TasksHelper.html">TasksHelper</a>
-  
     <li><a href="./User.html">User</a>
   
     <li><a href="./UsersController.html">UsersController</a>
@@ -146,6 +142,8 @@
 
   <div id="description" class="description">
     
+<p><a href="Tasklist.html">Tasklist</a> model</p>
+
   </div><!-- description -->
 
   
@@ -177,12 +175,12 @@
 
         <div class="method-description">
           
-          
+          <p>Calculates percentage of done Tasks @return Integer 0 &lt;= x &lt;= 100</p>
           
 
           
           <div class="method-source-code" id="done_percentage-source">
-            <pre><span class="ruby-comment"># File app/models/tasklist.rb, line 11</span>
+            <pre><span class="ruby-comment"># File app/models/tasklist.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">done_percentage</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
     <span class="ruby-keyword">return</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">open_tasks</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">to_f</span> * <span class="ruby-value">100.0</span>).<span class="ruby-identifier">to_i</span>
@@ -211,12 +209,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns text of how many tasks are done @return STring</p>
           
 
           
           <div class="method-source-code" id="done_text-source">
-            <pre><span class="ruby-comment"># File app/models/tasklist.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/models/tasklist.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">done_text</span>
   <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;%d of %d tasks&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-keyword">self</span>.<span class="ruby-identifier">open_tasks</span>.<span class="ruby-identifier">size</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">size</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -241,12 +239,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns list of open task</p>
           
 
           
           <div class="method-source-code" id="open_tasks-source">
-            <pre><span class="ruby-comment"># File app/models/tasklist.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/models/tasklist.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">open_tasks</span> 
    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">find_all</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">status_id</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Status</span>.<span class="ruby-identifier">finished</span>} 
 <span class="ruby-keyword">end</span></pre>

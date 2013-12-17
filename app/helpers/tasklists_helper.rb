@@ -1,5 +1,8 @@
+# TasklistHelpers
 module TasklistsHelper
+  # Methods for the king functionality
   class King
+    # Calculates the king of a tasklist
     def self.calculate_by(tasklist)
 
       res = Task.find(

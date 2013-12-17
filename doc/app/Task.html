@@ -119,8 +119,6 @@
   
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
     <li><a href="./CategoriesController.html">CategoriesController</a>
   
     <li><a href="./Category.html">Category</a>
@@ -141,8 +139,6 @@
   
     <li><a href="./TasksController.html">TasksController</a>
   
-    <li><a href="./TasksHelper.html">TasksHelper</a>
-  
     <li><a href="./User.html">User</a>
   
     <li><a href="./UsersController.html">UsersController</a>
@@ -158,6 +154,8 @@
 
   <div id="description" class="description">
     
+<p><a href="Task.html">Task</a> Model (read, write operations)</p>
+
   </div><!-- description -->
 
   
@@ -189,12 +187,16 @@
 
         <div class="method-description">
           
-          
+          <p>Formats the date  @return String @example</p>
+
+<h1 id="method-i-due_date_f-label-%3E+in+4+days">&gt; in 4 days</h1>
+
+<h1 id="method-i-due_date_f-label-%3E+before+3+hours">&gt; before 3 hours</h1>
           
 
           
           <div class="method-source-code" id="due_date_f-source">
-            <pre><span class="ruby-comment"># File app/models/task.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/models/task.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">due_date_f</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">due_date</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
     <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;-&quot;</span>
@@ -228,12 +230,12 @@
 
         <div class="method-description">
           
-          
+          <p>Formats the date @return String @example 10.12.2013 10:15</p>
           
 
           
           <div class="method-source-code" id="due_date_short-source">
-            <pre><span class="ruby-comment"># File app/models/task.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/models/task.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">due_date_short</span>
   <span class="ruby-identifier">due_date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&#39;%d.%m.%Y %H:%M&#39;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -258,12 +260,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns owner of the task @return <a href="User.html">User</a> model object</p>
           
 
           
           <div class="method-source-code" id="owner-source">
-            <pre><span class="ruby-comment"># File app/models/task.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/models/task.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owner</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tasklist</span>.<span class="ruby-identifier">user</span>
 <span class="ruby-keyword">end</span></pre>

@@ -78,7 +78,9 @@
     
     <li><a href="#method-i-facebook_at">#facebook_at</a>
     
-    <li><a href="#method-i-facebook_notification">#facebook_notification</a>
+    <li><a href="#method-i-facebook_note_assign">#facebook_note_assign</a>
+    
+    <li><a href="#method-i-facebook_note_status">#facebook_note_status</a>
     
     <li><a href="#method-i-get">#get</a>
     
@@ -121,8 +123,6 @@
   
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
     <li><a href="./CategoriesController.html">CategoriesController</a>
   
     <li><a href="./Category.html">Category</a>
@@ -142,8 +142,6 @@
     <li><a href="./TasklistsController.html">TasklistsController</a>
   
     <li><a href="./TasksController.html">TasksController</a>
-  
-    <li><a href="./TasksHelper.html">TasksHelper</a>
   
     <li><a href="./User.html">User</a>
   
@@ -196,12 +194,12 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 81</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@task</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">task_params</span>)
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">save</span>
-      <span class="ruby-identifier">facebook_notification</span>()
+      <span class="ruby-identifier">facebook_note_assign</span>()
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@task</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Task was successfully created.&#39;</span> }
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@task</span> }
     <span class="ruby-keyword">else</span>
@@ -236,7 +234,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 121</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 139</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-comment"># Just the owner can delete the task</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">tasklist</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
@@ -273,7 +271,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 76</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- edit-source -->
@@ -302,7 +300,7 @@
 
           
           <div class="method-source-code" id="facebook_at-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 132</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 150</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook_at</span>
   <span class="ruby-ivar">@facebook_at</span> = <span class="ruby-constant">Koala</span><span class="ruby-operator">::</span><span class="ruby-constant">Facebook</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Koala</span><span class="ruby-operator">::</span><span class="ruby-constant">Facebook</span><span class="ruby-operator">::</span><span class="ruby-constant">OAuth</span>.<span class="ruby-identifier">new</span>().<span class="ruby-identifier">get_app_access_token</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@facebook_at</span>
@@ -317,10 +315,10 @@
       </div><!-- facebook_at-method -->
 
     
-      <div id="method-i-facebook_notification" class="method-detail ">
+      <div id="method-i-facebook_note_assign" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">facebook_notification</span><span
+          <span class="method-name">facebook_note_assign</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -332,21 +330,57 @@
           
 
           
-          <div class="method-source-code" id="facebook_notification-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 95</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook_notification</span>
+          <div class="method-source-code" id="facebook_note_assign-source">
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook_note_assign</span>
   <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@task</span>.<span class="ruby-identifier">assigned_to</span>)
     <span class="ruby-identifier">facebook_at</span>.<span class="ruby-identifier">put_connections</span>(<span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-ivar">@task</span>.<span class="ruby-identifier">assigned_to</span>).<span class="ruby-identifier">uid</span>,<span class="ruby-string">&quot;notifications&quot;</span>,<span class="ruby-identifier">template</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;@[&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">uid</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;] assigned you the task: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">title</span>, <span class="ruby-identifier">href</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>)
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- facebook_notification-source -->
+          </div><!-- facebook_note_assign-source -->
           
         </div>
 
         
 
         
-      </div><!-- facebook_notification-method -->
+      </div><!-- facebook_note_assign-method -->
+
+    
+      <div id="method-i-facebook_note_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">facebook_note_status</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="facebook_note_status-source">
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook_note_status</span>
+  <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-identifier">facebook_at</span>.<span class="ruby-identifier">put_connections</span>(<span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">user_id</span>).<span class="ruby-identifier">uid</span>,<span class="ruby-string">&quot;notifications&quot;</span>,<span class="ruby-identifier">template</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;@[&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">uid</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;] changed the status of the task &#39;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">title</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;&#39; to: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Status</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-ivar">@task</span>.<span class="ruby-identifier">status_id</span>).<span class="ruby-identifier">title</span>, <span class="ruby-identifier">href</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">else</span> 
+    <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@task</span>.<span class="ruby-identifier">assigned_to</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-identifier">facebook_at</span>.<span class="ruby-identifier">put_connections</span>(<span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-ivar">@task</span>.<span class="ruby-identifier">assigned_to</span>).<span class="ruby-identifier">uid</span>,<span class="ruby-string">&quot;notifications&quot;</span>,<span class="ruby-identifier">template</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;@[&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">uid</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;] changed the status of the task &#39;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">title</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;&#39; to: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Status</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-ivar">@task</span>.<span class="ruby-identifier">status_id</span>).<span class="ruby-identifier">title</span>, <span class="ruby-identifier">href</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- facebook_note_status-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- facebook_note_status-method -->
 
     
       <div id="method-i-get" class="method-detail ">
@@ -365,7 +399,7 @@
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">current_user</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>)
     <span class="ruby-identifier">usr_lst</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">friends</span>.<span class="ruby-identifier">clone</span>
@@ -430,6 +464,7 @@
     <span class="ruby-keyword">else</span>
       <span class="ruby-ivar">@tasks</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:tasklist</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;assigned_to = ? OR user_id IN(&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">usr_ids</span> * <span class="ruby-string">&quot;,&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;)&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
     <span class="ruby-keyword">end</span>
+    
     <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">sort!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>,<span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">due_date</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">y</span>.<span class="ruby-identifier">due_date</span>}
     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:root</span> }
@@ -469,7 +504,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 71</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@task</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -499,7 +534,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 62</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:root</span> }
@@ -533,13 +568,19 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 102</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 114</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  
+  
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">task_params</span>)
 
       <span class="ruby-keyword">if</span> <span class="ruby-ivar">@assigned</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@task</span>[<span class="ruby-value">:assigned_to</span>]
-        <span class="ruby-identifier">facebook_notification</span>()
+        <span class="ruby-identifier">facebook_note_assign</span>()
+      <span class="ruby-keyword">end</span>
+      
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@status_old</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@task</span>[<span class="ruby-value">:status_id</span>]
+        <span class="ruby-identifier">facebook_note_status</span>()
       <span class="ruby-keyword">end</span>
       
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@task</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Task was successfully updated.&#39;</span> }

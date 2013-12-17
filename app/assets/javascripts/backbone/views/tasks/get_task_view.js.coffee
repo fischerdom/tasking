@@ -1,5 +1,6 @@
 Tasking.Views.Tasks ||= {}
 
+# View to render a task in "get task"
 class Tasking.Views.Tasks.GetTaskView extends Backbone.View
   template: JST["backbone/templates/tasks/get_task"]
 
@@ -10,12 +11,14 @@ class Tasking.Views.Tasks.GetTaskView extends Backbone.View
   
   className: "ui-li"
 
+  # Deletes the actual model
   destroy: () ->
     @model.destroy()
     this.remove()
 
     return false
 
+  # renders the template
   render: ->
     $(@el).html(@template(@model.toJSON() ))
     $("#app").trigger("create");

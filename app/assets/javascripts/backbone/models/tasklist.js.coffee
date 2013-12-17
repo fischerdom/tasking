@@ -9,6 +9,7 @@ class Tasking.Models.Tasklist extends Backbone.Model
     name: null
     closed: "0"
 
+# Collection which retrieves all tasklists
 class Tasking.Collections.TasklistsCollection extends Backbone.Collection
   model: Tasking.Models.Tasklist
   url: '/tasklists'

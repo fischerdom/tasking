@@ -1,3 +1,4 @@
+# Controller for Tasklists
 class TasklistsController < ApplicationController
   include TasklistsHelper
   include FacebookHelper
@@ -5,6 +6,7 @@ class TasklistsController < ApplicationController
 
   # GET /tasklists
   # GET /tasklists.json
+  # @return a JSON list with all tasks the current_user has created
   def index
     if(current_user != nil)
       @tasklists = Tasklist.where("user_id = ?", current_user.id)
@@ -22,24 +24,17 @@ class TasklistsController < ApplicationController
 
   # GET /tasklists/1
   # GET /tasklists/1.json
+  # @return a JSON representation of the tasklist
   def show
     respond_to do |format|
         format.html { redirect_to :root }
         format.json { render json: @tasklist}
       end
   end
-
-  # GET /tasklists/new
-  def new
-    @tasklist = Tasklist.new
-  end
-
-  # GET /tasklists/1/edit
-  def edit
-  end
-
+  
   # POST /tasklists
   # POST /tasklists.json
+  # Creates a new Tasklist with current_user
   def create
     @tasklist = Tasklist.new(tasklist_params)
     @tasklist.user_id = current_user.id
@@ -57,6 +52,7 @@ class TasklistsController < ApplicationController
 
   # PATCH/PUT /tasklists/1
   # PATCH/PUT /tasklists/1.json
+  # Updates a tasklist and sets the king
   def update
     respond_to do |format|
       # Just the owner can update the task
@@ -82,6 +78,7 @@ class TasklistsController < ApplicationController
 
   # DELETE /tasklists/1
   # DELETE /tasklists/1.json
+  # Deletes a tasklist
   def destroy
     # Just the owner can delete the task
     if current_user.id == @tasklist.user.id

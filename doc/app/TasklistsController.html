@@ -86,15 +86,11 @@
     
     <li><a href="#method-i-destroy">#destroy</a>
     
-    <li><a href="#method-i-edit">#edit</a>
+    <li><a href="#method-i-facebook_put_to_wall">#facebook_put_to_wall</a>
     
-    <li><a href="#method-i-facebook_at">#facebook_at</a>
-    
-    <li><a href="#method-i-facebook_notification">#facebook_notification</a>
+    <li><a href="#method-i-facebook_ut">#facebook_ut</a>
     
     <li><a href="#method-i-index">#index</a>
-    
-    <li><a href="#method-i-new">#new</a>
     
     <li><a href="#method-i-show">#show</a>
     
@@ -131,8 +127,6 @@
   
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
     <li><a href="./CategoriesController.html">CategoriesController</a>
   
     <li><a href="./Category.html">Category</a>
@@ -153,8 +147,6 @@
   
     <li><a href="./TasksController.html">TasksController</a>
   
-    <li><a href="./TasksHelper.html">TasksHelper</a>
-  
     <li><a href="./User.html">User</a>
   
     <li><a href="./UsersController.html">UsersController</a>
@@ -170,6 +162,8 @@
 
   <div id="description" class="description">
     
+<p>Controller for Tasklists</p>
+
   </div><!-- description -->
 
   
@@ -201,12 +195,13 @@
 
         <div class="method-description">
           
-          <p>POST /tasklists POST /tasklists.json</p>
+          <p>POST /tasklists POST /tasklists.json Creates a new <a
+href="Tasklist.html">Tasklist</a> with current_user</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@tasklist</span> = <span class="ruby-constant">Tasklist</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tasklist_params</span>)
   <span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
@@ -242,12 +237,12 @@
 
         <div class="method-description">
           
-          <p>DELETE /tasklists/1 DELETE /tasklists/1.json</p>
+          <p>DELETE /tasklists/1 DELETE /tasklists/1.json Deletes a tasklist</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 91</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 104</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-comment"># Just the owner can delete the task</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
@@ -268,10 +263,10 @@
       </div><!-- destroy-method -->
 
     
-      <div id="method-i-edit" class="method-detail ">
+      <div id="method-i-facebook_put_to_wall" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">edit</span><span
+          <span class="method-name">facebook_put_to_wall</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -279,28 +274,40 @@
 
         <div class="method-description">
           
-          <p>GET /tasklists/1/edit</p>
+          <p>def facebook_notification</p>
+
+<pre>facebook_at.put_connections(User.find_by_id(@tasklist.king_id).uid,&quot;notifications&quot;,template: &quot;@[&quot; + current_user.uid + &quot;] crowned you to the King of the following tasklist: &quot; + @tasklist.name, href: &quot;&quot;)</pre>
+
+<p>end</p>
           
 
           
-          <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+          <div class="method-source-code" id="facebook_put_to_wall-source">
+            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook_put_to_wall</span>
+  <span class="ruby-identifier">facebook_ut</span>.<span class="ruby-identifier">put_wall_post</span>(<span class="ruby-string">&quot;I won a crown for the tasklist: &#39;&quot;</span><span class="ruby-operator">+</span> <span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;&#39;. 
+         Join tasKing, too!&quot;</span>, {
+        <span class="ruby-string">&quot;name&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;tasKing - the social todo-manager&quot;</span>,
+        <span class="ruby-string">&quot;caption&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">king_id</span>).<span class="ruby-identifier">name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; earned the crown for the tasklist: &quot;</span><span class="ruby-operator">+</span> <span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">name</span>,
+        <span class="ruby-string">&quot;description&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Share and accomplish tasks with your friends!&quot;</span>,
+        <span class="ruby-string">&quot;picture&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;http://tasking.herokuapp.com/assets/logos/crown.JPG&quot;</span>,
+        <span class="ruby-string">&quot;link&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;http://tasking.herokuapp.com/&quot;</span>
+        })
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- edit-source -->
+          </div><!-- facebook_put_to_wall-source -->
           
         </div>
 
         
 
         
-      </div><!-- edit-method -->
+      </div><!-- facebook_put_to_wall-method -->
 
     
-      <div id="method-i-facebook_at" class="method-detail ">
+      <div id="method-i-facebook_ut" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">facebook_at</span><span
+          <span class="method-name">facebook_ut</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -308,54 +315,28 @@
 
         <div class="method-description">
           
-          
+          <p>def facebook_at</p>
+
+<pre>@facebook_at = Koala::Facebook::API.new(Koala::Facebook::OAuth.new().get_app_access_token)
+return @facebook_at</pre>
+
+<p>end</p>
           
 
           
-          <div class="method-source-code" id="facebook_at-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 85</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook_at</span>
-  <span class="ruby-ivar">@facebook_at</span> = <span class="ruby-constant">Koala</span><span class="ruby-operator">::</span><span class="ruby-constant">Facebook</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Koala</span><span class="ruby-operator">::</span><span class="ruby-constant">Facebook</span><span class="ruby-operator">::</span><span class="ruby-constant">OAuth</span>.<span class="ruby-identifier">new</span>().<span class="ruby-identifier">get_app_access_token</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@facebook_at</span>
+          <div class="method-source-code" id="facebook_ut-source">
+            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook_ut</span>
+  <span class="ruby-ivar">@facebook_ut</span> = <span class="ruby-constant">Koala</span><span class="ruby-operator">::</span><span class="ruby-constant">Facebook</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">king_id</span>).<span class="ruby-identifier">oauth_token</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- facebook_at-source -->
+          </div><!-- facebook_ut-source -->
           
         </div>
 
         
 
         
-      </div><!-- facebook_at-method -->
-
-    
-      <div id="method-i-facebook_notification" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">facebook_notification</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="facebook_notification-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 81</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">facebook_notification</span>
-  <span class="ruby-identifier">facebook_at</span>.<span class="ruby-identifier">put_connections</span>(<span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">king_id</span>).<span class="ruby-identifier">uid</span>,<span class="ruby-string">&quot;notifications&quot;</span>,<span class="ruby-identifier">template</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;@[&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">uid</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;] crowned you to the King of the following tasklist: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">href</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- facebook_notification-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- facebook_notification-method -->
+      </div><!-- facebook_ut-method -->
 
     
       <div id="method-i-index" class="method-detail ">
@@ -369,12 +350,13 @@
 
         <div class="method-description">
           
-          <p>GET /tasklists GET /tasklists.json</p>
+          <p>GET /tasklists GET /tasklists.json @return a JSON list with all tasks the
+current_user has created</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">current_user</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>)
     <span class="ruby-ivar">@tasklists</span> = <span class="ruby-constant">Tasklist</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
@@ -399,36 +381,6 @@
       </div><!-- index-method -->
 
     
-      <div id="method-i-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>GET /tasklists/new</p>
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 32</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@tasklist</span> = <span class="ruby-constant">Tasklist</span>.<span class="ruby-identifier">new</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- new-method -->
-
-    
       <div id="method-i-show" class="method-detail ">
         
         <div class="method-heading">
@@ -440,12 +392,13 @@
 
         <div class="method-description">
           
-          <p>GET /tasklists/1 GET /tasklists/1.json</p>
+          <p>GET /tasklists/1 GET /tasklists/1.json @return a JSON representation of the
+tasklist</p>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 24</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:root</span> }
@@ -473,12 +426,13 @@
 
         <div class="method-description">
           
-          <p>PATCH/PUT /tasklists/1 PATCH/PUT /tasklists/1.json</p>
+          <p>PATCH/PUT /tasklists/1 PATCH/PUT /tasklists/1.json Updates a tasklist and
+sets the king</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasklists_controller.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-comment"># Just the owner can update the task</span>
@@ -487,7 +441,8 @@
       <span class="ruby-identifier">king</span> = <span class="ruby-constant">King</span>.<span class="ruby-identifier">calculate_by</span>(<span class="ruby-ivar">@tasklist</span>)
       <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">closed</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">king</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
         <span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">king_id</span> = <span class="ruby-identifier">king</span>.<span class="ruby-identifier">id</span>
-        <span class="ruby-identifier">facebook_notification</span>()
+        <span class="ruby-comment">#facebook_notification()</span>
+        <span class="ruby-identifier">facebook_put_to_wall</span>()
       <span class="ruby-keyword">else</span>
         <span class="ruby-ivar">@tasklist</span>.<span class="ruby-identifier">king_id</span> = <span class="ruby-keyword">nil</span>
       <span class="ruby-keyword">end</span>

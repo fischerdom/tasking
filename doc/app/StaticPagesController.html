@@ -105,8 +105,6 @@
   
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
     <li><a href="./CategoriesController.html">CategoriesController</a>
   
     <li><a href="./Category.html">Category</a>
@@ -127,8 +125,6 @@
   
     <li><a href="./TasksController.html">TasksController</a>
   
-    <li><a href="./TasksHelper.html">TasksHelper</a>
-  
     <li><a href="./User.html">User</a>
   
     <li><a href="./UsersController.html">UsersController</a>
@@ -144,6 +140,8 @@
 
   <div id="description" class="description">
     
+<p>Controler for startpage</p>
+
   </div><!-- description -->
 
   
@@ -175,12 +173,12 @@
 
         <div class="method-description">
           
-          
+          <p>Facebook landing page</p>
           
 
           
           <div class="method-source-code" id="fb-source">
-            <pre><span class="ruby-comment"># File app/controllers/static_pages_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/static_pages_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">fb</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:root</span>}
@@ -208,12 +206,12 @@
 
         <div class="method-description">
           
-          
+          <p>Default start page</p>
           
 
           
           <div class="method-source-code" id="start-source">
-            <pre><span class="ruby-comment"># File app/controllers/static_pages_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/static_pages_controller.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
   <span class="ruby-ivar">@users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-ivar">@tasklists</span> = <span class="ruby-constant">Tasklist</span>.<span class="ruby-identifier">all</span>

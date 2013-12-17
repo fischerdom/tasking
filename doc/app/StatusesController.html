@@ -103,8 +103,6 @@
   
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
     <li><a href="./CategoriesController.html">CategoriesController</a>
   
     <li><a href="./Category.html">Category</a>
@@ -125,8 +123,6 @@
   
     <li><a href="./TasksController.html">TasksController</a>
   
-    <li><a href="./TasksHelper.html">TasksHelper</a>
-  
     <li><a href="./User.html">User</a>
   
     <li><a href="./UsersController.html">UsersController</a>
@@ -142,6 +138,8 @@
 
   <div id="description" class="description">
     
+<p>Controller for reading Statuses</p>
+
   </div><!-- description -->
 
   
@@ -173,12 +171,12 @@
 
         <div class="method-description">
           
-          <p>GET /statuses GET /statuses.json</p>
+          <p>GET /statuses GET /statuses.json @return JSON list of statuses</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/statuses_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/statuses_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@statuses</span> = <span class="ruby-constant">Status</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>

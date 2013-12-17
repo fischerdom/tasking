@@ -103,8 +103,6 @@
   
     <li><a href="../ApplicationController.html">ApplicationController</a>
   
-    <li><a href="../ApplicationHelper.html">ApplicationHelper</a>
-  
     <li><a href="../CategoriesController.html">CategoriesController</a>
   
     <li><a href="../Category.html">Category</a>
@@ -125,8 +123,6 @@
   
     <li><a href="../TasksController.html">TasksController</a>
   
-    <li><a href="../TasksHelper.html">TasksHelper</a>
-  
     <li><a href="../User.html">User</a>
   
     <li><a href="../UsersController.html">UsersController</a>
@@ -142,6 +138,8 @@
 
   <div id="description" class="description">
     
+<p>Methods for the king functionality</p>
+
   </div><!-- description -->
 
   
@@ -173,12 +171,12 @@
 
         <div class="method-description">
           
-          
+          <p>Calculates the king of a tasklist</p>
           
 
           
           <div class="method-source-code" id="calculate_by-source">
-            <pre><span class="ruby-comment"># File app/helpers/tasklists_helper.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/helpers/tasklists_helper.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calculate_by</span>(<span class="ruby-identifier">tasklist</span>)
 
   <span class="ruby-identifier">res</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">find</span>(
