@@ -1,3 +1,4 @@
+# Tasks controller
 class TasksController < ApplicationController
   include FacebookHelper
   before_action :set_task, only: [:show, :edit, :update, :destroy]
@@ -7,7 +8,6 @@ class TasksController < ApplicationController
   def index
     if(current_user != nil)
       usr_lst = current_user.friends.clone
-      usr_lst.append(current_user)
       usr_ids = Array.new
       usr_lst.each do |usr|
         usr_ids.append(usr.id)
@@ -16,7 +16,7 @@ class TasksController < ApplicationController
       if params['tasklist_id'] != nil
         @tasks = Task.joins(:tasklist).where("user_id = ? AND tasklist_id = ?", current_user.id, params['tasklist_id'])
       else
-        @tasks = Task.joins(:tasklist).where("assigned_to = ? OR user_id IN(" + usr_ids * "," + ")", current_user.id)
+        @tasks = Task.joins(:tasklist).where("assigned_to = ? OR (user_id = ? OR user_id IN(" + usr_ids * "," + "))", current_user.id, current_user.id)
       end
       
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
@@ -38,12 +38,11 @@ class TasksController < ApplicationController
   def get
     if(current_user != nil)
       usr_lst = current_user.friends.clone
-      usr_lst.append(current_user)
       usr_ids = Array.new
       usr_lst.each do |usr|
         usr_ids.append(usr.id)
       end
-      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND (closed != 1 OR closed IS NULL) AND user_id IN(" + usr_ids * "," + ")")
+      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND (closed != 1 OR closed IS NULL) AND ( user_id = ? OR user_id IN(" + usr_ids * "," + "))", current_user.id)
     
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
@@ -84,7 +83,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
-        Fb.facebook_note_assign(@task,current_user)
+        if(@task.assigned_to)
+          Fb.facebook_note_assign(@task,current_user)
+        end
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :due_date_short, :category, :user, :status])}
       else
