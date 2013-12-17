@@ -1,32 +1,11 @@
+# User Controller, used to show current user and ranking
 class UsersController < ApplicationController
   include UsersHelper
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-    respond_to do |format|
-      format.html { redirect_to @users, notice: 'User was successfully created.' }
-      format.json { render json: @users}
-    end
-  end
-
-  # GET /users/1
-  # GET /users/1.json
-  def show
-  end
-
-  # GET /users/new
-  def new
-    @user = User.new
-  end
-
-  # GET /users/1/edit
-  def edit
-  end
   
   # GET/users/ranking
+  # @return a JSON list of users ordered by ranking
   def ranking
     
     respond_to do |format|
@@ -36,6 +15,7 @@ class UsersController < ApplicationController
   end
   
   # GET/users/ranking
+  # @return a JSON list ordered by crowns
   def crowns
     respond_to do |format|
       format.html { render action: 'new' }
@@ -44,51 +24,11 @@ class UsersController < ApplicationController
   end
   
   # GET/users/ranking
+  # @return a JSON representation of the user
   def current
     respond_to do |format|
       format.html { render action: 'new' }
       format.json { render :json => current_user.to_json(:methods => :friends) }
-    end
-  end
-
-
-  # POST /users
-  # POST /users.json
-  def create
-    @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
     end
   end
 

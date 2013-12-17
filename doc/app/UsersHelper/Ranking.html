@@ -105,8 +105,6 @@
   
     <li><a href="../ApplicationController.html">ApplicationController</a>
   
-    <li><a href="../ApplicationHelper.html">ApplicationHelper</a>
-  
     <li><a href="../CategoriesController.html">CategoriesController</a>
   
     <li><a href="../Category.html">Category</a>
@@ -127,8 +125,6 @@
   
     <li><a href="../TasksController.html">TasksController</a>
   
-    <li><a href="../TasksHelper.html">TasksHelper</a>
-  
     <li><a href="../User.html">User</a>
   
     <li><a href="../UsersController.html">UsersController</a>
@@ -144,6 +140,8 @@
 
   <div id="description" class="description">
     
+<p>Class for <a href="Ranking.html">Ranking</a> methods</p>
+
   </div><!-- description -->
 
   
@@ -175,12 +173,13 @@
 
         <div class="method-description">
           
-          
+          <p>Calculates ranking based by user and his friends @param user user object
+@return List of users sorted by ranking</p>
           
 
           
           <div class="method-source-code" id="calculate_by-source">
-            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calculate_by</span>(<span class="ruby-identifier">user</span>)
   <span class="ruby-identifier">users</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">friends</span>
   <span class="ruby-identifier">users</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">user</span>)
@@ -208,12 +207,13 @@
 
         <div class="method-description">
           
-          
+          <p>Calculates crown ranking based by user and his friends @param user user
+object @return List of users sorted by crowns</p>
           
 
           
           <div class="method-source-code" id="crowns_by-source">
-            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/helpers/users_helper.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">crowns_by</span>(<span class="ruby-identifier">user</span>)
   <span class="ruby-identifier">users</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">friends</span>
   <span class="ruby-identifier">users</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">user</span>)

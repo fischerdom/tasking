@@ -1,8 +1,10 @@
+# User model 
 class User < ActiveRecord::Base
   has_many :tasks, :foreign_key => :assigned_to
   has_many :crowns, :foreign_key => :king_id, :class_name => "Tasklist"
   has_many :tasklists
   
+  # creates a user by facebook auth
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -14,6 +16,7 @@ class User < ActiveRecord::Base
     end
   end
  
+  # generates a facebook object
   def facebook
       @facebook = Koala::Facebook::API.new(oauth_token)
   end

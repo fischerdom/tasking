@@ -1,19 +1,17 @@
-Mon, 16 Dec 2013 18:23:53 +0100
+Tue, 17 Dec 2013 15:15:47 +0100
 README.rdoc	Tue, 22 Oct 2013 14:43:36 +0200
-app/controllers/application_controller.rb	Tue, 10 Dec 2013 19:05:55 +0100
-app/controllers/categories_controller.rb	Tue, 10 Dec 2013 20:52:50 +0100
-app/controllers/sessions_controller.rb	Tue, 26 Nov 2013 15:54:09 +0100
-app/controllers/static_pages_controller.rb	Tue, 10 Dec 2013 17:38:38 +0100
-app/controllers/statuses_controller.rb	Tue, 10 Dec 2013 20:53:03 +0100
-app/controllers/tasklists_controller.rb	Thu, 12 Dec 2013 11:25:09 +0100
-app/controllers/tasks_controller.rb	Thu, 12 Dec 2013 12:49:29 +0100
-app/controllers/users_controller.rb	Tue, 10 Dec 2013 19:01:15 +0100
-app/helpers/application_helper.rb	Tue, 22 Oct 2013 14:43:47 +0200
-app/helpers/tasklists_helper.rb	Wed, 11 Dec 2013 17:27:18 +0100
-app/helpers/tasks_helper.rb	Fri, 25 Oct 2013 23:39:17 +0200
-app/helpers/users_helper.rb	Tue, 10 Dec 2013 14:05:37 +0100
-app/models/category.rb	Fri, 25 Oct 2013 23:39:17 +0200
-app/models/status.rb	Mon, 02 Dec 2013 17:28:14 +0100
-app/models/task.rb	Tue, 10 Dec 2013 22:08:55 +0100
-app/models/tasklist.rb	Wed, 11 Dec 2013 17:46:16 +0100
-app/models/user.rb	Tue, 10 Dec 2013 22:42:44 +0100
+app/controllers/application_controller.rb	Tue, 17 Dec 2013 12:32:06 +0100
+app/controllers/categories_controller.rb	Tue, 17 Dec 2013 12:32:35 +0100
+app/controllers/sessions_controller.rb	Tue, 17 Dec 2013 12:33:55 +0100
+app/controllers/static_pages_controller.rb	Tue, 17 Dec 2013 12:34:34 +0100
+app/controllers/statuses_controller.rb	Tue, 17 Dec 2013 12:38:24 +0100
+app/controllers/tasklists_controller.rb	Tue, 17 Dec 2013 12:41:29 +0100
+app/controllers/tasks_controller.rb	Mon, 16 Dec 2013 18:25:56 +0100
+app/controllers/users_controller.rb	Tue, 17 Dec 2013 12:47:57 +0100
+app/helpers/tasklists_helper.rb	Tue, 17 Dec 2013 12:48:45 +0100
+app/helpers/users_helper.rb	Tue, 17 Dec 2013 12:54:33 +0100
+app/models/category.rb	Tue, 17 Dec 2013 13:00:04 +0100
+app/models/status.rb	Tue, 17 Dec 2013 13:01:36 +0100
+app/models/task.rb	Tue, 17 Dec 2013 15:07:40 +0100
+app/models/tasklist.rb	Tue, 17 Dec 2013 15:13:36 +0100
+app/models/user.rb	Tue, 17 Dec 2013 15:14:47 +0100
