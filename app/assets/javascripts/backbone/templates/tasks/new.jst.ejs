@@ -17,16 +17,6 @@
 		    <input type="text" name="title" id="title" value="<%= title %>" placeholder="Title" required>
 		  </div>
 		  
-		  <div class="field">
-		  <textarea name="description" id="description" value="<%= description %>" placeholder="Description">
-			</textarea>
-		  </div>
-		  
-		  <!--<div class="field">
-		    <input type="text" name="description" id="description" value="<%= description %>" placeholder="Description">
-		  </div>
-		  <--!>
-		  
 			<select name="category_id" id="select-category" required>
    				<option value="" style="display:none">Please select category</option>
 			</select>
@@ -54,6 +44,10 @@
 		  <div data-role="fieldcontain">
 			<label for="select-etc">Estimated time consumption (hours):</label>
 			<input type="range" name="etc" id="select-etc" value="<%= etc %>" min="1" max="100" data-highlight="true" />
+		  </div>
+		  
+		  <div class="field">
+		  	<textarea name="description" id="description" value="<%= description %>" placeholder="Description"></textarea>
 		  </div>
 	
 		  <div class="actions">

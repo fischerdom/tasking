@@ -1,5 +1,6 @@
 # User model 
 class User < ActiveRecord::Base
+  include FacebookHelper
   has_many :tasks, :foreign_key => :assigned_to
   has_many :crowns, :foreign_key => :king_id, :class_name => "Tasklist"
   has_many :tasklists
@@ -27,8 +28,9 @@ class User < ActiveRecord::Base
       if @stored_friends == nil
         
         #Hole alle Freunde mittels Facebook-Connection
-        @friends_all = facebook.get_connections("me", "friends")
-      
+        #@friends_all = facebook.get_connections("me", "friends")
+        @friends_all = Fb.facebook_get_friends(oauth_token)
+        
         #Nachfolgend wird die Freundesliste gefiltert, um nur die zu erhalten, die tatsächlich in der DB enthalten sind
       
         @stored_friends = Array.new
