@@ -6,8 +6,7 @@ class Tasking.Views.Tasks.HistoryView extends Backbone.View
   
   # Initializer, sets the user
   initialize: (options) ->
-    @user = window.current_user.attributes.friends
-    @nr = window.nr
+    @user = options.user
    
   # Adds all History-Items to list 
   addAll: () =>
@@ -21,17 +20,17 @@ class Tasking.Views.Tasks.HistoryView extends Backbone.View
   # Renders one task
   # @task task object to render
   addOne: (task) =>
-    if (task.attributes.assigned_to == @user[@nr].id and task.attributes.status_id == 3)
+    if (task.attributes.assigned_to == @user.id and task.attributes.status_id == 3)
       view = new Tasking.Views.Tasks.HistoryTaskView({task : task})
       @$("ul").append(view.render().el)
     
   # Render the template and all the history tasks
   render: =>
     @tasks = new Tasking.Collections.TasksCollection()
-    @tasks.fetch(data: {assigned_to : @user[@nr].id}, success: @addAll, async: true)
+    @tasks.fetch(data: {assigned_to : @user.id}, success: @addAll, async: true)
     
   
-    $(@el).html(@template())
+    $(@el).html(@template(@user))
     $(@el).attr("data-role", "collapsible")
     $(@el).attr("data-theme", "b")
     $(@el).attr("data-content-theme", "c")

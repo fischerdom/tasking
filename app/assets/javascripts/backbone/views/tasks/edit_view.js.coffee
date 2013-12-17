@@ -31,13 +31,18 @@ class Tasking.Views.Tasks.EditView extends Backbone.View
     
   # Renders all friends for list
   addAllFriends: () =>
-     @addOneFriend(current_user.toJSON())
-     for obj in window.current_user.attributes.friends
-       @addOneFriend(obj)
+    if @model.attributes.assigned_to == null
+      @$("#select-friend").append("<option selectd='selected'>not assigned</option>") 
+    else
+      @$("#select-friend").append("<option>not assigned</option>") 
+     
+    @addOneFriend(current_user.toJSON())
+    for obj in window.current_user.attributes.friends
+      @addOneFriend(obj)
 
   # Renders one friend in list
   addOneFriend: (friend) =>
-    view = new Tasking.Views.Tasks.FriendsView({model : friend})
+    view = new Tasking.Views.Tasks.FriendsView({model : friend, selected : @model.attributes.assigned_to == friend.id})
     @$("#select-friend").append(view.render().el)    
    
   # Adds all statuses to list 

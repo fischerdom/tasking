@@ -101,7 +101,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
 
-        if @assigned != @task[:assigned_to]
+        if @assigned != @task[:assigned_to] and @assigned != nil
           Fb.facebook_note_assign(@task,current_user)
         end
         
