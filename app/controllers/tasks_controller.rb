@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task,:facebook_at, only: [:show, :edit, :update, :destroy]
+  include FacebookHelper
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   # GET /tasks
   # GET /tasks.json
@@ -83,9 +84,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
-        facebook_note_assign()
+        Fb.facebook_note_assign(@task,current_user)
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render json: @task }
+        format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :due_date_short, :category, :user, :status])}
       else
         format.html { render action: 'new' }
         format.json { head :no_content }
@@ -93,40 +94,22 @@ class TasksController < ApplicationController
     end
   end
 
-  def facebook_note_assign
-    if(@task.assigned_to)
-      facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] assigned you the task: " + @task.title, href: "")
-    end
-  end
-  
-  def facebook_note_status
-    if(@tasklist.user_id != current_user.id)
-      facebook_at.put_connections(User.find_by_id(@tasklist.user_id).uid,"notifications",template: "@[" + current_user.uid + "] changed the status of the task '" + @task.title + "' to: " + Status.find_by_id(@task.status_id).title, href: "")
-    else 
-      if(@task.assigned_to != current_user.id)
-        facebook_at.put_connections(User.find_by_id(@task.assigned_to).uid,"notifications",template: "@[" + current_user.uid + "] changed the status of the task '" + @task.title + "' to: " + Status.find_by_id(@task.status_id).title, href: "")
-      end
-    end
-  end
-  
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
-    
-    
     respond_to do |format|
       if @task.update(task_params)
 
         if @assigned != @task[:assigned_to]
-          facebook_note_assign()
+          Fb.facebook_note_assign(@task,current_user)
         end
         
         if @status_old != @task[:status_id]
-          facebook_note_status()
+          Fb.facebook_note_status(@tasklist,@task,current_user)
         end
         
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render json: @task }
+        format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :due_date_short, :category, :user, :status])}
       else
         format.html { render action: 'edit' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -147,21 +130,13 @@ class TasksController < ApplicationController
     end
   end
   
-  def facebook_at
-    @facebook_at = Koala::Facebook::API.new(Koala::Facebook::OAuth.new().get_app_access_token)
-    return @facebook_at
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
-      
       @tasklist = Tasklist.find_by_id(@task.tasklist_id)
       @assigned = @task[:assigned_to]
-      
       @status_old = @task[:status_id]
-      puts @status_old
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params

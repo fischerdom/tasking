@@ -1,5 +1,6 @@
 class TasklistsController < ApplicationController
   include TasklistsHelper
+  include FacebookHelper
   before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
 
   # GET /tasklists
@@ -64,8 +65,8 @@ class TasklistsController < ApplicationController
         king = King.calculate_by(@tasklist)
         if @tasklist.closed == 1 and king != nil
           @tasklist.king_id = king.id
-          #facebook_notification()
-          facebook_put_to_wall()
+          
+          Fb.facebook_put_to_wall(@tasklist)
         else
           @tasklist.king_id = nil
         end
@@ -79,29 +80,6 @@ class TasklistsController < ApplicationController
     end
   end
 
-  #def facebook_notification
-  #  facebook_at.put_connections(User.find_by_id(@tasklist.king_id).uid,"notifications",template: "@[" + current_user.uid + "] crowned you to the King of the following tasklist: " + @tasklist.name, href: "")
-  #end
-  
-  def facebook_put_to_wall
-    facebook_ut.put_wall_post("I won a crown for the tasklist: '"+ @tasklist.name + "'. 
-           Join tasKing, too!", {
-          "name" => "tasKing - the social todo-manager",
-          "caption" => User.find_by_id(@tasklist.king_id).name + " earned the crown for the tasklist: "+ @tasklist.name,
-          "description" => "Share and accomplish tasks with your friends!",
-          "picture" => "http://tasking.herokuapp.com/assets/logos/crown.JPG",
-          "link" => "http://tasking.herokuapp.com/"
-          })
-  end
-  
-  #def facebook_at
-  #  @facebook_at = Koala::Facebook::API.new(Koala::Facebook::OAuth.new().get_app_access_token)
-  #  return @facebook_at
-  #end
-  
-  def facebook_ut
-    @facebook_ut = Koala::Facebook::API.new(User.find_by_id(@tasklist.king_id).oauth_token)
-  end
   # DELETE /tasklists/1
   # DELETE /tasklists/1.json
   def destroy
