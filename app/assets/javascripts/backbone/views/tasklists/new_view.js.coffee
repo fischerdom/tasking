@@ -10,6 +10,7 @@ class Tasking.Views.Tasklists.NewView extends Backbone.View
   # Constructor to create a empty tasklist-object
   constructor: (options) ->
     super(options)
+    @router = options.router
     @model = new @collection.model()
 
     @model.bind("change:errors", () =>
@@ -26,6 +27,7 @@ class Tasking.Views.Tasklists.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (tasklist) =>
         @model = tasklist
+        @router.initialize()
         window.location.hash = "tasklists/index"
 
       error: (tasklist, jqXHR) =>

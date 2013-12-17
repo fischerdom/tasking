@@ -77,7 +77,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   
   # Opens the task create view  
   tasksNew: ->
-    @view = new Tasking.Views.Tasks.NewView(collection: @tasks)
+    @view = new Tasking.Views.Tasks.NewView(collection: @tasks, router: this)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   # Lists all the open Tasks
@@ -96,7 +96,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   # @param [Integer] id task_id in database
   tasksShow: (id) ->
     task = @tasks.get(id)
-    @view = new Tasking.Views.Tasks.ShowView(model: task)
+    @view = new Tasking.Views.Tasks.ShowView(model: task, router: this)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   # Open View to get a unassigned task
@@ -126,7 +126,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   tasksDestroy: (id) ->
     task = @tasks.get(id)
     task.destroy()
-    
+    this.initialize()
     @view = new Tasking.Views.Tasks.IndexView(tasks: @tasks, msg: task.name + " deleted!")
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
   
@@ -137,7 +137,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
 
   # Open View to create a tasklist
   tasklistsNew: ->
-    @view = new Tasking.Views.Tasklists.NewView(collection: @tasklists)
+    @view = new Tasking.Views.Tasklists.NewView(collection: @tasklists, router: this)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   # Open View with the tasklists of the current user and all his tasks
@@ -155,7 +155,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   tasklistsShow: (id) ->
     tasklist = @tasklists.get(id)
 
-    @view = new Tasking.Views.Tasklists.ShowView(model: tasklist)
+    @view = new Tasking.Views.Tasklists.ShowView(model: tasklist, router: this)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
 
   # Opens a single tasklist to edit
@@ -171,6 +171,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   tasklistsDestroy: (id) ->
     tasklist = @tasklists.get(id)
     tasklist.destroy()
+    this.initialize()
     
     @view = new Tasking.Views.Tasklists.IndexView(tasklists: @tasklists, msg: tasklist.name + " deleted!")
     $("#BBCont").html(@view.render().el).trigger('pagecreate')

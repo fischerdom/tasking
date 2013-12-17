@@ -10,6 +10,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
   # constructor to generate a new task model
   constructor: (options) ->
     super(options)
+    @router = options.router
     @model = new @collection.model()
  
 
@@ -33,6 +34,7 @@ class Tasking.Views.Tasks.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (task) =>
         @model = task
+        @router.initialize()
         window.location.hash = "tasklists/detail"
 
       error: (task, jqXHR) =>
