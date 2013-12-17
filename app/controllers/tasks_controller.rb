@@ -1,3 +1,4 @@
+# Tasks controller
 class TasksController < ApplicationController
   before_action :set_task,:facebook_at, only: [:show, :edit, :update, :destroy]
   
@@ -6,7 +7,6 @@ class TasksController < ApplicationController
   def index
     if(current_user != nil)
       usr_lst = current_user.friends.clone
-      usr_lst.append(current_user)
       usr_ids = Array.new
       usr_lst.each do |usr|
         usr_ids.append(usr.id)
@@ -15,7 +15,7 @@ class TasksController < ApplicationController
       if params['tasklist_id'] != nil
         @tasks = Task.joins(:tasklist).where("user_id = ? AND tasklist_id = ?", current_user.id, params['tasklist_id'])
       else
-        @tasks = Task.joins(:tasklist).where("assigned_to = ? OR user_id IN(" + usr_ids * "," + ")", current_user.id)
+        @tasks = Task.joins(:tasklist).where("assigned_to = ? OR (user_id = ? OR user_id IN(" + usr_ids * "," + "))", current_user.id, current_user.id)
       end
       
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
@@ -37,12 +37,11 @@ class TasksController < ApplicationController
   def get
     if(current_user != nil)
       usr_lst = current_user.friends.clone
-      usr_lst.append(current_user)
       usr_ids = Array.new
       usr_lst.each do |usr|
         usr_ids.append(usr.id)
       end
-      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND (closed != 1 OR closed IS NULL) AND user_id IN(" + usr_ids * "," + ")")
+      @tasks = Task.joins(:tasklist).where("assigned_to IS NULL AND (closed != 1 OR closed IS NULL) AND ( user_id = ? OR user_id IN(" + usr_ids * "," + "))", current_user.id)
     
       @tasks.sort! { |x,y| x.due_date <=> y.due_date}
       respond_to do |format|
