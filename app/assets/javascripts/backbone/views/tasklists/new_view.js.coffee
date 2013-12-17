@@ -35,9 +35,8 @@ class Tasking.Views.Tasklists.NewView extends Backbone.View
 
   # renders the tasklist
   render: ->
-    $(@el).html(@template(@model.toJSON() ))
-
-    this.$("form").backboneLink(@model)
+    $(@el).html(@template(@model.toJSON() ))    
     $("#app").trigger("create");
+    this.$("form").backboneLink(@model)
 
     return this

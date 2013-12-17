@@ -28,7 +28,7 @@ class TasklistsController < ApplicationController
   def show
     respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render json: @tasklist}
+        format.json { render json: @tasklists.to_json(:methods => [:done_text, :done_percentage])}
       end
   end
   
@@ -42,7 +42,7 @@ class TasklistsController < ApplicationController
     respond_to do |format|
       if @tasklist.save
         format.html { redirect_to :root }
-        format.json { render json: @tasklist }
+        format.json { render json: @tasklists.to_json(:methods => [:done_text, :done_percentage])}
       else
         format.html { render action: 'new' }
         format.json { head :no_content }
@@ -68,7 +68,7 @@ class TasklistsController < ApplicationController
         end
         @tasklist.save
         format.html { redirect_to :root }
-        format.json { render json: @tasklist }
+        format.json { render json: @tasklists.to_json(:methods => [:done_text, :done_percentage])}
       else
         format.html { redirect_to :root }
         format.json { render json: :no_content }
