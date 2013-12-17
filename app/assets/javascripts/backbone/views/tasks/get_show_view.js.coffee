@@ -19,7 +19,6 @@ class Tasking.Views.Tasks.GetShowView extends Backbone.View
       success : (task) =>
         @model = task
         window.location.hash = "tasks"
-        window.location.reload();
     )
 
   #renders template

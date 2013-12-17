@@ -62,3 +62,8 @@ gem 'activerecord-session_store'
 
 #gem für heroku
 gem 'heroku'
+
+#gem für unit-tests
+group :development, :test do
+  gem 'rspec-rails'
+end
