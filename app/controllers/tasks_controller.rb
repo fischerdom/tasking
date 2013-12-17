@@ -84,7 +84,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
-        Fb.facebook_note_assign(@task,current_user)
+        if(@task.assigned_to)
+          Fb.facebook_note_assign(@task,current_user)
+        end
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render :json => @tasks.to_json(:methods => [:owner, :tasklist, :due_date_f, :due_date_short, :category, :user, :status])}
       else
