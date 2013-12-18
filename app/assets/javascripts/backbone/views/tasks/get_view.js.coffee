@@ -2,7 +2,7 @@ Tasking.Views.Tasks ||= {}
 
 # View to render the get task operation
 class Tasking.Views.Tasks.GetView extends Backbone.View
-  template: JST["backbone/templates/tasks/index"]
+  template: JST["backbone/templates/tasks/get"]
 
   # Initializer (binds events)
   initialize: () ->

@@ -1,13 +1,13 @@
 	<div data-role="header">
 		<a href="#tasklists" data-icon="back">Back</a>
         <h1>Edit Tasklist</h1>
-		<a href="#tasklists/<%= id %>/destroy" data-icon="delete" data-role="button">Delete</a>
+		<a href="#tasklists/<%= id %>/destroy" data-icon="delete" data-role="button">Delete Tasklist</a>
   	</div>
   	<div data-role="content">
 		<form id="edit-tasklist" name="tasklist">
 		
 		  <div class="field">
-		    <label for="name">Name:</label>
+		    <label for="name">Name:*</label>
 		    <input type="text" name="name" id="name" value="<%= name %>" required>
 		  </div>
 		  
@@ -23,6 +23,11 @@
 				<% } %>
 			</select> 
 		  </div>
+		  
+		  <div>
+		  	<br>
+		  	* mandatory field
+		  </div
 		
 		  <div class="actions">
 		    <input type="submit" value="Update Tasklist" />

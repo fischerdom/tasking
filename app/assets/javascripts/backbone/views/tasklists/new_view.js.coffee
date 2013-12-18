@@ -28,7 +28,7 @@ class Tasking.Views.Tasklists.NewView extends Backbone.View
       success: (tasklist) =>
         @model = tasklist
         @router.initialize()
-        window.location.hash = "tasklists/index"
+        window.location.hash = "tasklists/detail"
 
       error: (tasklist, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})

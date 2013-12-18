@@ -14,15 +14,15 @@
 		  </div>
 		
 		  <div class="field">
-		    <input type="text" name="title" id="title" value="<%= title %>" placeholder="Title" required>
+		    <input type="text" name="title" id="title" value="<%= title %>" placeholder="Title*" required>
 		  </div>
 		  
 			<select name="category_id" id="select-category" required>
-   				<option value="" style="display:none">Please select category</option>
+   				<option value="" style="display:none">Please select category*</option>
 			</select>
 	  
 			<select name="tasklist_id" id="select-tasklist" required>
-				<option value="" style="display:none">Please select tasklist</option>
+				<option value="" style="display:none">Please select tasklist*</option>
 			</select>
 			
 			<select name="assigned_to" id="select-friend">
@@ -30,13 +30,13 @@
 			</select>
 			
 			<div data-role="fieldcontain">
-		  	<label for="select-due_date">Due Date: </label>
+		  	<label for="select-due_date">Due Date:*</label>
 		  	<input type="datetime-local" name"due_date" id="select-due_date" value="<%= due_date %>" required/>
 		  </div>
 			
 			
 		  <div data-role="fieldcontain">
-			<label for="select-pointvalue">Reward points:</label>
+			<label for="select-pointvalue">Reward points:*</label>
 			<input type="range" name="pointvalue" id="select-pointvalue" value="<%= pointvalue %>" min="1" max="10" data-highlight="true" required/>
 		  </div>
 		  
@@ -48,6 +48,10 @@
 		  
 		  <div class="field">
 		  	<textarea name="description" id="description" value="<%= description %>" placeholder="Description"></textarea>
+		  </div>
+		  
+		  <div>
+		  	* mandatory field
 		  </div>
 	
 		  <div class="actions">

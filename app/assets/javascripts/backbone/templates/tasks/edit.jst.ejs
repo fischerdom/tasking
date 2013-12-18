@@ -1,6 +1,7 @@
 	<div data-role="header">
 		<a href="#tasks" data-icon="back">Back</a>
         <h1>Edit Task</h1>
+        <a href="#tasks/<%= id %>/destroy" data-icon="delete" data-role="button">Delete Task</a>
   	</div>
   	<div data-role="content">
 		
@@ -8,12 +9,12 @@
 		  
 		  
 		  <div class="field">
-		    <label for="title">Title:</label>
+		    <label for="title">Title:*</label>
 		    <input type="text" name="title" id="title" value="<%= title %>" required>
 		  </div>
 	  
 		  <div class="field">
-		  	<label for="category_id">Category:</label>
+		  	<label for="category_id">Category:*</label>
 		  	<select name="category_id" id="select-category" value="<%= category_id %>" required >
 		  		<option value="<%= category_id %>"> <%= category.title %> </option>
 			</select>
@@ -33,7 +34,7 @@
 		  </div>
 		
 		  <div data-role="field">
-			<label for="select-pointvalue">Reward points:</label>
+			<label for="select-pointvalue">Reward points:*</label>
 			<input type="range" name="pointvalue" id="select-pointvalue" value="<%= pointvalue %>" min="1" max="10" data-highlight="true" required/>
 		  </div>
 		
@@ -50,6 +51,10 @@
 		  <div class="field">
 		    <label for="description">Description:</label>
 		  	<textarea name="description" id="description"><%= description %></textarea>
+		  </div>
+		  
+		  <div>
+		  	* mandatory field
 		  </div>
 		  
 		  <div class="actions">
