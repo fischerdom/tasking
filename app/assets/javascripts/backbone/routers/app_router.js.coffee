@@ -67,6 +67,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   
   # Links to the page where the user rating will be shown
   usersRanking: (options) ->
+    @currentUserInitialize();
     @view = new Tasking.Views.Users.RankingView()
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
      
@@ -88,6 +89,7 @@ class Tasking.Routers.AppRouter extends Backbone.Router
   
   # Navigates the history with all closed tasks
   tasksHistory: ->
+    @currentUserInitialize();
     @tasksInitialize();
     @view = new Tasking.Views.Tasks.DetailView(tasks: @tasks)
     $("#BBCont").html(@view.render().el).trigger('pagecreate')
