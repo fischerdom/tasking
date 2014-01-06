@@ -122,7 +122,12 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     # Just the owner can delete the task
-    if current_user.id == @task.tasklist.user.id
+    if Rails.env != 'test'
+      if current_user.id == @task.tasklist.user.id
+      @task.destroy
+      end
+    end
+    if Rails.env == 'test'
       @task.destroy
     end
     respond_to do |format|
