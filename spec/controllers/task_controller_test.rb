@@ -8,7 +8,7 @@ describe TasksController, :type => :controller do
           :tasklist_id => 1,
           :category_id => 1,       
           :status_id => 1,
-# Assigned_to kann nicht getestet werden, da Unit-Test keine FB-Benachrichtigung schicken kann 
+# Assigned_to can not be tested because of facebook-notification 
           :title => "Unit-Title",
           :description => "Unit-Description",
           :pointvalue  => 1,
@@ -17,7 +17,7 @@ describe TasksController, :type => :controller do
           }
           
    puts Rails.env      
-#Abfragen, ob Änderungen richtig       
+#Check data in the database       
         task = Task.all.last
         expect(task.tasklist_id).to eq(1)
         expect(task.category_id).to eq(1)
@@ -35,7 +35,7 @@ describe TasksController, :type => :controller do
         put :update, :id => 16, :task => {
           :tasklist_id => 2,
           :category_id => 2,
-# Assigned_to und status_id kann nicht getestet werden, da Unit-Test keine FB-Benachrichtigung schicken kann          
+# Assigned_to and status_id can not be tested because of facebook-notification          
 #          :status_id => 2,
 #          :assigned_to => 2,
           :title => "Unit-Title",
@@ -44,7 +44,7 @@ describe TasksController, :type => :controller do
           :due_date => "2014-02-02 02:02",
           :etc => 2 }
           
-#Abfragen, ob Änderungen richtig       
+#Check Data in the database      
         task = Task.find(16)
         expect(task.tasklist_id).to eq(2)
         expect(task.category_id).to eq(2)
