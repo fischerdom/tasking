@@ -1,6 +1,6 @@
 require "spec_helper"
 
-#Testen, ob alle Werte richtig in die Datenbank gespeichert werden.
+#Check values in the database
 describe Tasklist do
   it "proves values" do
     testlist1 = Tasklist.create!(user_id: 3, name: "Unit-Test-List")
@@ -10,12 +10,12 @@ describe Tasklist do
     expect(testlist1.king_id).to eq(nil)
   end
 
-# Testen der Pflichtfeldvalidierung user_id  
+# Check user_id validation  
   it "should not save post without name" do
     subject.should have(1).error_on(:user_id)
   end
 
-# Testen der Pflichtfeldvalidierung Name  
+# Check name validation 
   it "should not save post without name" do
     subject.should have(1).error_on(:name)
   end

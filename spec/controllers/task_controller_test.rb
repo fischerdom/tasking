@@ -6,10 +6,9 @@ describe TasksController, :type => :controller do
         post :create, :format => 'json', :task => {
           :id => 1,
           :tasklist_id => 1,
-          :category_id => 1,
-# Assigned_to und status_id kann nicht getestet werden, da Unit-Test keine FB-Benachrichtigung schicken kann          
-#          :status_id => 1,
-#          :assigned_to => 1,
+          :category_id => 1,       
+          :status_id => 1,
+# Assigned_to can not be tested because of facebook-notification 
           :title => "Unit-Title",
           :description => "Unit-Description",
           :pointvalue  => 1,
@@ -17,12 +16,12 @@ describe TasksController, :type => :controller do
           :etc => 1 
           }
           
-          
-#Abfragen, ob Änderungen richtig       
-        task = Task.find(1)
+   puts Rails.env      
+#Check data in the database       
+        task = Task.all.last
         expect(task.tasklist_id).to eq(1)
         expect(task.category_id).to eq(1)
-#        expect(task.status_id).to eq(1)
+        expect(task.status_id).to eq(1)
 #        expect(task.assigned_to).to eq(1)
         expect(task.title).to eq("Unit-Title")
         expect(task.description).to eq("Unit-Description")
@@ -36,7 +35,7 @@ describe TasksController, :type => :controller do
         put :update, :id => 16, :task => {
           :tasklist_id => 2,
           :category_id => 2,
-# Assigned_to und status_id kann nicht getestet werden, da Unit-Test keine FB-Benachrichtigung schicken kann          
+# Assigned_to and status_id can not be tested because of facebook-notification          
 #          :status_id => 2,
 #          :assigned_to => 2,
           :title => "Unit-Title",
@@ -45,7 +44,7 @@ describe TasksController, :type => :controller do
           :due_date => "2014-02-02 02:02",
           :etc => 2 }
           
-#Abfragen, ob Änderungen richtig       
+#Check Data in the database      
         task = Task.find(16)
         expect(task.tasklist_id).to eq(2)
         expect(task.category_id).to eq(2)
@@ -60,9 +59,7 @@ describe TasksController, :type => :controller do
 end
 
 describe TasksController, :type => :controller do
-before  do
-  current_user = User.find(3)
-end
+
   it "should can delete task" do
     expect { delete :destroy, :id => 16 }.to change(Task, :count)
   end
