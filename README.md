@@ -1,28 +1,29 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Before install
+	-> Request a test grant for the Facebook-Tasking-App from the Contributers of the project
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== Install
+==== Install system dependency
+	-> Ruby 2.x
+	-> Rails 4.x
+	-> Python 2.x
+	-> PostgreSQL
+	-> NodeJs
+	-> git
+	
+==== Get Sources
+	-> Navigate to future working dir
+	-> Type in command:
+	 		git clone git://github.com/fischerdom/tasking.git
+	 		
+==== Install resources
+    -> Navigate to working dir
+	-> Type in "bundle install" to install dependent ruby gems
+	-> Start PostgreSQL-Server
+	-> Type in "rake db:migrate" to install schema to database
+	
+=== Start server
+	-> Navigate to woking dir 
+	-> Type in "rails s"
+	-> Server should start
